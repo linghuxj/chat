@@ -40,7 +40,7 @@ const AgentCard = memo<AgentCardProps>(({ CardRender, mobile }) => {
 
   return (
     <Flexbox gap={mobile ? 16 : 24}>
-      <TagList />
+      {/*<TagList />*/}
       {keywords ? (
         <CardRender
           items={agentList}

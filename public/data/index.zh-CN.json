@@ -1,11 +1,6 @@
 {
   "schemaVersion": 1,
-  "tags": [
-    "测试",
-    "经典案例",
-    "AI",
-    "人工智能"
-  ],
+  "tags": [],
   "agents": [
     {
       "author": "兴业银行",

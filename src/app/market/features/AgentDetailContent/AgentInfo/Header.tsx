@@ -24,13 +24,13 @@ const Header = memo(() => {
 
   return (
     <Center className={styles.container} gap={16}>
-      <Avatar
-        animation
-        avatar={avatar}
-        background={backgroundColor || theme.colorFillTertiary}
-        className={styles.avatar}
-        size={100}
-      />
+      {/*<Avatar*/}
+      {/*  animation*/}
+      {/*  avatar={avatar}*/}
+      {/*  background={backgroundColor || theme.colorFillTertiary}*/}
+      {/*  className={styles.avatar}*/}
+      {/*  size={100}*/}
+      {/*/>*/}
       <div className={styles.title}>{title}</div>
       <Center gap={6} horizontal style={{ flexWrap: 'wrap' }}>
         {(tags as string[]).map((tag: string, index) => (
@@ -58,17 +58,17 @@ const Header = memo(() => {
       >
         {t('addAgentAndConverse')}
       </Button>
-      <Button
-        block
-        onClick={() => {
-          if (!agentItem) return;
+      {/*<Button*/}
+      {/*  block*/}
+      {/*  onClick={() => {*/}
+      {/*    if (!agentItem) return;*/}
 
-          createSession({ config, meta }, false);
-          message.success(t('addAgentSuccess'));
-        }}
-      >
-        {t('addAgent')}
-      </Button>
+      {/*    createSession({ config, meta }, false);*/}
+      {/*    message.success(t('addAgentSuccess'));*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  {t('addAgent')}*/}
+      {/*</Button>*/}
       <div className={styles.date}>{createAt}</div>
     </Center>
   );

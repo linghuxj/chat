@@ -27,12 +27,12 @@ const AgentCardItem = memo<AgentsMarketIndexItem>(({ meta, identifier }) => {
     <Flexbox className={styles.container} onClick={() => onAgentCardClick(identifier)}>
       <AgentCardBanner meta={meta} style={{ opacity: isDarkMode ? 0.9 : 0.4 }} />
       <Flexbox className={styles.inner} gap={8} ref={ref}>
-        <Avatar
-          animation={isHovering}
-          avatar={avatar}
-          background={backgroundColor || theme.colorFillTertiary}
-          size={56}
-        />
+        {/*<Avatar*/}
+        {/*  animation={isHovering}*/}
+        {/*  avatar={avatar}*/}
+        {/*  background={backgroundColor || theme.colorFillTertiary}*/}
+        {/*  size={56}*/}
+        {/*/>*/}
         <Paragraph className={styles.title} ellipsis={{ rows: 1, tooltip: title }}>
           {title}
         </Paragraph>

@@ -35,7 +35,7 @@ const AgentModalInner = memo(() => {
 
   return (
     <>
-      <AgentCardBanner meta={meta} size={400} style={{height: 120, marginBottom: -60}} />
+      <AgentCardBanner meta={meta} size={400} style={{height: 80, marginBottom: -60}} />
       <Header />
       <Flexbox align={'center'}>
         <TabsNav
