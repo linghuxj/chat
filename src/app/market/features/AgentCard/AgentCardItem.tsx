@@ -39,13 +39,13 @@ const AgentCardItem = memo<AgentsMarketIndexItem>(({ meta, identifier }) => {
         <Paragraph className={styles.desc} ellipsis={{ rows: 2, tooltip: description }}>
           {description}
         </Paragraph>
-        <Flexbox gap={6} horizontal style={{ flexWrap: 'wrap' }}>
-          {(tags as string[]).filter(Boolean).map((tag: string, index) => (
-            <Tag key={index} style={{ margin: 0 }}>
-              {startCase(tag).trim()}
-            </Tag>
-          ))}
-        </Flexbox>
+        {/*<Flexbox gap={6} horizontal style={{ flexWrap: 'wrap' }}>*/}
+        {/*  {(tags as string[]).filter(Boolean).map((tag: string, index) => (*/}
+        {/*    <Tag key={index} style={{ margin: 0 }}>*/}
+        {/*      {startCase(tag).trim()}*/}
+        {/*    </Tag>*/}
+        {/*  ))}*/}
+        {/*</Flexbox>*/}
       </Flexbox>
     </Flexbox>
   );
