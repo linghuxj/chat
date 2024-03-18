@@ -31,7 +31,7 @@ const currentAgentSystemRole = (s: SessionStore) => {
 const currentAgentModel = (s: SessionStore): string => {
   const config = currentAgentConfig(s);
 
-  return config?.model || 'qwen:14b';
+  return config?.model || 'gemini-pro';
 };
 
 const currentAgentModelProvider = (s: SessionStore) => {

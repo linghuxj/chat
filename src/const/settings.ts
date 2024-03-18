@@ -32,7 +32,7 @@ export const DEFAULT_AGENT_CONFIG: LobeAgentConfig = {
   displayMode: 'chat',
   enableAutoCreateTopic: true,
   historyCount: 1,
-  model: 'qwen:14b',
+  model: 'gemini-pro',
   params: {
     frequency_penalty: 0,
     presence_penalty: 0,
@@ -40,7 +40,7 @@ export const DEFAULT_AGENT_CONFIG: LobeAgentConfig = {
     top_p: 1,
   },
   plugins: [],
-  provider: ModelProvider.Ollama,
+  provider: ModelProvider.Google,
   systemRole: '',
   tts: DEFAUTT_AGENT_TTS_CONFIG,
 };
@@ -64,7 +64,7 @@ export const DEFAULT_LLM_CONFIG: GlobalLLMConfig = {
   },
   google: {
     apiKey: 'AIzaSyA0XmtBiogWiT4Wiyinijj3MOSy68tqJmc',
-    enabled: false,
+    enabled: true,
   },
   mistral: {
     apiKey: '',
