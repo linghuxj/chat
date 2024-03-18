@@ -60,6 +60,32 @@
         "title": "“免费”海外留学"
       },
       "schemaVersion": 1
+    },
+    {
+      "author": "兴业银行",
+      "createAt": "2024-03-17",
+      "homepage": "https://www.cib.com.cn",
+      "identifier": "ID-0004",
+      "meta": {
+        "avatar": "\uD83D\uDCDD",
+        "description": "一个好的想法，即可实现低风险创业",
+        "tags": [],
+        "title": "创投智能服务平台"
+      },
+      "schemaVersion": 1
+    },
+    {
+      "author": "兴业银行",
+      "createAt": "2024-03-16",
+      "homepage": "https://www.cib.com.cn",
+      "identifier": "ID-0005",
+      "meta": {
+        "avatar": "\uD83D\uDCDD",
+        "description": "磷石膏改性变成化肥项目",
+        "tags": [],
+        "title": "磷石膏改性变成化肥项目"
+      },
+      "schemaVersion": 1
     }
   ]
 }

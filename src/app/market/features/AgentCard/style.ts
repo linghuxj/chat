@@ -13,7 +13,7 @@ export const useStyles = createStyles(({ css, token, responsive }) => ({
     color: ${token.colorTextDescription};
   `,
   inner: css`
-    padding: 16px;
+    padding: 6px 16px;
   `,
   lazy: css`
     min-height: 64px;
