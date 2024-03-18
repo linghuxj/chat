@@ -8,7 +8,7 @@ export class AgentMarket {
   private readonly baseUrl: string;
 
   constructor(baseUrl?: string) {
-    this.baseUrl = baseUrl || getServerConfig().AGENTS_INDEX_URL;
+    this.baseUrl = baseUrl || getServerConfig().AGENTS_INDEX_URL || 'http://121.37.159.13:3000/data';
   }
 
   getAgentIndexUrl = (lang: Locales = DEFAULT_LANG) => {
