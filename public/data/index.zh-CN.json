@@ -48,6 +48,23 @@
         "title": "换车/闲置资产处置"
       },
       "schemaVersion": 1
+    },
+    {
+      "author": "兴业银行",
+      "createAt": "2024-03-15",
+      "homepage": "https://www.cib.com.cn",
+      "identifier": "ID-0003",
+      "meta": {
+        "avatar": "\uD83D\uDCDD",
+        "description": "“免费”海外留学",
+        "tags": [
+          "按结果付费",
+          "业务模式创新",
+          "存款保证金"
+        ],
+        "title": "“免费”海外留学"
+      },
+      "schemaVersion": 1
     }
   ]
 }
