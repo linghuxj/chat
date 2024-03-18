@@ -32,7 +32,7 @@ export const DEFAULT_AGENT_CONFIG: LobeAgentConfig = {
   displayMode: 'chat',
   enableAutoCreateTopic: true,
   historyCount: 1,
-  model: 'qwen:7b',
+  model: 'qwen:14b',
   params: {
     frequency_penalty: 0,
     presence_penalty: 0,
@@ -63,7 +63,7 @@ export const DEFAULT_LLM_CONFIG: GlobalLLMConfig = {
     secretAccessKey: '',
   },
   google: {
-    apiKey: '',
+    apiKey: 'AIzaSyA0XmtBiogWiT4Wiyinijj3MOSy68tqJmc',
     enabled: false,
   },
   mistral: {
@@ -75,7 +75,7 @@ export const DEFAULT_LLM_CONFIG: GlobalLLMConfig = {
     enabled: false,
   },
   ollama: {
-    enabled: false,
+    enabled: true,
     endpoint: '',
   },
   openAI: {

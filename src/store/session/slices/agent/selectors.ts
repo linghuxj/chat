@@ -31,7 +31,7 @@ const currentAgentSystemRole = (s: SessionStore) => {
 const currentAgentModel = (s: SessionStore): string => {
   const config = currentAgentConfig(s);
 
-  return config?.model || 'qwen:7b';
+  return config?.model || 'qwen:14b';
 };
 
 const currentAgentModelProvider = (s: SessionStore) => {
