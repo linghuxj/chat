@@ -14,7 +14,7 @@ export interface StoreState {
 export const initialState: StoreState = {
   agentList: [],
   agentMap: {},
-  commentType: '1',
+  commentType: '2',
   currentIdentifier: '',
   searchKeywords: '',
   tagList: [],

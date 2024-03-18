@@ -52,7 +52,7 @@ const Comment = memo<AgentCommentProps>(({comments, size = 200}) => {
                     {item.type == '0' ? t('type.supply') : item.type == '1' ? t('type.demand') : t('type.all')}
                   </Tag>
                   {item.time}
-                  <a>t('type.call')</a>
+                  <a>{t('type.call')}</a>
                 </Flexbox>
               </Flexbox>
             </Flexbox>
