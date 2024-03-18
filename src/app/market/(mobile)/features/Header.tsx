@@ -6,7 +6,7 @@ const Header = memo(() => {
   const { t } = useTranslation("common")
   return <MobileNavBar center={
     <>
-      {t('tab.market')}
+      {t('tab.market3')}
     </>
   }/>;
 });

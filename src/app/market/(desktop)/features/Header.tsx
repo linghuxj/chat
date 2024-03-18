@@ -20,7 +20,7 @@ const Header = memo(() => {
     <ChatHeader
       left={
         <Link aria-label={'home'} href={'/'}>
-          {t('tab.market')}
+          {t('tab.market2')}
         </Link>
       }
       // right={<ShareAgentButton />}

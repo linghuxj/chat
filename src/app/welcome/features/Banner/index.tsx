@@ -33,7 +33,7 @@ const Banner = memo<{ mobile?: boolean }>(({ mobile }) => {
       >
         <Button
           block={mobile}
-          onClick={() => (isMobile ? router.push('/market') : switchBackToChat())}
+          onClick={() => (isMobile ? router.push('/chat') : switchBackToChat())}
           size={'large'}
           type={'primary'}
         >

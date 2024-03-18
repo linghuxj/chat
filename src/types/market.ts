@@ -1,5 +1,5 @@
-import { MetaData } from '@/types/meta';
-import { LobeAgentSettings } from '@/types/session';
+import {MetaData} from '@/types/meta';
+import {LobeAgentSettings} from '@/types/session';
 
 export interface AgentsMarketIndexItem {
   author: string;
@@ -21,4 +21,13 @@ export interface LobeChatAgentsMarketIndex {
 
 export interface LobeAgentContent {
   content: string;
+  comments: LobeAgentComment[];
+}
+
+export interface LobeAgentComment {
+  id: string;
+  avatar?: string;
+  content: string;
+  time: string;
+  type: string;
 }

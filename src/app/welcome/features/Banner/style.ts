@@ -20,7 +20,13 @@ export const useStyles = createStyles(({ css, token, stylish, cx, prefixCls }) =
     `,
     desc: css`
       font-weight: 400;
-      color: ${rgba(token.colorText, 0.8)};
+      color: ${rgba(token.colorText, 0.85)};
+      text-align: center;
+      margin-bottom: 24px;
+    `,
+    desc2: css`
+      font-weight: 400;
+      color: ${rgba(token.colorText, 0.7)};
       text-align: center;
     `,
     layout: css`

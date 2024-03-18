@@ -20,7 +20,8 @@ export default {
     placeholder: '搜索案例名称介绍或关键词...',
   },
   sidebar: {
-    comment: '讨论区',
+    comment: '留言区',
+    earnings: '收益',
     prompt: '详细内容',
     title: '案例详情',
   },
@@ -28,5 +29,11 @@ export default {
   title: {
     allAgents: '全部案例',
     recentSubmits: '最近新增',
+  },
+  type:{
+    all: '供需',
+    demand: '需',
+    supply: '供',
+    call: '联系他',
   },
 };

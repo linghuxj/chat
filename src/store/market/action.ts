@@ -1,17 +1,18 @@
 import isEqual from 'fast-deep-equal';
-import { produce } from 'immer';
-import useSWR, { SWRResponse } from 'swr';
-import type { StateCreator } from 'zustand/vanilla';
+import {produce} from 'immer';
+import useSWR, {SWRResponse} from 'swr';
+import type {StateCreator} from 'zustand/vanilla';
 
-import { marketService } from '@/services/market';
-import { globalHelpers } from '@/store/global/helpers';
-import { AgentsMarketItem, LobeChatAgentsMarketIndex } from '@/types/market';
+import {marketService} from '@/services/market';
+import {globalHelpers} from '@/store/global/helpers';
+import {AgentsMarketItem, LobeChatAgentsMarketIndex} from '@/types/market';
 
-import type { Store } from './store';
+import type {Store} from './store';
 
 export interface StoreAction {
   activateAgent: (identifier: string) => void;
   deactivateAgent: () => void;
+  setCommentType: (type: string) => void;
   setSearchKeywords: (keywords: string) => void;
   updateAgentMap: (key: string, value: AgentsMarketItem) => void;
   useFetchAgent: (identifier: string) => SWRResponse<AgentsMarketItem>;
@@ -25,16 +26,19 @@ export const createMarketAction: StateCreator<
   StoreAction
 > = (set, get) => ({
   activateAgent: (identifier) => {
-    set({ currentIdentifier: identifier });
+    set({currentIdentifier: identifier});
   },
   deactivateAgent: () => {
-    set({ currentIdentifier: undefined }, false, 'deactivateAgent');
+    set({currentIdentifier: undefined}, false, 'deactivateAgent');
+  },
+  setCommentType: (type) => {
+    set({commentType: type});
   },
   setSearchKeywords: (keywords) => {
-    set({ searchKeywords: keywords });
+    set({searchKeywords: keywords});
   },
   updateAgentMap: (key, value) => {
-    const { agentMap } = get();
+    const {agentMap} = get();
 
     const nextAgentMap = produce(agentMap, (draft) => {
       draft[key] = value;
@@ -42,7 +46,7 @@ export const createMarketAction: StateCreator<
 
     if (isEqual(nextAgentMap, agentMap)) return;
 
-    set({ agentMap: nextAgentMap }, false, `setAgentMap/${key}`);
+    set({agentMap: nextAgentMap}, false, `setAgentMap/${key}`);
   },
   useFetchAgent: (identifier) =>
     useSWR<AgentsMarketItem>(
@@ -64,7 +68,7 @@ export const createMarketAction: StateCreator<
       {
         onSuccess: (agentMarketIndex) => {
           set(
-            { agentList: agentMarketIndex.agents, tagList: agentMarketIndex.tags },
+            {agentList: agentMarketIndex.agents, tagList: agentMarketIndex.tags},
             false,
             'useFetchAgentList',
           );

@@ -28,6 +28,8 @@ const currentAgentItemSafe = (s: Store): AgentsMarketItem => {
 
 const showSideBar = (s: Store) => !!s.currentIdentifier;
 
+const selectCommentType = (s: Store) => s.commentType;
+
 export const agentMarketSelectors = {
   currentAgentItem,
   currentAgentItemSafe,
@@ -35,4 +37,5 @@ export const agentMarketSelectors = {
   getAgentList,
   getAgentTagList,
   showSideBar,
+  selectCommentType,
 };
