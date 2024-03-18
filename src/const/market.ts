@@ -7,6 +7,7 @@ export const DEFAULT_AGENTS_MARKET_ITEM: AgentsMarketItem = {
   author: '',
   config: DEFAULT_AGENT_CONFIG,
   content: '',
+  comments: [],
   createAt: Date.now().toString(),
   homepage: '',
   identifier: '',
