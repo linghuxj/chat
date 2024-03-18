@@ -9,21 +9,43 @@
   "agents": [
     {
       "author": "兴业银行",
+      "createAt": "2024-03-16",
+      "homepage": "https://www.cib.com.cn",
+      "identifier": "ID-0002",
+      "meta": {
+        "avatar": "\uD83D\uDCDD",
+        "description": "如果你有好的想法，智能银行能帮助你低风险创业",
+        "tags": [
+          "智能银行",
+          "社区银行",
+          "客户生态",
+          "智能金融服务",
+          "以客户的大财富增长为中心",
+          "消费投资行为",
+          "低风险创业",
+          "创投"
+        ],
+        "title": "智能银行"
+      },
+      "schemaVersion": 1
+    },
+    {
+      "author": "兴业银行",
       "createAt": "2024-03-15",
       "homepage": "https://www.cib.com.cn",
       "identifier": "ID-0001",
       "meta": {
         "avatar": "\uD83D\uDCDD",
-        "description": "这是测试的经典案例，请完善具体内容。",
-        "content": "经典案例描述：\n1、客户需求xxx，获取xxx；\n2、商户获得交易；\n3、银行获得存款和贷款11",
+        "description": "不用花钱，就能得到一辆新车",
         "tags": [
-          "经典案例",
-          "金融",
-          "服务",
-          "0元购",
-          "买车"
+          "合作共赢",
+          "合作者带来的价值增值",
+          "客户合作产生银行业务",
+          "智能金融服务",
+          "闲置资产处置",
+          "换车"
         ],
-        "title": "经典案例1"
+        "title": "换车/闲置资产处置"
       },
       "schemaVersion": 1
     }
