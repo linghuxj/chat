@@ -15,7 +15,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
 const AgentCard = memo<SpotlightCardProps>(({ items, renderItem, gap = 16, ...props }) => {
   const { styles } = useStyles();
   return (
-    <Flexbox gap={gap} {...props}>
+    <Flexbox gap={Number(gap)} {...props}>
       {items.map((item, index) => {
         const children = renderItem(item);
         return (
