@@ -16,7 +16,7 @@ export const useStyles = createStyles(({ css, token, responsive }) => ({
     padding: 16px;
   `,
   lazy: css`
-    min-height: 232px;
+    min-height: 64px;
   `,
   subTitle: css`
     font-size: 24px;

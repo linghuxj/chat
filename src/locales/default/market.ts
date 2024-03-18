@@ -28,7 +28,7 @@ export default {
   submitAgent: '提交助手',
   title: {
     allAgents: '全部案例',
-    recentSubmits: '最近新增',
+    recentSubmits: '案例学习',
   },
   type:{
     all: '供需',
