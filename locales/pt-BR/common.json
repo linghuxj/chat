@@ -13,7 +13,7 @@
   "agentMaxToken": "Máximo de tokens da sessão",
   "agentModel": "Modelo",
   "agentProfile": "Perfil do assistente",
-  "appInitializing": "LobeChat inicializando, por favor aguarde...",
+  "appInitializing": "BankChat inicializando, por favor aguarde...",
   "archive": "Arquivar",
   "autoGenerate": "Auto completar",
   "autoGenerateTooltip": "Auto completar descrição do assistente com base em sugestões",
