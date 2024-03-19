@@ -49,11 +49,11 @@ export const getAppConfig = () => {
 
     AGENTS_INDEX_URL: !!process.env.AGENTS_INDEX_URL
       ? process.env.AGENTS_INDEX_URL
-      : 'https://chat-agents.lobehub.com',
+      : 'http://121.37.159.13:3000/data',
 
     PLUGINS_INDEX_URL: !!process.env.PLUGINS_INDEX_URL
       ? process.env.PLUGINS_INDEX_URL
-      : 'https://chat-plugins.lobehub.com',
+      : 'http://121.37.159.13:3000/plugin',
 
     PLUGIN_SETTINGS: process.env.PLUGIN_SETTINGS,
 
