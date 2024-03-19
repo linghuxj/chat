@@ -13,7 +13,7 @@
   "agentMaxToken": "Số ký tự tối đa của phiên",
   "agentModel": "Mô hình",
   "agentProfile": "Hồ sơ trợ lý",
-  "appInitializing": "LobeChat đang khởi động, vui lòng chờ...",
+  "appInitializing": "BankChat đang khởi động, vui lòng chờ...",
   "archive": "Lưu trữ",
   "autoGenerate": "Tự động tạo",
   "autoGenerateTooltip": "Tự động hoàn thành mô tả trợ lý dựa trên từ gợi ý",
