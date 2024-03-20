@@ -40,7 +40,7 @@ export const DEFAULT_AGENT_CONFIG: LobeAgentConfig = {
     top_p: 1,
   },
   plugins: [],
-  provider: ModelProvider.Ollama,
+  provider: ModelProvider.OpenAI,
   systemRole: '',
   tts: DEFAUTT_AGENT_TTS_CONFIG,
 };
