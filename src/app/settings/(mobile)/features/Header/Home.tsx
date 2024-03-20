@@ -7,7 +7,7 @@ const Header = memo(() => {
   const { t } = useTranslation('common')
   return <MobileNavBar center={
     <>
-      {t('name')}
+      我的智能助手
     </>
   } />;
 });

@@ -20,6 +20,7 @@ export interface LobeChatAgentsMarketIndex {
 }
 
 export interface LobeAgentContent {
+  detail: string;
   content: string;
   comments: LobeAgentComment[];
 }

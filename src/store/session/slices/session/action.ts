@@ -150,7 +150,7 @@ export const createSessionSlice: StateCreator<
     get().activeSession(sessionId);
 
     // TODO: 后续可以把 router 移除
-    router?.push(SESSION_CHAT_URL(sessionId, isMobile));
+    router?.push(SESSION_CHAT_URL(sessionId));
   },
 
   useFetchSessions: () =>

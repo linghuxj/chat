@@ -30,7 +30,7 @@ const AgentModalInner = memo(() => {
 
   if (isLoading || !data?.meta) return <Loading />;
 
-  const {meta, identifier,content, comments} = data;
+  const {meta, identifier, detail, content, comments} = data;
   // const { systemRole } = config;
 
   return (
@@ -67,10 +67,10 @@ const AgentModalInner = memo(() => {
       <Flexbox style={{padding: 16}}>
         {tab === InfoTabs.prompt && (
           <Markdown fullFeaturedCodeBlock variant={'chat'}>
-            {content}
+            {detail}
           </Markdown>
         )}
-        {tab === InfoTabs.comment && <Comment comments={comments} size={40} />}
+        {tab === InfoTabs.comment && <Markdown fullFeaturedCodeBlock variant={'chat'}>{content}</Markdown>}
         {tab === InfoTabs.earnings && <Comment comments={comments} size={40} />}
       </Flexbox>
     </>
