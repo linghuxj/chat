@@ -13,7 +13,7 @@ export class AgentMarket {
 
   getAgentIndexUrl = (lang: Locales = DEFAULT_LANG) => {
     if (isLocaleNotSupport(lang)) return this.baseUrl;
-
+    console.log('baseUrl', urlJoin(this.baseUrl, `index.${normalizeLocale(lang)}.json`))
     return urlJoin(this.baseUrl, `index.${normalizeLocale(lang)}.json`);
   };
 
