@@ -9,6 +9,7 @@ import { agentMarketSelectors, useMarketStore } from '@/store/market';
 import { useSessionStore } from '@/store/session';
 
 import { useStyles } from './style';
+import {useRouter} from "next/navigation";
 
 const { Link } = Typography;
 
@@ -18,6 +19,7 @@ const Header = memo(() => {
   const createSession = useSessionStore((s) => s.createSession);
   const agentItem = useMarketStore(agentMarketSelectors.currentAgentItem);
   const { message } = App.useApp();
+  const router = useRouter();
 
   const { meta, createAt, author, homepage, config } = agentItem;
   const { avatar, title, description, tags, backgroundColor } = meta;
@@ -52,7 +54,7 @@ const Header = memo(() => {
         onClick={() => {
           if (!agentItem) return;
 
-          createSession({ config, meta });
+          createSession({ config, meta }, router);
         }}
         type={'primary'}
       >

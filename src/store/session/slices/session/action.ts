@@ -1,22 +1,23 @@
-import { message } from 'antd';
-import { t } from 'i18next';
-import useSWR, { SWRResponse, mutate } from 'swr';
-import { DeepPartial } from 'utility-types';
-import { StateCreator } from 'zustand/vanilla';
+import {message} from 'antd';
+import {t} from 'i18next';
+import useSWR, {SWRResponse, mutate} from 'swr';
+import {DeepPartial} from 'utility-types';
+import {StateCreator} from 'zustand/vanilla';
 
-import { INBOX_SESSION_ID } from '@/const/session';
-import { SESSION_CHAT_URL } from '@/const/url';
-import { sessionService } from '@/services/session';
-import { useGlobalStore } from '@/store/global';
-import { settingsSelectors } from '@/store/global/selectors';
-import { SessionStore } from '@/store/session';
-import { ChatSessionList, LobeAgentSession, LobeSessionType, LobeSessions } from '@/types/session';
-import { merge } from '@/utils/merge';
-import { setNamespace } from '@/utils/storeDebug';
+import {INBOX_SESSION_ID} from '@/const/session';
+import {SESSION_CHAT_URL} from '@/const/url';
+import {sessionService} from '@/services/session';
+import {useGlobalStore} from '@/store/global';
+import {settingsSelectors} from '@/store/global/selectors';
+import {SessionStore} from '@/store/session';
+import {ChatSessionList, LobeAgentSession, LobeSessionType, LobeSessions} from '@/types/session';
+import {merge} from '@/utils/merge';
+import {setNamespace} from '@/utils/storeDebug';
 
-import { agentSelectors } from '../agent/selectors';
-import { initLobeSession } from './initialState';
-import { sessionSelectors } from './selectors';
+import {agentSelectors} from '../agent/selectors';
+import {initLobeSession} from './initialState';
+import {sessionSelectors} from './selectors';
+import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 const n = setNamespace('session');
 
@@ -39,7 +40,8 @@ export interface SessionAction {
    */
   createSession: (
     session?: DeepPartial<LobeAgentSession>,
-    isSwitchSession?: boolean,
+    router?: AppRouterInstance,
+    isSwitchSession?: boolean
   ) => Promise<string>;
   duplicateSession: (id: string) => Promise<void>;
   /**
@@ -58,7 +60,8 @@ export interface SessionAction {
   /**
    * switch session url
    */
-  switchSession: (sessionId?: string) => void;
+  switchSession: (sessionId?: string,
+                  router?: AppRouterInstance) => void;
   /**
    * A custom hook that uses SWR to fetch sessions data.
    */
@@ -75,7 +78,7 @@ export const createSessionSlice: StateCreator<
   activeSession: (sessionId) => {
     if (get().activeId === sessionId) return;
 
-    set({ activeId: sessionId }, false, n(`activeSession/${sessionId}`));
+    set({activeId: sessionId}, false, n(`activeSession/${sessionId}`));
   },
 
   clearSessions: async () => {
@@ -84,8 +87,8 @@ export const createSessionSlice: StateCreator<
     get().refreshSessions();
   },
 
-  createSession: async (agent, isSwitchSession = true) => {
-    const { switchSession, refreshSessions } = get();
+  createSession: async (agent, router, isSwitchSession = true) => {
+    const {switchSession, refreshSessions} = get();
 
     // 合并 settings 里的 defaultAgent
     const defaultAgent = merge(
@@ -99,25 +102,25 @@ export const createSessionSlice: StateCreator<
     await refreshSessions();
 
     // 创建后是否跳转到对应会话，默认跳转
-    if (isSwitchSession) switchSession(id);
+    if (isSwitchSession) switchSession(id, router);
 
     return id;
   },
 
   duplicateSession: async (id) => {
-    const { switchSession, refreshSessions } = get();
+    const {switchSession, refreshSessions} = get();
     const session = sessionSelectors.getSessionById(id)(get());
 
     if (!session) return;
     const title = agentSelectors.getTitle(session.meta);
 
-    const newTitle = t('duplicateTitle', { ns: 'chat', title: title });
+    const newTitle = t('duplicateTitle', {ns: 'chat', title: title});
 
     const newId = await sessionService.duplicateSession(id, newTitle);
 
     // duplicate Session Error
     if (!newId) {
-      message.error(t('copyFail', { ns: 'common' }));
+      message.error(t('copyFail', {ns: 'common'}));
       return;
     }
 
@@ -144,13 +147,13 @@ export const createSessionSlice: StateCreator<
     }
   },
 
-  switchSession: (sessionId = INBOX_SESSION_ID) => {
-    const { isMobile, router } = get();
+  switchSession: (sessionId = INBOX_SESSION_ID, router) => {
+    const {isMobile} = get();
 
     get().activeSession(sessionId);
 
     // TODO: 后续可以把 router 移除
-    router?.push(SESSION_CHAT_URL(sessionId));
+    router?.push(SESSION_CHAT_URL(sessionId, isMobile));
   },
 
   useFetchSessions: () =>
@@ -181,7 +184,7 @@ export const createSessionSlice: StateCreator<
   useSearchSessions: (keyword) =>
     useSWR<LobeSessions>(keyword, sessionService.searchSessions, {
       onSuccess: (data) => {
-        set({ searchSessions: data }, false, n('useSearchSessions(success)', data));
+        set({searchSessions: data}, false, n('useSearchSessions(success)', data));
       },
       revalidateOnFocus: false,
     }),
