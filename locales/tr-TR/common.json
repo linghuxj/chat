@@ -13,7 +13,7 @@
   "agentMaxToken": "Maksimum Oturum Süresi",
   "agentModel": "Model",
   "agentProfile": "Asistan Profili",
-  "appInitializing": "BankChat başlatılıyor, lütfen bekleyin...",
+  "appInitializing": "ChatBank başlatılıyor, lütfen bekleyin...",
   "archive": "Arşiv",
   "autoGenerate": "Otomatik Oluştur",
   "autoGenerateTooltip": "Auto-generate agent description based on prompts",

@@ -31,7 +31,7 @@ const createStore: StateCreator<ToolStore, [['zustand/devtools', never]]> = (...
 
 export const useToolStore = createWithEqualityFn<ToolStore>()(
   devtools(createStore, {
-    name: 'BankChat_Tool' + (isDev ? '_DEV' : ''),
+    name: 'ChatBank_Tool' + (isDev ? '_DEV' : ''),
   }),
   shallow,
 );

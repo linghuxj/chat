@@ -13,7 +13,7 @@
   "agentMaxToken": "Maximale Sitzungslänge",
   "agentModel": "Modell",
   "agentProfile": "Assistentenprofil",
-  "appInitializing": "BankChat wird initialisiert. Bitte haben Sie einen Moment Geduld...",
+  "appInitializing": "ChatBank wird initialisiert. Bitte haben Sie einen Moment Geduld...",
   "archive": "Archiv",
   "autoGenerate": "Automatisch generieren",
   "autoGenerateTooltip": "Assistentenbeschreibung automatisch auf Basis von Vorschlägen vervollständigen",

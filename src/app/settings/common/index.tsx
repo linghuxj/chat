@@ -18,7 +18,7 @@ export default memo<SettingsCommonProps>((props) => {
       <PageTitle title={t('tab.intro')} />
       <Intro />
       {/*<Common {...props} />*/}
-      <Footer>BankChat v{CURRENT_VERSION}</Footer>
+      <Footer>ChatBank v{CURRENT_VERSION}</Footer>
     </>
   );
 });

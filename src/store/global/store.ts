@@ -44,7 +44,7 @@ export const useGlobalStore = createWithEqualityFn<GlobalStore>()(
   persist(
     subscribeWithSelector(
       devtools(createStore, {
-        name: 'BankChat_Global' + (isDev ? '_DEV' : ''),
+        name: 'ChatBank_Global' + (isDev ? '_DEV' : ''),
       }),
     ),
     persistOptions,

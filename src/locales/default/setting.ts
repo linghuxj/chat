@@ -4,7 +4,7 @@ export default {
   },
   analytics: {
     telemetry: {
-      desc: '通过选择发送遥测数据，你可以帮助我们改善 BankChat 整体用户体验',
+      desc: '通过选择发送遥测数据，你可以帮助我们改善 ChatBank 整体用户体验',
       title: '发送匿名使用数据',
     },
     title: '数据统计',

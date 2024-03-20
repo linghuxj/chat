@@ -13,7 +13,7 @@
   "agentMaxToken": "Maksymalna długość sesji",
   "agentModel": "Model",
   "agentProfile": "Profil asystenta",
-  "appInitializing": "BankChat inicjuje, proszę czekać...",
+  "appInitializing": "ChatBank inicjuje, proszę czekać...",
   "archive": "Archiwum",
   "autoGenerate": "Automatyczne generowanie",
   "autoGenerateTooltip": "Automatyczne uzupełnianie opisu asystenta na podstawie sugestii",

@@ -13,7 +13,7 @@
   "agentMaxToken": "助手最大標記",
   "agentModel": "模型",
   "agentProfile": "助手資訊",
-  "appInitializing": "BankChat 初始化中，請耐心等候...",
+  "appInitializing": "ChatBank 初始化中，請耐心等候...",
   "archive": "歸檔",
   "autoGenerate": "自動生成",
   "autoGenerateTooltip": "基於提示詞自動生成助手描述",

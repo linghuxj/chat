@@ -13,7 +13,7 @@
   "agentMaxToken": "エージェントの最大トークン数",
   "agentModel": "モデル",
   "agentProfile": "エージェントプロフィール",
-  "appInitializing": "BankChatを初期化中です。しばらくお待ちください...",
+  "appInitializing": "ChatBankを初期化中です。しばらくお待ちください...",
   "archive": "アーカイブ",
   "autoGenerate": "自動生成",
   "autoGenerateTooltip": "ヒントに基づいてエージェントの説明を自動生成します",

@@ -27,7 +27,7 @@
 [![][github-license-shield]][github-license-link]<br>
 [![][sponsor-shield]][sponsor-link]
 
-**分享 BankChat 给你的好友**
+**分享 ChatBank 给你的好友**
 
 [![][share-x-shield]][share-x-link]
 [![][share-telegram-shield]][share-telegram-link]

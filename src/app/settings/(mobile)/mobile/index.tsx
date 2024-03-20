@@ -43,7 +43,7 @@ const Setting = memo(() => {
         {/*<ExtraList />*/}
         <Center style={{ paddingInline: 64 }}>
           <Divider>
-            <span className={styles.footer}>BankChat v{CURRENT_VERSION}</span>
+            <span className={styles.footer}>ChatBank v{CURRENT_VERSION}</span>
           </Divider>
         </Center>
       </div>

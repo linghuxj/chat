@@ -13,7 +13,7 @@
   "agentMaxToken": "Максимальная длина сессии",
   "agentModel": "Модель",
   "agentProfile": "Профиль агента",
-  "appInitializing": "BankChat запускается, пожалуйста, подождите…",
+  "appInitializing": "ChatBank запускается, пожалуйста, подождите…",
   "archive": "Архив",
   "autoGenerate": "Автозаполнение",
   "autoGenerateTooltip": "Автоматическое дополнение описания агента на основе подсказок",

@@ -29,7 +29,7 @@
     }
   ],
   "id": "/",
-  "name": "BankChat",
+  "name": "ChatBank",
   "orientation": "portrait",
   "scope": "/",
   "screenshots": [
@@ -54,7 +54,7 @@
       "type": "image/png"
     }
   ],
-  "short_name": "BankChat",
+  "short_name": "ChatBank",
   "splash_pages": null,
   "start_url": ".",
   "theme_color": "#000000"

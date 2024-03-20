@@ -27,7 +27,7 @@ One-click **FREE** deployment of your private ChatGPT/Gemini/Ollama chat applica
 [![][github-license-shield]][github-license-link]<br>
 [![][sponsor-shield]][sponsor-link]
 
-**Share BankChat Repository**
+**Share ChatBank Repository**
 
 [![][share-x-shield]][share-x-link]
 [![][share-telegram-shield]][share-telegram-link]
