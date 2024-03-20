@@ -25,6 +25,15 @@ export const useStyles = createStyles(({ css, token, responsive }) => ({
       font-size: 20px;
     }
   `,
+  change: css`
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    ${responsive.mobile} {
+      margin-left: 16px;
+      font-size: 12px;
+    }
+  `,
   title: css`
     margin-bottom: 0 !important;
     font-size: 16px;

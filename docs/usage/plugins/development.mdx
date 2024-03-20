@@ -133,7 +133,7 @@ The [lobe-chat-plugin-template][lobe-chat-plugin-template-url] template project 
 │   │   ├── api                      # Next.js server-side folder
 │   │   │   ├── clothes.ts           # Implementation of the recommendClothes interface
 │   │   │   └── gateway.ts           # Local plugin proxy gateway
-│   │   └── index.tsx                # Front-end display interface
+│   │   └── page.tsx                # Front-end display interface
 ```
 
 This template uses Next.js as the development framework. You can use any development framework and language you are familiar with, as long as it can implement the functionality described in the manifest.
@@ -204,7 +204,7 @@ LobeChat implements the loading of plugin UI through `iframe` and uses `postMess
 
 ![](https://github-production-user-asset-6210df.s3.amazonaws.com/28616219/265263653-4ea87abc-249a-49f3-a241-7ed93ddb1ddf.png)
 
-In the template we provide, we use React + Next.js + [antd](https://ant.design/) as the frontend interface framework. You can find the implementation of the user interface in [`src/pages/index.tsx`](https://github.com/lobehub/chat-plugin-template/blob/main/src/pages/index.tsx).
+In the template we provide, we use React + Next.js + [antd](https://ant.design/) as the frontend interface framework. You can find the implementation of the user interface in [`src/pages/page.tsx`](https://github.com/lobehub/chat-plugin-template/blob/main/src/pages/page.tsx).
 
 As for plugin communication, we provide relevant methods in [`@lobehub/chat-plugin-sdk`](https://github.com/lobehub/chat-plugin-sdk) to simplify communication between the plugin and LobeChat. You can actively retrieve the current message data from LobeChat using the `fetchPluginMessage` method. For detailed information about this method, see: [fetchPluginMessage][fetch-plugin-message-url].
 

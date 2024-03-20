@@ -1,31 +1,34 @@
-import { SpotlightCardProps } from '@lobehub/ui';
+import {SpotlightCardProps} from '@lobehub/ui';
 import isEqual from 'fast-deep-equal';
-import { FC, memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Flexbox } from 'react-layout-kit';
+import {FC, memo, useCallback} from 'react';
+import {useTranslation} from 'react-i18next';
+import {Flexbox} from 'react-layout-kit';
 import LazyLoad from 'react-lazy-load';
 
-import { agentMarketSelectors, useMarketStore } from '@/store/market';
+import {agentMarketSelectors, useMarketStore} from '@/store/market';
 
 import TagList from '../TagList';
 import AgentCardItem from './AgentCardItem';
 import Loading from './Loading';
-import { useStyles } from './style';
+import {useStyles} from './style';
+import {useToggle} from "ahooks";
+import {useGlobalStore} from "@/store/global";
 
 export interface AgentCardProps {
   CardRender: FC<SpotlightCardProps>;
   mobile?: boolean;
 }
 
-const AgentCard = memo<AgentCardProps>(({ CardRender, mobile }) => {
-  const { t } = useTranslation('market');
+const AgentCard = memo<AgentCardProps>(({CardRender, mobile}) => {
+  const {t} = useTranslation('market');
   const [useFetchAgentList, keywords] = useMarketStore((s) => [
     s.useFetchAgentList,
     s.searchKeywords,
   ]);
-  const { isLoading } = useFetchAgentList();
+  const {isLoading} = useFetchAgentList();
   const agentList = useMarketStore(agentMarketSelectors.getAgentList, isEqual);
-  const { styles } = useStyles();
+  const toggleChange = useGlobalStore((s) => s.toggleAgentChange);
+  const {styles} = useStyles();
 
   const GridRender: SpotlightCardProps['renderItem'] = useCallback(
     (props: any) => (
@@ -50,10 +53,10 @@ const AgentCard = memo<AgentCardProps>(({ CardRender, mobile }) => {
       ) : (
         <>
           <div className={styles.subTitle}>{t('title.recentSubmits')}</div>
-          <CardRender items={agentList.slice(0, 3)} renderItem={GridRender} />
+          <CardRender items={agentList.slice(0, 5)} renderItem={GridRender} />
           <div className={styles.subTitle}>{t('title.allAgents')}</div>
           <CardRender
-            items={agentList.slice(3)}
+            items={agentList.slice(5)}
             renderItem={GridRender}
             spotlight={mobile ? undefined : false}
           />

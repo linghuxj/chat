@@ -133,7 +133,7 @@ $ npm run dev
 │   │   ├── api                      # nextjs 服务端文件夹
 │   │   │   ├── clothes.ts           # recommendClothes 接口实现
 │   │   │   └── gateway.ts           # 本地插件代理网关
-│   │   └── index.tsx                # 前端展示界面
+│   │   └── page.tsx                # 前端展示界面
 ```
 
 本模板使用 Next.js 作为开发框架。你可以使用任何你熟悉的开发框架与开发语言，只要能够实现 manifest 中描述的功能即可。
@@ -204,7 +204,7 @@ LobeChat 通过 `iframe` 实现插件 ui 的加载，使用 `postMessage` 实现
 
 ![](https://github-production-user-asset-6210df.s3.amazonaws.com/28616219/265263653-4ea87abc-249a-49f3-a241-7ed93ddb1ddf.png)
 
-在我们提供的模板中使用了 React + Next.js + [antd](https://ant.design/) 作为前端界面框架，你可以在 [`src/pages/index.tsx`](https://github.com/lobehub/chat-plugin-template/blob/main/src/pages/index.tsx) 中找到用户界面的实现。
+在我们提供的模板中使用了 React + Next.js + [antd](https://ant.design/) 作为前端界面框架，你可以在 [`src/pages/page.tsx`](https://github.com/lobehub/chat-plugin-template/blob/main/src/pages/page.tsx) 中找到用户界面的实现。
 
 其中关于插件通信，我们在 [`@lobehub/chat-plugin-sdk`](https://github.com/lobehub/chat-plugin-sdk) 提供了相关方法，用于简化插件与 LobeChat 的通信。你可以通过 `fetchPluginMessage` 方法主动向 LobeChat 获取当前消息的数据。关于该方法的详细介绍，参见：[fetchPluginMessage][fetch-plugin-message-url]。
 

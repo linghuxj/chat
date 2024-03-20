@@ -8,6 +8,8 @@ export enum SidebarTabKey {
 
 export enum SettingsTabs {
   About = 'about',
+  Intro = 'intro',
+  Fan = 'fan',
   Agent = 'agent',
   Common = 'common',
   LLM = 'llm',

@@ -68,7 +68,7 @@ export const useChatStore = create<ChatState>((set) => ({
 In `src/app/<new-page>/features/<new-feature>.tsx`, we need to create a new page or component to display "Chat Messages". In this file, we can use the Zustand Store created earlier and Ant Design components to build the UI:
 
 ```jsx
-// src/features/chat/index.tsx
+// src/features/chat/page.tsx
 import { List, Typography } from 'antd';
 import { useChatStore } from 'src/store/chatStore';
 

@@ -21,6 +21,7 @@ export interface GlobalPreference {
    * whether to use cmd + enter to send message
    */
   useCmdEnterToSend?: boolean;
+  showAgentChange?: boolean;
 }
 
 export interface GlobalPreferenceState {

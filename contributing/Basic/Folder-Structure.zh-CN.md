@@ -26,11 +26,11 @@ src
 welcome
 ├── (desktop)               # 桌面端实现
 │   ├── features            # 桌面端特有的功能
-│   ├── index.tsx           # 桌面端的主入口文件
+│   ├── page.tsx           # 桌面端的主入口文件
 │   └── layout.desktop.tsx  # 桌面端的布局组件
 ├── (mobile)                # 移动端实现
 │   ├── features            # 移动端特有的功能
-│   ├── index.tsx           # 移动端的主入口文件
+│   ├── page.tsx           # 移动端的主入口文件
 │   └── layout.mobile.tsx   # 移动端的布局组件
 ├── features                # 此文件夹包含双端共享的特性代码，如 Banner 组件
 │   └── Banner

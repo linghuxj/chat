@@ -18,7 +18,7 @@ const Mobile: FC = dynamic(() => import('../(mobile)'), {
 
 export default memo<SettingsCommonProps>((props) => (
   <ResponsiveContainer Mobile={Mobile}>
-    <DesktopLayout activeTab={SettingsTabs.About}>
+    <DesktopLayout activeTab={SettingsTabs.Intro}>
       <Common {...props} />
     </DesktopLayout>
   </ResponsiveContainer>

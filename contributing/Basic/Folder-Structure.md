@@ -26,11 +26,11 @@ In the `app` folder, we organize each route page according to the app router's [
 welcome
 ├── (desktop)               # Desktop implementation
 │   ├── features            # Desktop-specific features
-│   ├── index.tsx           # Main entry file for desktop
+│   ├── page.tsx           # Main entry file for desktop
 │   └── layout.desktop.tsx  # Desktop layout component
 ├── (mobile)                # Mobile implementation
 │   ├── features            # Mobile-specific features
-│   ├── index.tsx           # Main entry file for mobile
+│   ├── page.tsx           # Main entry file for mobile
 │   └── layout.mobile.tsx   # Mobile layout component
 ├── features                # This folder contains features code shared by both desktop and mobile, such as the Banner component
 │   └── Banner

@@ -8,15 +8,15 @@ import { CURRENT_VERSION } from '@/const/version';
 
 import Footer from '../features/Footer';
 import Common, { SettingsCommonProps } from './Common';
-import About from './About';
+import Intro from './Intro';
 
 export default memo<SettingsCommonProps>((props) => {
   const { t } = useTranslation('setting');
 
   return (
     <>
-      <PageTitle title={t('tab.about')} />
-      <About />
+      <PageTitle title={t('tab.intro')} />
+      <Intro />
       {/*<Common {...props} />*/}
       <Footer>BankChat v{CURRENT_VERSION}</Footer>
     </>

@@ -5,5 +5,5 @@ import { SettingsTabs } from '@/store/global/initialState';
 import SettingLayout from '../layout.server';
 
 export default ({ children }: PropsWithChildren) => {
-  return <SettingLayout activeTab={SettingsTabs.Intro}>{children}</SettingLayout>;
+  return <SettingLayout activeTab={SettingsTabs.Fan}>{children}</SettingLayout>;
 };

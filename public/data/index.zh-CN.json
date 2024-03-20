@@ -3,7 +3,7 @@
   "tags": [],
   "agents": [
     {
-      "author": "兴业银行",
+      "author": "XY银行",
       "createAt": "2024-03-16",
       "homepage": "https://www.cib.com.cn",
       "identifier": "ID-0002",
@@ -13,56 +13,102 @@
         "tags": [
           "智能银行",
           "社区银行",
-          "客户生态",
           "智能金融服务",
           "以客户的大财富增长为中心",
+          "客户生态",
           "消费投资行为",
           "低风险创业",
           "创投"
         ],
-        "title": "智能银行"
+        "title": "边旅游边投资——智能银行服务"
       },
       "schemaVersion": 1
     },
     {
-      "author": "兴业银行",
+      "author": "XY银行",
       "createAt": "2024-03-15",
       "homepage": "https://www.cib.com.cn",
       "identifier": "ID-0001",
       "meta": {
         "avatar": "\uD83D\uDCDD",
-        "description": "不用花钱，就能得到一辆新车",
+        "description": "AI财富助手帮你更好的处理闲置资产",
         "tags": [
-          "合作共赢",
-          "合作者带来的价值增值",
+          "多方合作共赢",
+          "合作者带来价值增值",
           "客户合作产生银行业务",
           "智能金融服务",
           "闲置资产处置",
-          "换车"
+          "换车",
+          "AI财富助手"
         ],
-        "title": "换车/闲置资产处置"
+        "title": "不用再花钱，就能得到一辆新车"
       },
       "schemaVersion": 1
     },
     {
-      "author": "兴业银行",
+      "author": "XY银行",
       "createAt": "2024-03-15",
       "homepage": "https://www.cib.com.cn",
       "identifier": "ID-0003",
       "meta": {
         "avatar": "\uD83D\uDCDD",
-        "description": "“免费”海外留学",
+        "description": "客户的业务创新给银行带来业务",
         "tags": [
-          "按结果付费",
+          "按结果付费业务",
           "业务模式创新",
+          "客户业务创新给银行带来业务",
           "存款保证金"
         ],
-        "title": "“免费”海外留学"
+        "title": "“免费”海外留学服务"
       },
       "schemaVersion": 1
     },
     {
-      "author": "兴业银行",
+      "author": "XY银行",
+      "createAt": "2024-03-15",
+      "homepage": "https://www.cib.com.cn",
+      "identifier": "ID-0006",
+      "meta": {
+        "avatar": "\uD83D\uDCDD",
+        "description": "通用电气公司“降维打击”的启示",
+        "tags": [
+          "通用金融",
+          "降维打击",
+          "战略营销",
+          "大客户销售",
+          "业务转型",
+          "业务升级",
+          "销售解决方案",
+          "金融解决方案",
+          "深度需求挖掘"
+        ],
+        "title": "产品和价格均不占优，如何拿到订单"
+      }
+    },
+    {
+      "author": "XY银行",
+      "createAt": "2024-03-14",
+      "homepage": "https://www.cib.com.cn",
+      "identifier": "ID-0007",
+      "meta": {
+        "avatar": "\uD83D\uDCDD",
+        "description": "以客户为中心的银行业务持续创新",
+        "tags": [
+          "招商银行",
+          "一卡通",
+          "创新基础设施",
+          "银行业务创新",
+          "领先银行",
+          "大财富",
+          "综合财富",
+          "客户对象"
+        ],
+        "title": "招商银行的领先之路"
+      },
+      "schemaVersion": 1
+    },
+    {
+      "author": "XY银行",
       "createAt": "2024-03-17",
       "homepage": "https://www.cib.com.cn",
       "identifier": "ID-0004",
@@ -75,7 +121,7 @@
       "schemaVersion": 1
     },
     {
-      "author": "兴业银行",
+      "author": "XY银行",
       "createAt": "2024-03-16",
       "homepage": "https://www.cib.com.cn",
       "identifier": "ID-0005",

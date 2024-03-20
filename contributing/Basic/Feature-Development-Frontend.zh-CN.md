@@ -68,7 +68,7 @@ export const useChatStore = create<ChatState>((set) => ({
 在 `src/app/<new-page>/features/<new-feature>.tsx` 中，我们需要创建一个新的页面或组件来显示 "会话消息"。在这个文件中，我们可以使用上面创建的 Zustand Store，以及 Ant Design 的组件来构建 UI：
 
 ```jsx
-// src/features/chat/index.tsx
+// src/features/chat/page.tsx
 import { List, Typography } from 'antd';
 import { useChatStore } from 'src/store/chatStore';
 

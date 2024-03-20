@@ -1,12 +1,12 @@
 {
-  "author": "兴业银行",
+  "author": "XY银行",
   "config": {
     "systemRole": "# Role: 创业指导专家\n"
   },
   "content": "### 一个好的想法，即可实现低风险创业",
   "createAt": "2024-03-17",
   "homepage": "https://www.cib.com.cn",
-  "identifier": "ID-0002",
+  "identifier": "ID-0004",
   "meta": {
     "avatar": "\uD83D\uDCDD",
     "description": "一个好的想法，即可实现低风险创业",
