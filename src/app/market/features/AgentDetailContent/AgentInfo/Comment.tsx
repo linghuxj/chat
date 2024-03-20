@@ -27,16 +27,16 @@ const Comment = memo<AgentCommentProps>(({comments, size = 200}) => {
   return (
     <Flexbox style={{padding: 16}}>
       <Flexbox align={'end'}>
-        <Select
-          defaultValue={selectType}
-          style={{width: 120}}
-          onChange={handleChange}
-          options={[
-            {value: '0', label: t('type.supply')},
-            {value: '1', label: t('type.demand')},
-            {value: '2', label: t('type.all')},
-          ]}
-        />
+        {/*<Select*/}
+        {/*  defaultValue={selectType}*/}
+        {/*  style={{width: 120}}*/}
+        {/*  onChange={handleChange}*/}
+        {/*  options={[*/}
+        {/*    {value: '0', label: t('type.supply')},*/}
+        {/*    {value: '1', label: t('type.demand')},*/}
+        {/*    {value: '2', label: t('type.all')},*/}
+        {/*  ]}*/}
+        {/*/>*/}
       </Flexbox>
       <List
         itemLayout="horizontal"

@@ -1,6 +1,6 @@
 {
   "addAgent": "添加案例",
-  "addAgentAndConverse": "添加案例并会话",
+  "addAgentAndConverse": "开始与智能助手对话",
   "addAgentSuccess": "添加成功",
   "guide": {
     "func1": {
@@ -20,9 +20,9 @@
     "placeholder": "搜索助手名称介绍或关键词..."
   },
   "sidebar": {
-    "comment": "留言区",
-    "earnings": "收益",
-    "prompt": "详细内容",
+    "comment": "操作原理",
+    "earnings": "风险和收益",
+    "prompt": "案例详情",
     "title": "案例详情"
   },
   "submitAgent": "提交助手",
