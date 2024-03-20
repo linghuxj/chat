@@ -16,7 +16,7 @@ const MarketLayout = ({children}: PropsWithChildren) => {
   const {t} = useTranslation("common")
   return (
     <AppLayoutMobile navBar={<Header />} showTabBar tabBarKey={SidebarTabKey.Market}>
-      <Flexbox flex={1} gap={16} style={{padding: '0 16'}}>
+      <Flexbox flex={1} gap={16} style={{padding: '0 16px'}}>
         <Flexbox>
           <div> -- 用AI工具活跃银行客户</div>
           <div> -- 在客户合作（生态）中，实现批量业务和业务的持续创新</div>
