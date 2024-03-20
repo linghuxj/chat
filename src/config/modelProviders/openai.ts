@@ -82,6 +82,12 @@ const OpenAI: ModelProviderCard = {
       tokens: 8192,
     },
     {
+      displayName: 'qwen:14b',
+      functionCall: true,
+      id: 'qwen:14b',
+      tokens: 32_768,
+    },
+    {
       functionCall: true,
       hidden: true,
       id: 'gpt-4-0613',

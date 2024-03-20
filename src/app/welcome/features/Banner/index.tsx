@@ -1,22 +1,22 @@
 'use client';
 
-import { Icon } from '@lobehub/ui';
-import { Button } from 'antd';
-import { SendHorizonal } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Flexbox } from 'react-layout-kit';
+import {Icon} from '@lobehub/ui';
+import {Button} from 'antd';
+import {SendHorizonal} from 'lucide-react';
+import {useRouter} from 'next/navigation';
+import {memo} from 'react';
+import {useTranslation} from 'react-i18next';
+import {Flexbox} from 'react-layout-kit';
 
-import { useGlobalStore } from '@/store/global';
+import {useGlobalStore} from '@/store/global';
 
 import Hero from './Hero';
-import { useStyles } from './style';
+import {useStyles} from './style';
 
-const Banner = memo<{ mobile?: boolean }>(({ mobile }) => {
-  const { t } = useTranslation('welcome');
+const Banner = memo<{ mobile?: boolean }>(({mobile}) => {
+  const {t} = useTranslation('welcome');
   const router = useRouter();
-  const { styles } = useStyles();
+  const {styles} = useStyles();
   const [switchBackToChat, isMobile] = useGlobalStore((s) => [s.switchBackToChat, s.isMobile]);
 
   return (
@@ -32,8 +32,8 @@ const Banner = memo<{ mobile?: boolean }>(({ mobile }) => {
         width={'100%'}
       >
         <Button
-          block={mobile}
-          onClick={() => (router.push('/market'))}
+          // block={mobile}
+          onClick={() => router.push('/market')}
           size={'large'}
           type={'primary'}
         >
