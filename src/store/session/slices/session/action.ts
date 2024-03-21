@@ -18,6 +18,7 @@ import {agentSelectors} from '../agent/selectors';
 import {initLobeSession} from './initialState';
 import {sessionSelectors} from './selectors';
 import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
+import {useResponsive} from "antd-style";
 
 const n = setNamespace('session');
 

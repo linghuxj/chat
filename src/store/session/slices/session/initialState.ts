@@ -42,7 +42,7 @@ export const initialSessionState: SessionState = {
   activeId: 'inbox',
   customSessionGroups: [],
   defaultSessions: [],
-  isMobile: false,
+  isMobile: true,
   isSearching: false,
   isSessionsFirstFetchFinished: false,
   pinnedSessions: [],
