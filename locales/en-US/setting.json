@@ -1,86 +1,86 @@
 {
   "about": {
-    "title": "About"
+    "title": "关于"
   },
   "analytics": {
     "telemetry": {
-      "desc": "By opting to send telemetry data, you can help us improve the overall user experience of LobeChat",
-      "title": "Send Anonymous Usage Data"
+      "desc": "通过选择发送遥测数据，你可以帮助我们改善 LobeChat 整体用户体验",
+      "title": "发送匿名使用数据"
     },
-    "title": "Analytics"
+    "title": "数据统计"
   },
   "danger": {
     "clear": {
-      "action": "Clear Now",
-      "confirm": "Confirm to clear all chat data?",
-      "desc": "This will clear all session data, including agent, files, messages, plugins, etc.",
-      "success": "All session messages have been cleared",
-      "title": "Clear All Session Messages"
+      "action": "立即清除",
+      "confirm": "确认清除所有聊天数据？",
+      "desc": "将会清除所有会话数据，包括助手、文件、消息、插件等",
+      "success": "已清除所有会话消息",
+      "title": "清除所有会话消息"
     },
     "reset": {
-      "action": "Reset Now",
-      "confirm": "Confirm to reset all settings?",
-      "currentVersion": "Current Version",
-      "desc": "Reset all settings to default values",
-      "title": "Reset All Settings"
+      "action": "立即重置",
+      "confirm": "确认重置所有设置？",
+      "currentVersion": "当前版本",
+      "desc": "重置所有设置项回默认值",
+      "title": "重置所有设置"
     }
   },
   "header": {
-    "global": "Global Settings",
-    "session": "Session Settings",
-    "sessionWithName": "Session Settings · {{name}}"
+    "global": "全局设置",
+    "session": "会话设置",
+    "sessionWithName": "会话设置 · {{name}}"
   },
   "llm": {
     "Anthropic": {
       "title": "Anthropic",
       "token": {
-        "desc": "Enter the API Key from Anthropic",
+        "desc": "填入来自 Anthropic 的 API Key",
         "placeholder": "Anthropic API Key",
         "title": "API Key"
       }
     },
     "AzureOpenAI": {
       "azureApiVersion": {
-        "desc": "The API version of Azure, following the format YYYY-MM-DD. Check the [latest version](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions)",
-        "fetch": "Fetch List",
-        "title": "Azure API Version"
+        "desc": "Azure 的 API 版本，遵循 YYYY-MM-DD 格式，查阅[最新版本](https://learn.microsoft.com/zh-cn/azure/ai-services/openai/reference#chat-completions)",
+        "fetch": "获取列表",
+        "title": "Azure Api Version"
       },
       "deployments": {
-        "desc": "Fill in your deployment model using the syntax id=name (e.g. if the deployment name is the same as the model name, you can just fill in the model name). Use commas (,) to separate multiple models",
-        "title": "Azure Deployment Models List"
+        "desc": "使用 id=name 的语法填写你的部署模型（如部署名和模型同名，可以只填写模型名称），多个模型使用逗号（,） 隔开",
+        "title": "Azure 部署模型列表"
       },
       "endpoint": {
-        "desc": "This value can be found in the 'Keys and Endpoints' section when checking the resource on the Azure portal",
+        "desc": "从 Azure 门户检查资源时，可在“密钥和终结点”部分中找到此值",
         "placeholder": "https://docs-test-001.openai.azure.com",
-        "title": "Azure API Address"
+        "title": "Azure API 地址"
       },
       "models": {
-        "desc": "Supported models",
-        "title": "Model List"
+        "desc": "支持的模型",
+        "title": "模型列表"
       },
-      "title": "Azure OpenAI Settings",
+      "title": "Azure OpenAI",
       "token": {
-        "desc": "This value can be found in the 'Keys and Endpoints' section when checking the resource on the Azure portal. You can use KEY1 or KEY2",
+        "desc": "从 Azure 门户检查资源时，可在“密钥和终结点”部分中找到此值。 可以使用 KEY1 或 KEY2",
         "placeholder": "Azure API Key",
         "title": "API Key"
       }
     },
     "Bedrock": {
       "accessKeyId": {
-        "desc": "Enter your Aws Access Key Id",
+        "desc": "填入Aws Access Key Id",
         "placeholder": "Aws Access Key Id",
         "title": "Aws Access Key Id"
       },
       "checker": {
-        "desc": "Test if AccessKeyId / SecretAccessKey are filled in correctly"
+        "desc": "测试 AccessKeyId / SecretAccessKey 是否填写正确"
       },
       "region": {
-        "desc": "Enter Aws Region",
+        "desc": "填入 Aws Region",
         "placeholder": "Aws Region",
         "title": "Aws Region"
       },
       "secretAccessKey": {
-        "desc": "Enter Aws Secret Access Key",
+        "desc": "填入 Aws Secret Access Key",
         "placeholder": "Aws Secret Access Key",
         "title": "Aws Secret Access Key"
       },
@@ -89,7 +89,7 @@
     "Google": {
       "title": "Google",
       "token": {
-        "desc": "Enter the API Key from Google",
+        "desc": "填入来自 Google 的 API Key",
         "placeholder": "Google API Key",
         "title": "API Key"
       }
@@ -97,330 +97,332 @@
     "Mistral": {
       "title": "Mistral AI",
       "token": {
-        "desc": "Enter the API Key from Mistral AI",
+        "desc": "填入来自 Mistral AI 的 API Key",
         "placeholder": "Mistral AI API Key",
         "title": "API Key"
       }
     },
     "Moonshot": {
-      "title": "Dark Side of the Moon",
+      "title": "月之暗面",
       "token": {
-        "desc": "Enter the API Key from Moonshot AI",
+        "desc": "填入来自 Moonshot AI 的 API Key",
         "placeholder": "Moonshot AI API Key",
         "title": "API Key"
       }
     },
     "Ollama": {
       "checker": {
-        "desc": "Check if the proxy address is filled in correctly"
+        "desc": "测试代理地址是否正确填写"
       },
       "customModelName": {
-        "desc": "Add custom models, separate multiple models with commas",
-        "placeholder": "vicuna,llama,codellama,llama2:13b-text",
-        "title": "Custom Model Name"
+        "desc": "增加自定义模型，多个模型使用逗号（,）隔开",
+        "placeholder": "vicuna,llava,codellama,llama2:13b-text",
+        "title": "自定义模型名称"
       },
       "endpoint": {
-        "desc": "Enter the Ollama API proxy address, leave blank if not specifically set locally",
+        "desc": "填入 Ollama 接口代理地址，本地未额外指定可留空",
         "placeholder": "http://127.0.0.1:11434/v1",
-        "title": "API Proxy Address"
+        "title": "接口代理地址"
       },
       "title": "Ollama"
     },
     "OpenAI": {
       "azureApiVersion": {
-        "desc": "The API version for Azure, following the format YYYY-MM-DD, check the [latest version](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions)",
-        "fetch": "Fetch List",
-        "title": "Azure API Version"
+        "desc": "Azure 的 API 版本，遵循 YYYY-MM-DD 格式，查阅[最新版本](https://learn.microsoft.com/zh-cn/azure/ai-services/openai/reference#chat-completions)",
+        "fetch": "获取列表",
+        "title": "Azure Api Version"
       },
       "customModelName": {
-        "desc": "Add custom models, separate multiple models with commas (,)",
+        "desc": "增加自定义模型，多个模型使用逗号（,） 隔开",
         "placeholder": "model1,model2,model3",
-        "title": "Custom Model Name"
+        "title": "自定义模型名称"
       },
       "endpoint": {
-        "desc": "Must include http(s):// besides the default address",
+        "desc": "除默认地址外，必须包含 http(s)://",
         "placeholder": "https://api.openai.com/v1",
-        "title": "API Proxy Address"
+        "title": "接口代理地址"
       },
       "models": {
-        "count": "Supports a total of {{count}} models",
-        "desc": "Supported models",
-        "fetch": "Fetch Model List",
-        "notSupport": "Azure OpenAI does not currently support viewing the model list",
-        "notSupportTip": "You need to ensure that the deployment name matches the model name",
-        "refetch": "Refetch Model List",
-        "title": "Model List"
+        "count": "共支持 {{count}} 个模型",
+        "desc": "支持的模型",
+        "fetch": "获取模型列表",
+        "notSupport": "Azure OpenAI 暂不支持查看模型列表",
+        "notSupportTip": "你需要自行确保部署名称与模型名称一致",
+        "refetch": "重新获取模型列表",
+        "title": "模型列表"
       },
-      "title": "OpenAI Settings",
+      "title": "OpenAI",
       "token": {
-        "desc": "Use your own OpenAI Key",
+        "desc": "使用自己的 OpenAI Key",
         "placeholder": "OpenAI API Key",
-        "title": "API Key"
+        "title": "OpenAI API Key"
       },
       "useAzure": {
-        "desc": "Use OpenAI services provided by Azure",
-        "fetch": "Fetch List",
-        "serverConfig": "The administrator has enabled Azure OpenAI on the server side, and switching is prohibited",
+        "desc": "使用 Azure 提供的 OpenAI 服务",
+        "fetch": "获取列表",
+        "serverConfig": "管理员在服务端配置开启了 Azure OpenAI，禁止切换",
         "title": "Azure OpenAI"
       }
     },
     "Perplexity": {
-      "title": "Perplexity AI",
+      "title": "Perplexity",
       "token": {
-        "desc": "Enter the API Key from Perplexity",
-        "placeholder": "Perplexity API Key",
+        "desc": "填入来自 Perplexity AI 的 API Key",
+        "placeholder": "Perplexity AI API Key",
         "title": "API Key"
       }
     },
     "Zhipu": {
-      "title": "Zhipu",
+      "title": "智谱",
       "token": {
-        "desc": "Enter the API Key from Zhipu",
+        "desc": "填入来自智谱的 API Key",
         "placeholder": "Zhipu API Key",
         "title": "API Key"
       }
     },
     "checker": {
-      "button": "Check",
-      "desc": "Test if the Api Key and proxy address are filled in correctly",
-      "pass": "Check Passed",
-      "title": "Connectivity Check"
+      "button": "检查",
+      "desc": "测试 Api Key 与代理地址是否正确填写",
+      "pass": "检查通过",
+      "title": "连通性检查"
     },
-    "waitingForMore": "More models are <1>planned to be added</1>, stay tuned ✨"
+    "waitingForMore": "更多模型正在 <1>计划接入</1> 中，敬请期待 ✨"
   },
   "plugin": {
-    "addTooltip": "Custom Plugin",
-    "clearDeprecated": "Remove Deprecated Plugins",
-    "empty": "No installed plugins yet, feel free to explore the <1>Plugin Store</1>",
+    "addTooltip": "自定义插件",
+    "clearDeprecated": "移除无效插件",
+    "empty": "暂无已安装插件，欢迎前往 <1>插件商店</1> 探索",
     "installStatus": {
-      "deprecated": "Uninstalled"
+      "deprecated": "已卸载"
     },
     "settings": {
-      "hint": "Please fill in the following configurations based on the description",
-      "title": "{{id}} Plugin Configuration",
-      "tooltip": "Plugin Configuration"
+      "hint": "请根据描述填写以下配置",
+      "title": "{{id}} 插件配置",
+      "tooltip": "插件配置"
     },
-    "store": "Plugin Store"
+    "store": "插件商店"
   },
   "settingAgent": {
     "avatar": {
-      "title": "Avatar"
+      "title": "头像"
     },
     "backgroundColor": {
-      "title": "Background Color"
+      "title": "背景色"
     },
     "description": {
-      "placeholder": "Enter agent description",
-      "title": "Agent Description"
+      "placeholder": "请输入助手描述",
+      "title": "助手描述"
     },
     "name": {
-      "placeholder": "Enter agent name",
-      "title": "Name"
+      "placeholder": "请输入助手名称",
+      "title": "名称"
     },
     "prompt": {
-      "placeholder": "Enter role prompt word",
-      "title": "Role Setting"
+      "placeholder": "请输入角色 Prompt 提示词",
+      "title": "角色设定"
     },
     "tag": {
-      "placeholder": "Enter tag",
-      "title": "Tag"
+      "placeholder": "请输入标签",
+      "title": "标签"
     },
-    "title": "Agent Information"
+    "title": "助手信息"
   },
   "settingChat": {
     "autoCreateTopicThreshold": {
-      "desc": "Automatically create a topic when the current message count exceeds this value",
-      "title": "Message Threshold"
+      "desc": "当前消息数超过设定该值后，将自动创建话题",
+      "title": "消息阈值"
     },
     "chatStyleType": {
-      "title": "Chat Window Style",
+      "title": "聊天窗口样式",
       "type": {
-        "chat": "Conversation Mode",
-        "docs": "Document Mode"
+        "chat": "对话模式",
+        "docs": "文档模式"
       }
     },
     "compressThreshold": {
-      "desc": "When the uncompressed history messages exceed this value, compression will be applied",
-      "title": "History Message Length Compression Threshold"
+      "desc": "当未压缩的历史消息超过该值时，将进行压缩",
+      "title": "历史消息长度压缩阈值"
     },
     "enableAutoCreateTopic": {
-      "desc": "Whether to automatically create a topic during the conversation, only effective in temporary topics",
-      "title": "Auto Create Topic"
+      "desc": "会话过程中是否自动创建话题，仅在临时话题中生效",
+      "title": "自动创建话题"
     },
     "enableCompressThreshold": {
-      "title": "Enable History Message Length Compression Threshold"
+      "title": "是否开启历史消息长度压缩阈值"
     },
     "enableHistoryCount": {
-      "alias": "Unlimited",
-      "limited": "Include only {{number}} conversation messages",
-      "title": "Limit History Message Count",
-      "unlimited": "Unlimited history message count"
+      "alias": "不限制",
+      "limited": "只包含 {{number}} 条会话消息",
+      "title": "限制历史消息数",
+      "unlimited": "不限历史消息数"
     },
     "historyCount": {
-      "desc": "Number of historical messages carried with each request",
-      "title": "Attached History Message Count"
+      "desc": "每次请求携带的消息数（包括最新编写的提问。每个提问和回答都计算1）",
+      "title": "附带消息数"
     },
     "inputTemplate": {
-      "desc": "The user's latest message will be filled into this template",
-      "placeholder": "Preprocessing template {{text}} will be replaced with real-time input information",
-      "title": "User Input Preprocessing"
+      "desc": "用户最新的一条消息会填充到此模板",
+      "placeholder": "预处理模版 {{text}} 将替换为实时输入信息",
+      "title": "用户输入预处理"
     },
-    "title": "Chat Settings"
+    "title": "聊天设置"
   },
   "settingModel": {
     "enableMaxTokens": {
-      "title": "Enable Max Tokens Limit"
+      "title": "开启单次回复限制"
     },
     "frequencyPenalty": {
-      "desc": "The higher the value, the more likely it is to reduce repeated words",
-      "title": "Frequency Penalty"
+      "desc": "值越大，越有可能降低重复字词",
+      "title": "频率惩罚度"
     },
     "maxTokens": {
-      "desc": "The maximum number of tokens used for each interaction",
-      "title": "Max Tokens Limit"
+      "desc": "单次交互所用的最大 Token 数",
+      "title": "单次回复限制"
     },
     "model": {
-      "desc": "ChatGPT model",
+      "desc": "ChatGPT 模型",
       "list": {
         "gpt-3.5-turbo": "GPT 3.5",
         "gpt-3.5-turbo-16k": "GPT 3.5 (16K)",
         "gpt-4": "GPT 4",
         "gpt-4-32k": "GPT 4 (32K)"
       },
-      "title": "Model"
+      "title": "模型"
     },
     "presencePenalty": {
-      "desc": "The higher the value, the more likely it is to expand to new topics",
-      "title": "Topic Freshness"
+      "desc": "值越大，越有可能扩展到新话题",
+      "title": "话题新鲜度"
     },
     "temperature": {
-      "desc": "The higher the value, the more random the response",
-      "title": "Randomness",
-      "titleWithValue": "Randomness {{value}}"
+      "desc": "值越大，回复越随机",
+      "title": "随机性",
+      "titleWithValue": "随机性 {{value}}"
     },
-    "title": "Model Settings",
+    "title": "模型设置",
     "topP": {
-      "desc": "Similar to randomness, but do not change together with randomness",
-      "title": "Top P Sampling"
+      "desc": "与随机性类似，但不要和随机性一起更改",
+      "title": "核采样"
     }
   },
   "settingPlugin": {
-    "title": "Plugin List"
+    "title": "插件列表"
   },
   "settingSystem": {
     "accessCode": {
-      "desc": "Encryption access is enabled by the administrator",
-      "placeholder": "Enter access password",
-      "title": "Access Password"
+      "desc": "管理员已开启加密访问",
+      "placeholder": "请输入访问密码",
+      "title": "访问密码"
     },
     "oauth": {
       "info": {
-        "desc": "Logged in",
-        "title": "Account Information"
+        "desc": "已登录",
+        "title": "账户信息"
       },
       "signin": {
-        "action": "Sign In",
-        "desc": "Sign in using SSO to unlock the app",
-        "title": "Sign In to Your Account"
+        "action": "登录",
+        "desc": "使用 SSO 登录以解锁应用",
+        "title": "登录账号"
       },
       "signout": {
-        "action": "Sign Out",
-        "confirm": "Confirm sign out?",
-        "success": "Sign out successful"
+        "action": "退出登录",
+        "confirm": "确认退出？",
+        "success": "退出登录成功"
       }
     },
-    "title": "System Settings"
+    "title": "系统设置"
   },
   "settingTTS": {
     "openai": {
-      "sttModel": "OpenAI Speech-to-Text Model",
-      "ttsModel": "OpenAI Text-to-Speech Model"
+      "sttModel": "OpenAI 语音识别模型",
+      "ttsModel": "OpenAI 语音合成模型"
     },
     "showAllLocaleVoice": {
-      "desc": "If closed, only voices in the current language will be displayed",
-      "title": "Show All Locale Voices"
+      "desc": "关闭则只显示当前语种的声源",
+      "title": "显示所有语种声源"
     },
-    "stt": "Speech Recognition Settings",
+    "stt": "语音识别设置",
     "sttAutoStop": {
-      "desc": "When closed, speech recognition will not end automatically and requires manual click to stop",
-      "title": "Auto Stop Speech Recognition"
+      "desc": "关闭后，语音识别将不会自动结束，需要手动点击结束按钮",
+      "title": "自动结束语音识别"
     },
     "sttLocale": {
-      "desc": "The language of the speech input, this option can improve the accuracy of speech recognition",
-      "title": "Speech Recognition Language"
+      "desc": "语音输入的语种，此选项可提高语音识别准确率",
+      "title": "语音识别语种"
     },
     "sttService": {
-      "desc": "Where 'browser' is the native speech recognition service of the browser",
-      "title": "Speech Recognition Service"
+      "desc": "其中 broswer 为浏览器原生的语音识别服务",
+      "title": "语音识别服务"
     },
-    "title": "Speech Service",
-    "tts": "Text-to-Speech Settings",
+    "title": "语音服务",
+    "tts": "语音合成设置",
     "ttsService": {
-      "desc": "If using OpenAI text-to-speech service, make sure the OpenAI model service is enabled",
-      "title": "Text-to-Speech Service"
+      "desc": "如使用 OpenAI 语音合成服务，需要保证 OpenAI 模型服务已开启",
+      "title": "语音合成服务"
     },
     "voice": {
-      "desc": "Select a voice for the current agent, different TTS services support different voices",
-      "preview": "Voice Preview",
-      "title": "Text-to-Speech Voice"
+      "desc": "为当前助手挑选一个声音，不同 TTS 服务支持的声源不同",
+      "preview": "试听声源",
+      "title": "语音合成声源"
     }
   },
   "settingTheme": {
     "avatar": {
-      "title": "Avatar"
+      "title": "头像"
     },
     "fontSize": {
-      "desc": "Font size for chat content",
+      "desc": "聊天内容的字体大小",
       "marks": {
-        "normal": "Normal"
+        "normal": "标准"
       },
-      "title": "Font Size"
+      "title": "字体大小"
     },
     "lang": {
-      "autoMode": "Follow System",
-      "title": "Language"
+      "autoMode": "跟随系统",
+      "title": "语言"
     },
     "neutralColor": {
-      "desc": "Custom neutral color for different color tendencies",
-      "title": "Neutral Color"
+      "desc": "不同色彩倾向的灰阶自定义",
+      "title": "中性色"
     },
     "primaryColor": {
-      "desc": "Custom primary theme color",
-      "title": "Primary Color"
+      "desc": "自定义主题色",
+      "title": "主题色"
     },
     "themeMode": {
-      "auto": "Auto",
-      "dark": "Dark",
-      "light": "Light",
-      "title": "Theme"
+      "auto": "自动",
+      "dark": "深色",
+      "light": "浅色",
+      "title": "主题"
     },
-    "title": "Theme Settings"
+    "title": "主题设置"
   },
   "submitAgentModal": {
-    "button": "Submit Agent",
-    "identifier": "Agent Identifier",
-    "metaMiss": "Please complete the agent information before submitting. It should include name, description, and tags",
-    "placeholder": "Enter a unique identifier for the agent, e.g. web-development",
-    "tooltips": "Share to the agent marketplace"
+    "button": "提交助手",
+    "identifier": "identifier 助手标识符",
+    "metaMiss": "请补全助手信息后提交，需要包含名称、描述和标签",
+    "placeholder": "请输入助手的标识符，需要是唯一的，比如 web-development",
+    "tooltips": "分享到助手市场"
   },
   "tab": {
-    "about": "About",
-    "agent": "Default Agent",
-    "common": "Common Settings",
-    "llm": "Language Model",
-    "tts": "Text-to-Speech"
+    "about": "关于",
+    "agent": "默认助手",
+    "common": "通用设置",
+    "llm": "语言模型",
+    "tts": "语音服务",
+    "intro": "产品介绍",
+    "fan": "我的大财富"
   },
   "tools": {
     "builtins": {
-      "groupName": "Built-ins"
+      "groupName": "内置插件"
     },
-    "disabled": "The current model does not support function calls and cannot use the plugin",
+    "disabled": "当前模型不支持函数调用，无法使用插件",
     "plugins": {
-      "enabled": "Enabled: {{num}}",
-      "groupName": "Plugins",
-      "noEnabled": "No plugins enabled",
-      "store": "Plugin Store"
+      "enabled": "已启用 {{num}}",
+      "groupName": "三方插件",
+      "noEnabled": "暂无启用插件",
+      "store": "插件商店"
     },
-    "title": "Extension Tools"
+    "title": "扩展插件"
   }
 }

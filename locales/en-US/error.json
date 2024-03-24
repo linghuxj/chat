@@ -1,133 +1,133 @@
 {
   "pluginSettings": {
-    "desc": "Complete the following configuration to start using this plugin",
-    "title": "{{name}} Plugin Settings"
+    "desc": "完成以下配置，即可开始使用该插件",
+    "title": "{{name}} 插件配置"
   },
   "response": {
-    "400": "Sorry, the server does not understand your request. Please make sure your request parameters are correct.",
-    "401": "Sorry, the server has rejected your request, possibly due to insufficient permissions or invalid authentication.",
-    "403": "Sorry, the server has rejected your request. You do not have permission to access this content.",
-    "404": "Sorry, the server cannot find the page or resource you requested. Please make sure your URL is correct.",
-    "405": "Sorry, the server does not support the request method you are using. Please make sure your request method is correct.",
-    "406": "Sorry, the server cannot complete the request based on the characteristics of the content you requested",
-    "407": "Sorry, you need to authenticate the proxy before continuing with this request",
-    "408": "Sorry, the server timed out while waiting for the request, please check your network connection and try again",
-    "409": "Sorry, the request cannot be processed due to a conflict, possibly because the resource state is incompatible with the request",
-    "410": "Sorry, the resource you requested has been permanently removed and cannot be found",
-    "411": "Sorry, the server cannot process the request without a valid content length",
-    "412": "Sorry, your request does not meet the server's conditions and cannot be completed",
-    "413": "Sorry, your request data is too large for the server to process",
-    "414": "Sorry, the URI of your request is too long for the server to process",
-    "415": "Sorry, the server cannot process the media format attached to the request",
-    "416": "Sorry, the server cannot satisfy the range of your request",
-    "417": "Sorry, the server cannot meet your expectations",
-    "422": "Sorry, your request is in the correct format, but due to semantic errors, it cannot be responded to",
-    "423": "Sorry, the resource you requested is locked",
-    "424": "Sorry, the current request cannot be completed due to a previous request failure",
-    "426": "Sorry, the server requires your client to upgrade to a higher protocol version",
-    "428": "Sorry, the server requires a precondition, and requests that your request contain the correct conditional header",
-    "429": "Sorry, your request is too frequent and the server is a bit tired. Please try again later.",
-    "431": "Sorry, the header fields of your request are too large for the server to process",
-    "451": "Sorry, the server refuses to provide this resource due to legal reasons",
-    "500": "Sorry, the server seems to be experiencing some difficulties and is temporarily unable to complete your request. Please try again later.",
-    "502": "Sorry, the server seems to be lost and is temporarily unable to provide service. Please try again later.",
-    "503": "Sorry, the server is currently unable to process your request, possibly due to overload or maintenance. Please try again later.",
-    "504": "Sorry, the server did not receive a response from the upstream server. Please try again later.",
-    "AgentRuntimeError": "Lobe language model runtime execution error. Please troubleshoot or retry based on the following information.",
-    "AnthropicBizError": "Error requesting Anthropic service. Please troubleshoot or retry based on the following information.",
-    "AzureBizError": "Error requesting Azure AI service. Please troubleshoot or retry based on the following information.",
-    "BedrockBizError": "Error requesting Bedrock service. Please troubleshoot or retry based on the following information.",
-    "GoogleBizError": "Error requesting Google service. Please troubleshoot or retry based on the following information.",
-    "InvalidAccessCode": "Invalid access code or empty. Please enter the correct access code or add a custom API Key.",
-    "InvalidAnthropicAPIKey": "The Anthropic API Key is incorrect or empty. Please check the Anthropic API Key and retry.",
-    "InvalidAzureAPIKey": "Azure API Key is incorrect or empty. Please check the Azure API Key and retry.",
-    "InvalidBedrockCredentials": "Bedrock authentication failed. Please check the AccessKeyId/SecretAccessKey and retry.",
-    "InvalidGoogleAPIKey": "Google API Key is incorrect or empty. Please check the Google API Key and retry.",
-    "InvalidMistralAPIKey": "Incorrect or empty Mistral AI API Key. Please check your Mistral API Key and try again.",
-    "InvalidMoonshotAPIKey": "The Moonshot AI API Key is incorrect or empty, please check the Moonshot API Key and try again.",
-    "InvalidOllamaArgs": "Invalid Ollama configuration, please check Ollama configuration and try again",
-    "InvalidPerplexityAPIKey": "Perplexity API Key is incorrect or empty. Please check the Perplexity API Key and retry.",
-    "InvalidZhipuAPIKey": "Zhipu API Key is incorrect or empty. Please check the Zhipu API Key and retry.",
-    "LocationNotSupportError": "We're sorry, your current location does not support this model service. This may be due to regional restrictions or the service not being available. Please confirm if the current location supports using this service, or try using a different location.",
-    "MistralBizError": "Error occurred while requesting Mistral AI service. Please troubleshoot based on the following information or retry.",
-    "MoonshotBizError": "There was an error with the Moonshot service, please troubleshoot or retry based on the following information.",
-    "NoOpenAIAPIKey": "OpenAI API Key is empty, please add a custom OpenAI API Key",
-    "OllamaBizError": "Error requesting Ollama service, please troubleshoot or retry based on the following information",
-    "OpenAIBizError": "Error requesting OpenAI service. Please troubleshoot or retry based on the following information.",
-    "PerplexityBizError": "Error requesting Perplexity AI service. Please troubleshoot or retry based on the following information.",
-    "PluginApiNotFound": "Sorry, the API does not exist in the plugin's manifest. Please check if your request method matches the plugin manifest API",
-    "PluginApiParamsError": "Sorry, the input parameter validation for the plugin request failed. Please check if the input parameters match the API description",
-    "PluginGatewayError": "Sorry, there was an error with the plugin gateway. Please check if the plugin gateway configuration is correct.",
-    "PluginManifestInvalid": "Sorry, the plugin's manifest validation failed. Please check if the manifest format is correct",
-    "PluginManifestNotFound": "Sorry, the server could not find the plugin's manifest file (manifest.json). Please check if the plugin manifest file address is correct",
-    "PluginMarketIndexInvalid": "Sorry, the plugin index validation failed. Please check if the index file format is correct",
-    "PluginMarketIndexNotFound": "Sorry, the server could not find the plugin index. Please check if the index address is correct",
-    "PluginMetaInvalid": "Sorry, the plugin's metadata validation failed. Please check if the plugin metadata format is correct",
-    "PluginMetaNotFound": "Sorry, the plugin was not found in the index. Please check the plugin's configuration information in the index",
-    "PluginOpenApiInitError": "Sorry, the OpenAPI client failed to initialize. Please check if the OpenAPI configuration information is correct.",
-    "PluginServerError": "Plugin server request returned an error. Please check your plugin manifest file, plugin configuration, or server implementation based on the error information below",
-    "PluginSettingsInvalid": "This plugin needs to be correctly configured before it can be used. Please check if your configuration is correct",
-    "ZhipuBizError": "Error requesting Zhipu service. Please troubleshoot or retry based on the following information."
+    "400": "很抱歉，服务器不明白您的请求，请确认您的请求参数是否正确",
+    "401": "很抱歉，服务器拒绝了您的请求，可能是因为您的权限不足或未提供有效的身份验证",
+    "403": "很抱歉，服务器拒绝了您的请求，您没有访问此内容的权限 ",
+    "404": "很抱歉，服务器找不到您请求的页面或资源，请确认您的 URL 是否正确",
+    "405": "很抱歉，服务器不支持您使用的请求方法，请确认您的请求方法是否正确",
+    "406": "很抱歉，服务器无法根据您请求的内容特性完成请求",
+    "407": "很抱歉，您需要进行代理认证后才能继续此请求",
+    "408": "很抱歉，服务器在等待请求时超时，请检查您的网络连接后再试",
+    "409": "很抱歉，请求存在冲突无法处理，可能是因为资源状态与请求不兼容",
+    "410": "很抱歉，您请求的资源已被永久移除，无法找到",
+    "411": "很抱歉，服务器无法处理不含有效内容长度的请求",
+    "412": "很抱歉，您的请求未满足服务器端的条件，无法完成请求",
+    "413": "很抱歉，您的请求数据量过大，服务器无法处理",
+    "414": "很抱歉，您的请求的 URI 过长，服务器无法处理",
+    "415": "很抱歉，服务器无法处理请求附带的媒体格式",
+    "416": "很抱歉，服务器无法满足您请求的范围",
+    "417": "很抱歉，服务器无法满足您的期望值",
+    "422": "很抱歉，您的请求格式正确，但是由于含有语义错误，无法响应",
+    "423": "很抱歉，您请求的资源被锁定",
+    "424": "很抱歉，由于之前的请求失败，导致当前请求无法完成",
+    "426": "很抱歉，服务器要求您的客户端升级到更高的协议版本",
+    "428": "很抱歉，服务器要求先决条件，要求您的请求包含正确的条件头",
+    "429": "很抱歉，您的请求太多，服务器有点累了，请稍后再试",
+    "431": "很抱歉，您的请求头字段太大，服务器无法处理",
+    "451": "很抱歉，由于法律原因，服务器拒绝提供此资源",
+    "500": "很抱歉，服务器似乎遇到了一些困难，暂时无法完成您的请求，请稍后再试",
+    "502": "很抱歉，服务器似乎迷失了方向，暂时无法提供服务，请稍后再试",
+    "503": "很抱歉，服务器当前无法处理您的请求，可能是由于过载或正在进行维护，请稍后再试",
+    "504": "很抱歉，服务器没有等到上游服务器的回应，请稍后再试",
+    "PluginMarketIndexNotFound": "很抱歉，服务器没有找到插件索引，请检查索引地址是否正确",
+    "PluginMarketIndexInvalid": "很抱歉，插件索引校验未通过，请检查索引文件格式是否规范",
+    "PluginMetaNotFound": "很抱歉，没有在索引中发现该插件，请插件在索引中的配置信息",
+    "PluginMetaInvalid": "很抱歉，该插件的元信息校验未通过，请检查插件元信息格式是否规范",
+    "PluginManifestNotFound": "很抱歉，服务器没有找到该插件的描述清单 (manifest.json)，请检查插件描述文件地址是否正确",
+    "PluginManifestInvalid": "很抱歉，该插件的描述清单校验未通过，请检查描述清单格式是否规范",
+    "PluginApiNotFound": "很抱歉，插件描述清单中不存在该 API ，请检查你的请求方法与插件清单 API 是否匹配",
+    "PluginApiParamsError": "很抱歉，该插件请求的入参校验未通过，请检查入参与 Api 描述信息是否匹配",
+    "PluginSettingsInvalid": "该插件需要正确配置后才可以使用，请检查你的配置是否正确",
+    "PluginServerError": "插件服务端请求返回出错，请检查根据下面的报错信息检查你的插件描述文件、插件配置或服务端实现",
+    "PluginGatewayError": "很抱歉，插件网关出现错误，请检查插件网关配置是否正确",
+    "PluginOpenApiInitError": "很抱歉，OpenAPI 客户端初始化失败，请检查 OpenAPI 的配置信息是否正确",
+    "InvalidAccessCode": "密码不正确或为空，请输入正确的访问密码，或者添加自定义 API Key",
+    "LocationNotSupportError": "很抱歉，你的所在位置不支持此模型服务，可能是由于地区限制或服务未开通。请确认当前位置是否支持使用此服务，或尝试使用其他位置信息。",
+    "OpenAIBizError": "请求 OpenAI 服务出错，请根据以下信息排查或重试",
+    "NoOpenAIAPIKey": "OpenAI API Key 为空，请添加自定义 OpenAI API Key",
+    "ZhipuBizError": "请求智谱服务出错，请根据以下信息排查或重试",
+    "InvalidZhipuAPIKey": "Zhipu API Key 不正确或为空，请检查 Zhipu API Key 后重试",
+    "MistralBizError": "请求 Mistral AI 服务出错，请根据以下信息排查或重试",
+    "InvalidMistralAPIKey": "Mistral AI API Key 不正确或为空，请检查 Mistral API Key 后重试",
+    "MoonshotBizError": "请求月之暗面服务出错，请根据以下信息排查或重试",
+    "InvalidMoonshotAPIKey": "Moonshot AI API Key 不正确或为空，请检查 Moonshot API Key 后重试",
+    "GoogleBizError": "请求 Google 服务出错，请根据以下信息排查或重试",
+    "InvalidGoogleAPIKey": "Google API Key 不正确或为空，请检查 Google API Key 后重试",
+    "InvalidBedrockCredentials": "Bedrock 鉴权未通过，请检查 AccessKeyId/SecretAccessKey 后重试",
+    "BedrockBizError": "请求 Bedrock 服务出错，请根据以下信息排查或重试",
+    "InvalidAzureAPIKey": "Azure API Key 不正确或为空，请检查 Azure API Key 后重试",
+    "AzureBizError": "请求 Azure AI 服务出错，请根据以下信息排查或重试",
+    "InvalidPerplexityAPIKey": "Perplexity API Key 不正确或为空，请检查 Perplexity API Key 后重试",
+    "PerplexityBizError": "请求 Perplexity AI 服务出错，请根据以下信息排查或重试",
+    "InvalidAnthropicAPIKey": "Anthropic API Key 不正确或为空，请检查 Anthropic API Key 后重试",
+    "AnthropicBizError": "请求 Anthropic AI 服务出错，请根据以下信息排查或重试",
+    "InvalidOllamaArgs": "Ollama 配置不正确，请检查 Ollama 配置后重试",
+    "OllamaBizError": "请求 Ollama 服务出错，请根据以下信息排查或重试",
+    "AgentRuntimeError": "Lobe 语言模型运行时执行出错，请根据以下信息排查或重试"
   },
   "stt": {
-    "responseError": "Service request failed, please check the configuration or try again"
+    "responseError": "服务请求失败，请检查配置或重试"
   },
   "tts": {
-    "responseError": "Service request failed, please check the configuration or try again"
+    "responseError": "服务请求失败，请检查配置或重试"
   },
   "unlock": {
     "apikey": {
       "Anthropic": {
-        "description": "Enter your Anthropic API Key to start the session. The application will not store your API Key.",
-        "title": "Use Custom Anthropic API Key"
+        "description": "输入你的 Anthropic API Key 即可开始会话。应用不会记录你的 API Key",
+        "title": "使用自定义 Anthropic API Key"
       },
       "Bedrock": {
-        "customRegion": "Custom service region",
-        "description": "Enter your Aws AccessKeyId / SecretAccessKey to start the session. The app will not store your authentication configuration.",
-        "title": "Use custom Bedrock authentication information"
+        "customRegion": "自定义服务区域",
+        "description": "输入你的 Aws AccessKeyId / SecretAccessKey 即可开始会话。应用不会记录你的鉴权配置",
+        "title": "使用自定义 Bedrock 鉴权信息"
       },
       "Google": {
-        "description": "Enter your Google API Key to start the session. The app will not store your API Key.",
-        "title": "Use custom Google API Key"
+        "description": "输入你的 Google API Key 即可开始会话。应用不会记录你的 API Key",
+        "title": "使用自定义 Google API Key"
       },
       "Mistral": {
-        "description": "Enter your Mistral AI API Key to start the session. The application will not store your API Key.",
-        "title": "Use Custom Mistral AI API Key"
+        "description": "输入你的 Mistral AI API Key 即可开始会话。应用不会记录你的 API Key",
+        "title": "使用自定义 Mistral AI API Key"
       },
       "Moonshot": {
-        "description": "Enter your Moonshot AI API Key to start the session. The app will not store your API Key.",
-        "title": "Use Custom Moonshot AI API Key"
+        "description": "输入你的 Moonshot AI API Key 即可开始会话。应用不会记录你的 API Key",
+        "title": "使用自定义 Moonshot AI API Key"
       },
       "OpenAI": {
-        "addProxyUrl": "Add OpenAI proxy address (optional)",
-        "description": "Enter your OpenAI API Key to start the session. The app will not store your API Key.",
-        "title": "Use custom OpenAI API Key"
+        "addProxyUrl": "添加 OpenAI 代理地址（可选）",
+        "description": "输入你的 OpenAI API Key 即可开始会话。应用不会记录你的 API Key",
+        "title": "使用自定义 OpenAI API Key"
       },
       "Perplexity": {
-        "description": "Enter your Perplexity API Key to start the session. The app will not store your API Key.",
-        "title": "Use custom Perplexity API Key"
+        "description": "输入你的 Perplexity API Key 即可开始会话。应用不会记录你的 API Key",
+        "title": "使用自定义 Perplexity API Key"
       },
       "Zhipu": {
-        "description": "Enter your Zhipu API Key to start the session. The app will not store your API Key.",
-        "title": "Use custom Zhipu API Key"
+        "description": "输入你的 Zhipu API Key 即可开始会话。应用不会记录你的 API Key",
+        "title": "使用自定义 Zhipu API Key"
       }
     },
-    "closeMessage": "Close message",
-    "confirm": "Confirm and Retry",
+    "closeMessage": "关闭提示",
+    "confirm": "确认并重试",
     "oauth": {
-      "description": "The administrator has enabled unified login authentication. Click the button below to log in and unlock the application.",
-      "success": "Login successful",
-      "title": "Log in to your account",
-      "welcome": "Welcome!"
+      "description": "管理员已开启统一登录认证，点击下方按钮登录，即可解锁应用",
+      "success": "登录成功",
+      "title": "登录账号",
+      "welcome": "欢迎你！"
     },
     "password": {
-      "description": "The application encryption has been enabled by the administrator. Enter the application password to unlock the application. The password only needs to be filled in once.",
-      "placeholder": "Please enter password",
-      "title": "Enter Password to Unlock Application"
+      "description": "管理员已开启应用加密，输入应用密码后即可解锁应用。密码只需填写一次",
+      "placeholder": "请输入密码",
+      "title": "输入密码解锁应用"
     },
     "tabs": {
-      "apiKey": "Custom API Key",
-      "password": "Password"
+      "apiKey": "自定义 API Key",
+      "password": "密码"
     }
   }
 }

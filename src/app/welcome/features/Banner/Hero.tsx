@@ -46,7 +46,7 @@ const Hero = memo<{ mobile?: boolean; width: number }>(({width, mobile}) => {
         {/*{t('slogan.title')}*/}
       </div>
       <div className={styles.desc} style={{fontSize: size.desc}}>
-        {/*{t('slogan.desc1')}*/}
+        {t('slogan.desc1')}
       </div>
       <Link className={styles.desc2} style={{fontSize: size.desc2}} target={'_blank'}>
         @{t('slogan.desc2')}
