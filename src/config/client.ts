@@ -41,6 +41,7 @@ declare global {
 
 export const getClientConfig = () => ({
   BASE_PATH: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  BACKEND_PATH: process.env.NEXT_PUBLIC_BACKEND_PATH || '',
 
   // docs
   LOBE_CHAT_DOCS: process.env.NEXT_PUBLIC_LOBE_CHAT_DOCS,

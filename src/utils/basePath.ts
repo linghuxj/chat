@@ -1,3 +1,5 @@
 import { getClientConfig } from '@/config/client';
 
 export const withBasePath = (path: string) => getClientConfig().BASE_PATH + path;
+// Backend Path
+export const withBackendPath = (path: string) => getClientConfig().BACKEND_PATH + path;

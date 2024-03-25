@@ -1,7 +1,7 @@
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 import { transform } from 'lodash-es';
 
-import { withBasePath } from '@/utils/basePath';
+import {withBackendPath, withBasePath} from '@/utils/basePath';
 
 const mapWithBasePath = <T extends object>(apis: T): T => {
   return transform(apis, (result, value, key) => {
@@ -41,4 +41,7 @@ export const API_ENDPOINTS = mapWithBasePath({
   tts: '/api/openai/tts',
   edge: '/api/tts/edge-speech',
   microsoft: '/api/tts/microsoft-speech',
+
+  // saveMessage
+  saveMessage: () => withBackendPath(`/api/chat/message/add`)
 });

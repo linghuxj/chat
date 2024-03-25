@@ -164,6 +164,12 @@ class _MessageModel extends BaseModel {
     return data.map((element) => this.mapToChatMessage(element));
   }
 
+  async queryById(id: string) {
+    const data: DBModel<DB_Message> = await this.findById(id);
+
+    return this.mapToChatMessage(data);
+  }
+
   async count() {
     return this.table.count();
   }

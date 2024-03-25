@@ -1,10 +1,10 @@
-import { CreateMessageParams, MessageModel } from '@/database/models/message';
-import { DB_Message } from '@/database/schemas/message';
-import { ChatMessage, ChatMessageError, ChatPluginPayload } from '@/types/message';
+import {CreateMessageParams, MessageModel} from '@/database/models/message';
+import {DB_Message} from '@/database/schemas/message';
+import {ChatMessage, ChatMessageError, ChatPluginPayload} from '@/types/message';
 
 export class MessageService {
   async create(data: CreateMessageParams) {
-    const { id } = await MessageModel.create(data);
+    const {id} = await MessageModel.create(data);
 
     return id;
   }
@@ -24,7 +24,7 @@ export class MessageService {
   }
 
   async getMessages(sessionId: string, topicId?: string): Promise<ChatMessage[]> {
-    return MessageModel.query({ sessionId, topicId });
+    return MessageModel.query({sessionId, topicId});
   }
 
   async removeMessage(id: string) {
@@ -36,7 +36,7 @@ export class MessageService {
   }
 
   async updateMessageError(id: string, error: ChatMessageError) {
-    return MessageModel.update(id, { error });
+    return MessageModel.update(id, {error});
   }
 
   async removeMessages(assistantId: string, topicId?: string) {
@@ -48,7 +48,7 @@ export class MessageService {
   }
 
   async bindMessagesToTopic(topicId: string, messageIds: string[]) {
-    return MessageModel.batchUpdate(messageIds, { topicId });
+    return MessageModel.batchUpdate(messageIds, {topicId});
   }
 
   async updateMessage(id: string, message: Partial<DB_Message>) {
@@ -56,7 +56,7 @@ export class MessageService {
   }
 
   async updateMessagePlugin(id: string, plugin: ChatPluginPayload) {
-    return MessageModel.update(id, { plugin });
+    return MessageModel.update(id, {plugin});
   }
 
   async updateMessagePluginState(id: string, key: string, value: any) {
@@ -65,6 +65,10 @@ export class MessageService {
 
   async getAllMessages() {
     return MessageModel.queryAll();
+  }
+
+  async getMessageById(id: string) {
+    return MessageModel.queryById(id);
   }
 }
 

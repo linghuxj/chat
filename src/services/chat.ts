@@ -1,25 +1,25 @@
-import { PluginRequestPayload, createHeadersWithPluginSettings } from '@lobehub/chat-plugin-sdk';
-import { produce } from 'immer';
-import { merge } from 'lodash-es';
+import {PluginRequestPayload, createHeadersWithPluginSettings} from '@lobehub/chat-plugin-sdk';
+import {produce} from 'immer';
+import {merge} from 'lodash-es';
 
-import { DEFAULT_AGENT_CONFIG } from '@/const/settings';
-import { TracePayload, TraceTagMap } from '@/const/trace';
-import { ModelProvider } from '@/libs/agent-runtime';
-import { filesSelectors, useFileStore } from '@/store/file';
-import { useGlobalStore } from '@/store/global';
-import { modelProviderSelectors, preferenceSelectors } from '@/store/global/selectors';
-import { useSessionStore } from '@/store/session';
-import { agentSelectors } from '@/store/session/selectors';
-import { useToolStore } from '@/store/tool';
-import { pluginSelectors, toolSelectors } from '@/store/tool/selectors';
-import { ChatMessage } from '@/types/message';
-import type { ChatStreamPayload, OpenAIChatMessage } from '@/types/openai/chat';
-import { UserMessageContentPart } from '@/types/openai/chat';
-import { FetchSSEOptions, OnFinishHandler, fetchSSE, getMessageError } from '@/utils/fetch';
-import { createTraceHeader, getTraceId } from '@/utils/trace';
+import {DEFAULT_AGENT_CONFIG} from '@/const/settings';
+import {TracePayload, TraceTagMap} from '@/const/trace';
+import {ModelProvider} from '@/libs/agent-runtime';
+import {filesSelectors, useFileStore} from '@/store/file';
+import {useGlobalStore} from '@/store/global';
+import {modelProviderSelectors, preferenceSelectors} from '@/store/global/selectors';
+import {useSessionStore} from '@/store/session';
+import {agentSelectors} from '@/store/session/selectors';
+import {useToolStore} from '@/store/tool';
+import {pluginSelectors, toolSelectors} from '@/store/tool/selectors';
+import {ChatMessage} from '@/types/message';
+import type {ChatStreamPayload, OpenAIChatMessage} from '@/types/openai/chat';
+import {UserMessageContentPart} from '@/types/openai/chat';
+import {FetchSSEOptions, OnFinishHandler, fetchSSE, getMessageError} from '@/utils/fetch';
+import {createTraceHeader, getTraceId} from '@/utils/trace';
 
-import { createHeaderWithAuth } from './_auth';
-import { API_ENDPOINTS } from './_url';
+import {createHeaderWithAuth} from './_auth';
+import {API_ENDPOINTS} from './_url';
 
 interface FetchOptions {
   signal?: AbortSignal | undefined;
@@ -62,7 +62,7 @@ interface CreateAssistantMessageStream extends FetchSSEOptions {
 
 class ChatService {
   createAssistantMessage = async (
-    { plugins: enabledPlugins, messages, ...params }: GetChatCompletionPayload,
+    {plugins: enabledPlugins, messages, ...params}: GetChatCompletionPayload,
     options?: FetchOptions,
   ) => {
     const payload = merge(
@@ -96,18 +96,18 @@ class ChatService {
 
     const tools = shouldUseTools ? filterTools : undefined;
 
-    return this.getChatCompletion({ ...params, messages: oaiMessages, tools }, options);
+    return this.getChatCompletion({...params, messages: oaiMessages, tools}, options);
   };
 
   createAssistantMessageStream = async ({
-    params,
-    abortController,
-    onAbort,
-    onMessageHandle,
-    onErrorHandle,
-    onFinish,
-    trace,
-  }: CreateAssistantMessageStream) => {
+                                          params,
+                                          abortController,
+                                          onAbort,
+                                          onMessageHandle,
+                                          onErrorHandle,
+                                          onFinish,
+                                          trace,
+                                        }: CreateAssistantMessageStream) => {
     await fetchSSE(
       () =>
         this.createAssistantMessage(params, {
@@ -124,9 +124,9 @@ class ChatService {
   };
 
   getChatCompletion = async (params: Partial<ChatStreamPayload>, options?: FetchOptions) => {
-    const { signal } = options ?? {};
+    const {signal} = options ?? {};
 
-    const { provider = ModelProvider.OpenAI, ...res } = params;
+    const {provider = ModelProvider.OpenAI, ...res} = params;
     const payload = merge(
       {
         model: DEFAULT_AGENT_CONFIG.model,
@@ -136,10 +136,10 @@ class ChatService {
       res,
     );
 
-    const traceHeader = createTraceHeader({ ...options?.trace });
+    const traceHeader = createTraceHeader({...options?.trace});
 
     const headers = await createHeaderWithAuth({
-      headers: { 'Content-Type': 'application/json', ...traceHeader },
+      headers: {'Content-Type': 'application/json', ...traceHeader},
       provider,
     });
 
@@ -165,13 +165,13 @@ class ChatService {
     const traceHeader = createTraceHeader(this.mapTrace(options?.trace, TraceTagMap.ToolCalling));
 
     const headers = await createHeaderWithAuth({
-      headers: { ...createHeadersWithPluginSettings(settings), ...traceHeader },
+      headers: {...createHeadersWithPluginSettings(settings), ...traceHeader},
     });
 
     const gatewayURL = manifest?.gateway ?? API_ENDPOINTS.gateway;
 
     const res = await fetch(gatewayURL, {
-      body: JSON.stringify({ ...params, manifest }),
+      body: JSON.stringify({...params, manifest}),
       headers,
       method: 'POST',
       signal: options?.signal,
@@ -182,18 +182,18 @@ class ChatService {
     }
 
     const text = await res.text();
-    return { text, traceId: getTraceId(res) };
+    return {text, traceId: getTraceId(res)};
   };
 
   fetchPresetTaskResult = async ({
-    params,
-    onMessageHandle,
-    onFinish,
-    onError,
-    onLoadingChange,
-    abortController,
-    trace,
-  }: FetchAITaskResultParams) => {
+                                   params,
+                                   onMessageHandle,
+                                   onFinish,
+                                   onError,
+                                   onLoadingChange,
+                                   abortController,
+                                   trace,
+                                 }: FetchAITaskResultParams) => {
     const errorHandle = (error: Error, errorContent?: any) => {
       onLoadingChange?.(false);
       if (abortController?.signal.aborted) {
@@ -225,10 +225,10 @@ class ChatService {
   };
 
   private processMessages = ({
-    messages,
-    tools,
-    model,
-  }: {
+                               messages,
+                               tools,
+                               model,
+                             }: {
     messages: ChatMessage[];
     model: string;
     tools?: string[];
@@ -252,9 +252,9 @@ class ChatService {
       }
 
       return [
-        { text: m.content, type: 'text' },
+        {text: m.content, type: 'text'},
         ...imageList.map(
-          (i) => ({ image_url: { detail: 'auto', url: i.url }, type: 'image_url' }) as const,
+          (i) => ({image_url: {detail: 'auto', url: i.url}, type: 'image_url'}) as const,
         ),
       ] as UserMessageContentPart[];
     };
@@ -262,16 +262,16 @@ class ChatService {
     const postMessages = messages.map((m): OpenAIChatMessage => {
       switch (m.role) {
         case 'user': {
-          return { content: getContent(m), role: m.role };
+          return {content: getContent(m), role: m.role};
         }
 
         case 'function': {
           const name = m.plugin?.identifier as string;
-          return { content: m.content, name, role: m.role };
+          return {content: m.content, name, role: m.role};
         }
 
         default: {
-          return { content: m.content, role: m.role };
+          return {content: m.content, role: m.role};
         }
       }
     });
@@ -304,7 +304,7 @@ class ChatService {
 
     const enabled = preferenceSelectors.userAllowTrace(useGlobalStore.getState());
 
-    if (!enabled) return { enabled: false };
+    if (!enabled) return {enabled: false};
 
     return {
       ...trace,
