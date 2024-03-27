@@ -40,16 +40,16 @@ const Hero = memo<{ mobile?: boolean; width: number }>(({width, mobile}) => {
       {/*>*/}
       {/*  {mobile ? <LogoThree size={size.logo} /> : <LogoSpline height={'100%'} width={'100%'} />}*/}
       {/*</Flexbox>*/}
-      <div className={styles.title} style={{fontSize: size.title}}>
-        <strong style={mobile ? {fontSize: '1.4em'} : {}}>ChatBank</strong>
-        {/*{mobile ? <br /> : ' '}*/}
-        {/*{t('slogan.title')}*/}
-      </div>
       <div className={styles.desc} style={{fontSize: size.desc}}>
         {t('slogan.desc')}
       </div>
       <div className={styles.desc} style={{fontSize: size.desc}}>
         {t('slogan.desc1')}
+      </div>
+      <div className={styles.title} style={{fontSize: size.title}}>
+        <strong style={mobile ? {fontSize: '1.4em'} : {}}>ChatBank</strong>
+        {/*{mobile ? <br /> : ' '}*/}
+        {/*{t('slogan.title')}*/}
       </div>
       <Link className={styles.desc2} style={{fontSize: size.desc2}} target={'_blank'}>
         @{t('slogan.desc2')}
