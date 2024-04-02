@@ -73,6 +73,8 @@ class ChatService {
       },
       params,
     );
+    const latestMsgId = messages.at(-1)?.id;
+    console.log("latestMsgId", latestMsgId);
     // ============  1. preprocess messages   ============ //
 
     const oaiMessages = this.processMessages({
@@ -96,7 +98,7 @@ class ChatService {
 
     const tools = shouldUseTools ? filterTools : undefined;
 
-    return this.getChatCompletion({...params, messages: oaiMessages, tools}, options);
+    return this.getChatCompletion({...params, messages: oaiMessages, tools, latestMsgId}, options);
   };
 
   createAssistantMessageStream = async ({
@@ -126,7 +128,7 @@ class ChatService {
   getChatCompletion = async (params: Partial<ChatStreamPayload>, options?: FetchOptions) => {
     const {signal} = options ?? {};
 
-    const {provider = ModelProvider.OpenAI, ...res} = params;
+    const {provider = ModelProvider.OpenAI, latestMsgId, ...res} = params;
     const payload = merge(
       {
         model: DEFAULT_AGENT_CONFIG.model,
@@ -143,12 +145,16 @@ class ChatService {
       provider,
     });
 
-    return fetch(API_ENDPOINTS.chat(provider), {
-      body: JSON.stringify(payload),
+    while (await this.fetchMessageManual(latestMsgId) != 200 && !signal?.aborted) {
+      await this.sleep(1000);
+    }
+
+    return fetch(API_ENDPOINTS.fetchMessage(latestMsgId), {
       headers,
-      method: 'POST',
+      method: 'GET',
       signal,
     });
+    // Get the current messages to generate AI response
   };
 
   /**
@@ -312,6 +318,17 @@ class ChatService {
       tags: [tag, ...(trace?.tags || []), ...tags].filter(Boolean) as string[],
       userId: useGlobalStore.getState().userId,
     };
+  };
+
+  private fetchMessageManual = async (id: string | undefined): Promise<number> => {
+    if (!id) return -1;
+    const resp = await fetch(API_ENDPOINTS.fetchMessage(id))
+    console.log("resp code", resp.status);
+    return resp.status;
+  }
+
+  private sleep = async (ms: number): Promise<void> => {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 }
 

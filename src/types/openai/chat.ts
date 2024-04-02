@@ -87,6 +87,10 @@ export interface ChatStreamPayload {
    * @default 1
    */
   top_p?: number;
+  /**
+   * 最后聊天内容id
+   */
+  latestMsgId?: string;
 }
 
 export interface ChatCompletionFunctions {

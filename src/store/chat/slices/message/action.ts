@@ -555,7 +555,7 @@ export const chatMessage: StateCreator<
     await refreshMessages();
 
     // 保存回复的消息
-    messageService.getMessageById(id).then(message => saveMessage(message));
+    // messageService.getMessageById(id).then(message => saveMessage(message));
   },
 
   createSmoothMessage: (id) => {

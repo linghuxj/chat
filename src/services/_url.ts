@@ -43,5 +43,6 @@ export const API_ENDPOINTS = mapWithBasePath({
   microsoft: '/api/tts/microsoft-speech',
 
   // saveMessage
-  saveMessage: () => withBackendPath(`/api/chat/message/add`)
+  saveMessage: () => withBackendPath(`/api/chat/message/add`),
+  fetchMessage: (id:string|undefined) => withBackendPath(`/api/chat/message/${id}`)
 });
