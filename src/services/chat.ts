@@ -322,8 +322,7 @@ class ChatService {
 
   private fetchMessageManual = async (id: string | undefined): Promise<number> => {
     if (!id) return -1;
-    const resp = await fetch(API_ENDPOINTS.fetchMessage(id))
-    console.log("resp code", resp.status);
+    const resp = await fetch(API_ENDPOINTS.fetchMessage(id));
     return resp.status;
   }
 
