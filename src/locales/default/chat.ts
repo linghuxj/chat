@@ -40,6 +40,7 @@ export default {
   regenerate: '重新生成',
   roleAndArchive: '角色与记录',
   searchAgentPlaceholder: '搜索助手和对话...',
+  searchRequirementsPlaceholder: '搜索商机...',
   sendPlaceholder: '输入聊天内容...',
   sessionGroup: {
     config: '分组管理',

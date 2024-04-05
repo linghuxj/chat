@@ -1,18 +1,19 @@
-import { DraggablePanel, DraggablePanelContainer } from '@lobehub/ui';
-import { createStyles } from 'antd-style';
+import {DraggablePanel, DraggablePanelContainer} from '@lobehub/ui';
+import {createStyles} from 'antd-style';
 // import dynamic from 'next/dynamic';
-import { memo } from 'react';
+import {memo} from 'react';
 
 // import TopicListContent from '@/app/chat/features/TopicListContent';
 import SafeSpacing from '@/components/SafeSpacing';
-import { CHAT_SIDEBAR_WIDTH } from '@/const/layoutTokens';
-import { useGlobalStore } from '@/store/global';
+import {CHAT_SIDEBAR_WIDTH} from '@/const/layoutTokens';
+import {useGlobalStore} from '@/store/global';
+import RequirementsNode from "@/app/chat/(desktop)/features/SideBar/RequirementsNode";
 // import { useSessionStore } from '@/store/session';
 // import { sessionSelectors } from '@/store/session/selectors';
 
 // const SystemRole = dynamic(() => import('./SystemRole'));
 
-const useStyles = createStyles(({ css, token }) => ({
+const useStyles = createStyles(({css, token}) => ({
   content: css`
     display: flex;
     flex-direction: column;
@@ -28,7 +29,7 @@ const useStyles = createStyles(({ css, token }) => ({
 }));
 
 const Desktop = memo(() => {
-  const { styles } = useStyles();
+  const {styles} = useStyles();
   const [showAgentSettings, toggleConfig] = useGlobalStore((s) => [
     s.preference.showChatSideBar,
     s.toggleChatSideBar,
@@ -60,6 +61,7 @@ const Desktop = memo(() => {
         <SafeSpacing />
         {/*{!isInbox && <SystemRole />}*/}
         {/*<TopicListContent />*/}
+        <RequirementsNode />
       </DraggablePanelContainer>
     </DraggablePanel>
   );
