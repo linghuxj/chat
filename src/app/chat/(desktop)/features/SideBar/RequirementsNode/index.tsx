@@ -1,53 +1,91 @@
-import {ActionIcon, primaryColors} from '@lobehub/ui';
-import {Button, Steps, Tag} from 'antd';
-import {memo} from "react";
+import {Button, Empty, Form, Input, Skeleton, Steps, Tag} from 'antd';
+import {memo, useState} from "react";
 import {Flexbox} from "react-layout-kit";
+import {useCustomStore} from "@/store/custom";
+import {PoweroffOutlined} from "@ant-design/icons";
+import {Modal} from "@lobehub/ui";
+import {customService} from "@/services/custom";
+import {useChatStore} from "@/store/chat";
 
 const RequirementsNode = memo(() => {
-  return <Flexbox style={{padding: '16px'}}>
-    <Steps
-      direction="vertical"
-      items={[
-        {
-          title: <Flexbox horizontal align={'center'} justify={'center'} gap={8}>
-            <div>选址与物业获取</div>
+  const [open, setOpen] = useState(false);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [isLogin, login, initPoint, points, requestPoints] = useCustomStore((s) =>
+    [s.isLogin, s.login, s.initPoints, s.points, s.getPoints])
+  const [sessionId, topicId] = useChatStore((s) => [s.activeId, s.activeTopicId])
+
+  const [form] = Form.useForm();
+
+  const handleOk = () => {
+    form.validateFields().then(async () => {
+      setConfirmLoading(true);
+      login(form.getFieldsValue()).then(() => {
+        requestPoints(sessionId, topicId).then();
+        setOpen(false);
+      }).finally(() => setConfirmLoading(false))
+    })
+  };
+
+  if (!isLogin) return (<>
+    <Modal
+      title="用户登录"
+      open={open}
+      onOk={handleOk}
+      confirmLoading={confirmLoading}
+      onCancel={() => setOpen(false)}
+    >
+      <Form
+        form={form}
+        labelCol={{flex: '80px'}}
+        labelAlign="right"
+        labelWrap
+        wrapperCol={{flex: 1}}
+        colon={false}
+        style={{maxWidth: 480}}
+      >
+        <Form.Item label="手机号" name="username" rules={[{required: true}, {type: 'string', len: 11}]}>
+          <Input maxLength={11} type={'number'} />
+        </Form.Item>
+        <Form.Item label="验证码" name="code" rules={[{required: true}, {type: 'string', len: 4}]}>
+          <Input maxLength={4} type={'number'} />
+        </Form.Item>
+      </Form>
+    </Modal>
+    <Flexbox align={'center'} justify={'center'} height={'100%'}>
+      <Empty
+        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+        imageStyle={{height: 60}}
+        description={<span>登录查看更多内容</span>}
+      >
+        <Button type="primary" icon={<PoweroffOutlined />} onClick={() => setOpen(true)}>点击登录</Button>
+      </Empty>
+    </Flexbox>
+  </>);
+
+  return !initPoint ? <Flexbox style={{padding: '16px'}}>
+      <Skeleton loading={true} active avatar />
+    </Flexbox> :
+    (points.length > 0 ? <Flexbox style={{padding: '16px'}}>
+      <Steps
+        direction="vertical"
+        items={points.map((point) => {
+          const node1 = <Flexbox horizontal align={'center'} justify={'center'} gap={8}>
+            <div>{point.title}</div>
             <Tag color={'blue'}>需求</Tag>
-          </Flexbox>,
-          description: <Flexbox>
-            <div>1. 选址考察：考虑地段（交通便利性、周边配套设施、景点距离等）、建筑条件（面积、楼层、结构适应性、消防要求等）、租赁/购买成本等因素，选择合适的物业。</div>
-            <div>2. 合同谈判与签署：与业主就租金、租期、装修期、续约条款等细节进行协商，签订租赁或购买合同。</div>
-            <Button>查看建议方案（10+）</Button>
-          </Flexbox>,
-          status: 'process',
-        },
-        {
-          title: <Flexbox horizontal align={'center'} justify={'center'} gap={8}>
-            <div>设计与装修</div>
-            <Tag color={'blue'}>需求</Tag>
-          </Flexbox>,
-          description: <Flexbox>
-            <div>1. 概念设计：根据酒店定位聘请专业设计团队进行平面布局、室内装饰、品牌形象等设计。</div>
-            <div>2. 施工图绘制与工程招标：完成详细施工图纸，进行工程预算，发布招标公告，选择资质合格、经验丰富的施工单位</div>
-            <div>3. 装修施工与监工：确保施工按设计方案和工期进行，严格把控工程质量与安全。</div>
+          </Flexbox>
+          const desc = <Flexbox>
+            {point.content}
             <Button disabled={true}>暂无建议方案</Button>
-          </Flexbox>,
-          status: 'process',
-        },
-        {
-          title: '需求3',
-          description: '已确认',
-          status: 'finish',
-        },
-        {
-          title: <Flexbox horizontal align={'center'} justify={'center'} gap={8}>
-            <div>可提供服务或业务</div>
-            <Tag color={'green'}>供给</Tag>
-          </Flexbox>,
-          status: 'process',
-        },
-      ]}
-    />
-  </Flexbox>
+          </Flexbox>
+          return ({key: point.title, title: node1, description: desc, status: 'process'})
+        })}
+      />
+    </Flexbox> : <Flexbox align={'center'} justify={'center'} height={'100%'}>
+      <Empty
+        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+        imageStyle={{height: 60}}
+        description={<span>暂无商机内容</span>} />
+    </Flexbox>)
 });
 
 export default RequirementsNode;

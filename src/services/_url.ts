@@ -47,15 +47,15 @@ export const API_BACKEND_ENDPOINTS = mapWithBasePath({
   // saveMessage
   saveMessage: () => withBackendPath(`/api/chat/message/add`),
   // login
-  login: () => withBackendPath(`/api/login`),
+  login: () => withBackendPath(`/api/user/login`),
   // savePoints
-  savePoints: () => withBackendPath(`/api/points`),
+  savePoints: () => withBackendPath(`/api/chat/require/add`),
   // getPoints
-  getPoints: () => withBackendPath(`/api/points`),
+  getPoints: () => withBackendPath(`/api/chat/require/list`),
   // pointDetail
-  pointDetail: (id:number) => withBackendPath(`/api/points/${id}`),
+  pointDetail: (id:number) => withBackendPath(`/api/chat/require/${id}`),
   // getComments
   getComments: () => withBackendPath(`/api/points/comments`),
   // getPlans
-  getPlans: () => withBackendPath(`/api/points/plans`),
+  getPlans: () => withBackendPath(`/api/chat/require/summary/list`),
 })

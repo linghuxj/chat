@@ -12,6 +12,8 @@ import {LobeAgentSession} from '@/types/session';
 import SessionItem from './Item';
 import SkeletonList from './SkeletonList';
 import {useRouter} from "next/navigation";
+import {useCustomStore} from "@/store/custom";
+import {useChatStore} from "@/store/chat";
 
 const useStyles = createStyles(
   ({css}) => css`
@@ -26,11 +28,13 @@ interface SessionListProps {
 }
 
 const SessionList = memo<SessionListProps>(({dataSource, groupId, showAddButton = true}) => {
-  const [activeSession, switchSession, isInit] = useSessionStore((s) => [
+  const [activeSession, switchSession, isInit,] = useSessionStore((s) => [
     s.activeSession,
     s.switchSession,
     sessionSelectors.isSessionListInit(s),
   ]);
+  const getPoints = useCustomStore((s) => s.getPoints)
+  const topicId = useChatStore((s) => s.activeTopicId)
   const {styles} = useStyles();
   const router = useRouter();
 
@@ -48,6 +52,7 @@ const SessionList = memo<SessionListProps>(({dataSource, groupId, showAddButton 
             e.preventDefault();
             if (mobile) switchSession(id, router);
             else activeSession(id);
+            getPoints(id, topicId);
           }}
         >
           <SessionItem id={id} />

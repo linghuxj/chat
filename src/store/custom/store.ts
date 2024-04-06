@@ -3,14 +3,14 @@ import {createCustomAction, StoreAction} from "./action";
 import type {StoreState} from "./initialState";
 import {initialState} from "./initialState";
 import {createWithEqualityFn} from "zustand/traditional";
-import {devtools, persist, PersistOptions} from "zustand/middleware";
+import {devtools, persist, PersistOptions, subscribeWithSelector} from "zustand/middleware";
 import {isDev} from "@/utils/env";
 import {shallow} from "zustand/shallow";
 import {createHyperStorage} from "@/store/middleware/createHyperStorage";
 
 export type Store = StoreAction & StoreState;
 
-const BACKEND_CUSTOM = 'CHAT_CUSTOM';
+const BACKEND_CUSTOM = 'ChatBank_Custom';
 
 const createStore: StateCreator<Store, [['zustand/devtools', never]]> = (...parameters) => ({
   ...initialState,
@@ -22,7 +22,12 @@ const persistOptions: PersistOptions<Store> = {
 
   skipHydration: true,
 
-  storage: createHyperStorage({}),
+  storage: createHyperStorage({
+    localStorage: {
+      dbName: 'LobeHub',
+      selectors: ['loginToken', 'isLogin'],
+    },
+  }),
 
   version: 0,
 };
@@ -32,7 +37,7 @@ export const useCustomStore = createWithEqualityFn<Store>()(
     devtools(createStore, {
       name: BACKEND_CUSTOM + (isDev ? '_DEV' : ''),
     }),
-    persistOptions,
+    persistOptions
   ),
   shallow,
 );

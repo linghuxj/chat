@@ -1,7 +1,6 @@
 import {API_BACKEND_ENDPOINTS} from "@/services/_url";
 import {ChatMessage} from "@/types/message";
 import {getMessageError} from "@/utils/fetch";
-import {LobeChatAgentsMarketIndex} from "@/types/market";
 import {Login} from "@/types/custom";
 import {customSelectors, useCustomStore} from "@/store/custom";
 
@@ -61,9 +60,11 @@ class CustomService {
   }
 
   // 获取AI解析的商机点列表
-  getPoints = async () => {
+  getPoints = async (sessionId: string, topicId: string | undefined): Promise<any> => {
     const loginToken = customSelectors.getLoginToken(useCustomStore.getState());
-    const res = await fetch(API_BACKEND_ENDPOINTS.getPoints(), {
+    let param = `?sessionId=${sessionId}`;
+    if (topicId) param += `&topicId=${topicId}`;
+    const res = await fetch(API_BACKEND_ENDPOINTS.getPoints() + param, {
       method: 'GET',
       headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loginToken}
     })
