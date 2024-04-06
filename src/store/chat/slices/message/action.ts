@@ -9,6 +9,7 @@ import {LOADING_FLAT, isFunctionMessageAtStart, testFunctionMessageAtEnd} from '
 import {TraceEventType, TraceNameMap} from '@/const/trace';
 import {CreateMessageParams} from '@/database/models/message';
 import {chatService} from '@/services/chat';
+import {customService} from '@/services/custom';
 import {messageService} from '@/services/message';
 import {topicService} from '@/services/topic';
 import {traceService} from '@/services/trace';
@@ -112,9 +113,6 @@ export interface ChatMessageAction {
   internalUpdateMessageContent: (id: string, content: string) => Promise<void>;
   internalResendMessage: (id: string, traceId?: string) => Promise<void>;
   internalTraceMessage: (id: string, payload: TraceEventPayloads) => Promise<void>;
-
-  // 保存对话信息到后台
-  saveMessage: (message: ChatMessage | undefined) => void;
 }
 
 const getAgentConfig = () => agentSelectors.currentAgentConfig(useSessionStore.getState());
@@ -207,7 +205,7 @@ export const chatMessage: StateCreator<
     await coreProcessMessage(contextMessages, latestMsg.id, traceId);
   },
   sendMessage: async ({message, files, onlyAddUserMessage}) => {
-    const {coreProcessMessage, activeTopicId, activeId, saveMessage} = get();
+    const {coreProcessMessage, activeTopicId, activeId} = get();
     if (!activeId) return;
 
     const fileIdList = files?.map((f) => f.id);
@@ -236,7 +234,7 @@ export const chatMessage: StateCreator<
 
     const latestMsg = messages.filter(s => s.role == 'user').at(-1);
     // 保存用户提问的消息
-    saveMessage(latestMsg);
+    customService.saveMessage(latestMsg);
 
     await coreProcessMessage(messages, id);
 
@@ -544,7 +542,7 @@ export const chatMessage: StateCreator<
     }
   },
   internalUpdateMessageContent: async (id, content) => {
-    const {dispatchMessage, refreshMessages, saveMessage} = get();
+    const {dispatchMessage, refreshMessages} = get();
 
     // Due to the async update method and refresh need about 100ms
     // we need to update the message content at the frontend to avoid the update flick
@@ -555,7 +553,7 @@ export const chatMessage: StateCreator<
     await refreshMessages();
 
     // 保存回复的消息
-    messageService.getMessageById(id).then(message => saveMessage(message));
+    messageService.getMessageById(id).then(message => customService.saveMessage(message));
   },
 
   createSmoothMessage: (id) => {
@@ -636,15 +634,5 @@ export const chatMessage: StateCreator<
         .traceEvent({traceId, observationId, content: message.content, ...payload})
         .catch();
     }
-  },
-
-  saveMessage: async (message) => {
-    if (!message) return;
-
-    fetch(API_ENDPOINTS.saveMessage(), {
-      body: JSON.stringify(message),
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'}
-    }).then().catch(e => console.error(e))
-  },
+  }
 });

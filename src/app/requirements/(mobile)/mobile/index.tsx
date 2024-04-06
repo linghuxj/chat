@@ -40,7 +40,6 @@ const Setting = memo(() => {
       <div style={{width: '100%'}}>
         <SettingList />
         <div className={styles.divider} />
-        {/*<ExtraList />*/}
         <Center style={{paddingInline: 64}}>
           <Divider>
             <span className={styles.footer}>ChatBank v{CURRENT_VERSION}</span>

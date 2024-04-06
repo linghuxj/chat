@@ -114,9 +114,9 @@
       "identifier": "ID-0004",
       "meta": {
         "avatar": "\uD83D\uDCDD",
-        "description": "一个好的想法，即可实现低风险创业",
+        "description": "聘请专业设计团队，施工招标与监督",
         "tags": [],
-        "title": "创投智能服务平台"
+        "title": "设计与装修"
       },
       "schemaVersion": 1
     },
@@ -127,9 +127,9 @@
       "identifier": "ID-0005",
       "meta": {
         "avatar": "\uD83D\uDCDD",
-        "description": "磷石膏改性变成化肥项目",
+        "description": "物资采购：采购家具、电器、布草、餐具、IT系统、PMS等",
         "tags": [],
-        "title": "磷石膏改性变成化肥项目"
+        "title": "采购与招聘"
       },
       "schemaVersion": 1
     }
