@@ -109,7 +109,14 @@ class CustomService {
 
   // 获取商机推荐解决方案列表信息
   getPlans = async (pointId: number) => {
+    const res = await fetch(API_BACKEND_ENDPOINTS.getPlans() + `?requireId=${pointId}`, {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'}
+    })
 
+    if (!res.ok) throw await getMessageError(res);
+
+    return res.json();
   }
 }
 

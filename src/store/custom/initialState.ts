@@ -1,4 +1,4 @@
-import {Comment, Point} from "@/types/custom";
+import {Comment, Plan, Point} from "@/types/custom";
 
 export interface StoreState {
   activeId: number,
@@ -10,6 +10,8 @@ export interface StoreState {
   initPoint: boolean,
   comments: Comment[],
   initComments: boolean,
+  plans: Plan[],
+  initPlans: boolean,
 }
 
 export const initialState: StoreState = {
@@ -26,4 +28,6 @@ export const initialState: StoreState = {
   initPoint: false,
   comments: [],
   initComments: false,
+  plans: [],
+  initPlans: false,
 }

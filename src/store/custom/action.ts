@@ -18,6 +18,7 @@ export interface StoreAction {
   pointDetail: (id: number) => Promise<void>,
   getComments: (id: number) => Promise<void>,
   addComment: (content: string, id: number) => Promise<void>,
+  getPlans: (id: number) => Promise<void>,
 }
 
 export const createCustomAction: StateCreator<
@@ -34,6 +35,7 @@ export const createCustomAction: StateCreator<
     // 切换请求详情
     get().pointDetail(id).then();
     get().getComments(id).then();
+    get().getPlans(id).then();
   },
   switchPoint: (id, router) => {
     const isMobile = useSessionStore((s) => s.isMobile);
@@ -73,5 +75,10 @@ export const createCustomAction: StateCreator<
     if (resp.code == 200) {
       get().getComments(id).then();
     }
+  },
+  getPlans: async (id) => {
+    set({initPlans: false});
+    const resp = await customService.getPlans(id);
+    set({initPlans: true, plans: resp.data})
   }
 })

@@ -25,3 +25,18 @@ export interface Comment {
   ipAddress: string,
   liked: number,
 }
+
+export interface Plan {
+  id: number,
+  mainImage: string,
+  tag: string,
+  content: string,
+  amount: number,
+  createTime: string,
+  user: {
+    id: number,
+    username: string,
+    avatar: string,
+  },
+  companyName: string,
+}
