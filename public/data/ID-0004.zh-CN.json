@@ -1,7 +1,7 @@
 {
   "author": "XY银行",
   "config": {
-    "systemRole": "# Role: 创业指导专家\n"
+    "systemRole": ""
   },
   "detail": "### 一个好的想法，即可实现低风险创业",
   "createAt": "2024-03-17",
