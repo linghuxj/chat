@@ -1,6 +1,6 @@
 import {MobileChatInputArea, MobileChatSendButton} from '@lobehub/ui';
 import {useTheme} from 'antd-style';
-import {memo, useState} from 'react';
+import {memo, useCallback, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
 // import ActionBar from '@/features/ChatInput/ActionBar';
@@ -15,9 +15,8 @@ import {useCustomStore} from "@/store/custom";
 const ChatInputMobileLayout = memo(() => {
   const {t} = useTranslation('chat');
   const theme = useTheme();
-  const {ref, onSend, loading, value, onInput, onStop, expand, setExpand} = useChatInput();
-  const [isLogin, login] = useCustomStore((s) => [s.isLogin, s.login]);
-  const [open, setOpen] = useState(false);
+  const {ref, onSend, loading, value, onInput, onStop, expand, setExpand, isLogin, open, setOpen} = useChatInput();
+  const login = useCustomStore((s) => s.login);
   const [confirmLoading, setConfirmLoading] = useState(false);
 
   const [form] = Form.useForm();
@@ -30,11 +29,6 @@ const ChatInputMobileLayout = memo(() => {
       }).finally(() => setConfirmLoading(false))
     })
   };
-
-  const send = () => {
-    if (!isLogin) setOpen(true);
-    else onSend();
-  }
 
   return (
     <>
@@ -70,7 +64,7 @@ const ChatInputMobileLayout = memo(() => {
         expand={expand}
         loading={loading}
         onInput={onInput}
-        onSend={send}
+        onSend={onSend}
         placeholder={t('sendPlaceholder')}
         ref={ref}
         setExpand={setExpand}
