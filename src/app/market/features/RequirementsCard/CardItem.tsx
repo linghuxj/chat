@@ -1,5 +1,5 @@
 import {Typography} from 'antd';
-import {useThemeMode} from 'antd-style';
+import {useResponsive, useThemeMode} from 'antd-style';
 import {memo, useRef} from 'react';
 import {Flexbox} from 'react-layout-kit';
 
@@ -8,6 +8,7 @@ import {useStyles} from '../AgentCard/style';
 import {useRouter} from "next/navigation";
 import {Point} from "@/types/custom";
 import {useCustomStore} from "@/store/custom";
+import {POINT_URL} from "@/const/url";
 
 const {Paragraph} = Typography;
 
@@ -20,9 +21,11 @@ const RequirementsCardItem = memo<Point>((point) => {
 
   const {id, title, content} = point;
 
+  const {mobile} = useResponsive();
+
   const toRequirements = (pointId: number) => {
     activePoint(pointId)
-    router.push(`/requirements?id=${pointId}`);
+    router.push(POINT_URL(pointId, mobile));
   }
 
   return (

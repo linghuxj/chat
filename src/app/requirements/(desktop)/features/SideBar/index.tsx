@@ -5,7 +5,7 @@ import {memo} from 'react';
 import SafeSpacing from '@/components/SafeSpacing';
 import {CHAT_SIDEBAR_WIDTH, REQUIREMENTS_SIDEBAR_WIDTH} from '@/const/layoutTokens';
 import {useGlobalStore} from '@/store/global';
-import Solution from "./Solution";
+import Solution from "../../../features/Solution";
 
 const useStyles = createStyles(({css, token}) => ({
   content: css`

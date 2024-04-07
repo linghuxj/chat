@@ -34,7 +34,7 @@ const SessionList = memo(() => {
           href={POINT_URL(point.id, mobile)}
           onClick={(e) => {
             e.preventDefault();
-            if (mobile) switchPoint(point.id, router);
+            if (mobile) switchPoint(point.id, router, mobile);
             else activePoint(point.id);
           }}
         >

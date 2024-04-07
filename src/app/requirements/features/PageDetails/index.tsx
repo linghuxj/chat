@@ -48,11 +48,11 @@ const PageDetails = memo(() => {
 
   return (
     <>
-      <Flexbox gap={16} style={{padding: '16px'}}>
+      <Flexbox gap={16} style={{padding: '16px', width: '100%'}}>
         <Center style={{fontSize: '24px', fontWeight: '600'}}>{pointDetail.title}</Center>
         {pointDetail.content}
         <TagList />
-        <Flexbox gap={24} horizontal style={{marginTop: '32px'}}>
+        <Flexbox gap={8} horizontal style={{marginTop: '32px'}}>
           <Button type="primary" icon={<FireOutlined />}>
             需要 20
           </Button>

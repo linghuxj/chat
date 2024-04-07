@@ -7,7 +7,7 @@ import {memo} from 'react';
 import SafeSpacing from '@/components/SafeSpacing';
 import {CHAT_SIDEBAR_WIDTH} from '@/const/layoutTokens';
 import {useGlobalStore} from '@/store/global';
-import RequirementsNode from "@/app/chat/(desktop)/features/SideBar/RequirementsNode";
+import RequirementsNode from "src/app/chat/features/RequirementsNode";
 // import { useSessionStore } from '@/store/session';
 // import { sessionSelectors } from '@/store/session/selectors';
 

@@ -11,7 +11,7 @@ const n = setNamespace('custom');
 
 export interface StoreAction {
   activePoint: (id: number) => void;
-  switchPoint: (id: number, router?: AppRouterInstance) => void;
+  switchPoint: (id: number, router?: AppRouterInstance, isMobile?: boolean) => void;
   login: (param: any) => Promise<void>,
   getPoints: (sessionId: string | undefined | null, topicId: string | undefined | null) => Promise<void>,
   getAllPoint: () => Promise<void>,
@@ -37,9 +37,7 @@ export const createCustomAction: StateCreator<
     get().getComments(id).then();
     get().getPlans(id).then();
   },
-  switchPoint: (id, router) => {
-    const isMobile = useSessionStore((s) => s.isMobile);
-
+  switchPoint: (id, router, isMobile = false) => {
     get().activePoint(id);
 
     // TODO: 后续可以把 router 移除
