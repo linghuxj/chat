@@ -1,10 +1,10 @@
 import urlJoin from 'url-join';
 
-import { getClientConfig } from '@/config/client';
-import { withBasePath } from '@/utils/basePath';
+import {getClientConfig} from '@/config/client';
+import {withBasePath} from '@/utils/basePath';
 
 import pkg from '../../package.json';
-import { INBOX_SESSION_ID } from './session';
+import {INBOX_SESSION_ID} from './session';
 
 export const OFFICIAL_URL = 'https://chat-preview.lobehub.com/';
 
@@ -13,7 +13,7 @@ export const getCanonicalUrl = (path: string) => urlJoin(OFFICIAL_URL, path);
 export const GITHUB = pkg.homepage;
 export const CHANGELOG = urlJoin(GITHUB, 'blob/master/CHANGELOG.md');
 
-const { LOBE_CHAT_DOCS } = getClientConfig();
+const {LOBE_CHAT_DOCS} = getClientConfig();
 
 export const DOCUMENTS = !!LOBE_CHAT_DOCS ? '/docs' : 'https://chat-docs.lobehub.com';
 
@@ -36,5 +36,8 @@ export const AGENTS_INDEX_GITHUB_ISSUE = urlJoin(AGENTS_INDEX_GITHUB, 'issues/ne
 
 export const SESSION_CHAT_URL = (id: string = INBOX_SESSION_ID, mobile?: boolean) =>
   mobile ? `/chat/mobile?session=${id}` : `/chat?session=${id}`;
+
+export const POINT_URL = (id: number, mobile?: boolean) =>
+  mobile ? `/requirements/mobile?id=${id}` : `/requirements?id=${id}`;
 
 export const imageUrl = (filename: string) => withBasePath(`/images/${filename}`);

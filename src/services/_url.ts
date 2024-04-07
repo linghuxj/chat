@@ -55,7 +55,9 @@ export const API_BACKEND_ENDPOINTS = mapWithBasePath({
   // pointDetail
   pointDetail: (id:number) => withBackendPath(`/api/chat/require/${id}`),
   // getComments
-  getComments: () => withBackendPath(`/api/points/comments`),
+  getComments: () => withBackendPath(`/api/chat/require/plan/list`),
+  // addComment
+  addComment: () => withBackendPath(`/api/chat/require/plan/add`),
   // getPlans
   getPlans: () => withBackendPath(`/api/chat/require/summary/list`),
 })

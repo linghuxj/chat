@@ -12,3 +12,16 @@ export interface Point {
   title: string,
   content: string
 }
+
+export interface Comment {
+  id: number,
+  content: string,
+  user: {
+    id: number,
+    username: string,
+    avatar: string,
+  },
+  createTime: string,
+  ipAddress: string,
+  liked: number,
+}

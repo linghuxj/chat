@@ -12,22 +12,27 @@ import PageTitle from '../features/PageTitle';
 import PageHeader from './features/PageHeader';
 import SideBar from './features/SideBar';
 import Layout from './layout.desktop';
+import {useCustomStore} from "@/store/custom";
 
 const Mobile: FC = dynamic(() => import('../(mobile)'), {
   loading: MobileSwitchLoading,
   ssr: false,
 }) as FC;
 
-const DesktopPage = memo(() => (
-  <ResponsiveContainer Mobile={Mobile}>
-    <Layout>
-      <PageTitle />
-      <PageHeader />
-      <Flexbox flex={1} height={'calc(100% - 64px)'} horizontal>
-        <Conversation />
-        <SideBar />
-      </Flexbox>
-    </Layout>
-  </ResponsiveContainer>
-));
+const DesktopPage = memo(() => {
+    const getPoints = useCustomStore((s) => s.getAllPoint);
+    getPoints();
+
+    return <ResponsiveContainer Mobile={Mobile}>
+      <Layout>
+        <PageTitle />
+        <PageHeader />
+        <Flexbox flex={1} height={'calc(100% - 64px)'} horizontal>
+          <Conversation />
+          <SideBar />
+        </Flexbox>
+      </Layout>
+    </ResponsiveContainer>
+  }
+);
 export default DesktopPage;

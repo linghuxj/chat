@@ -1,13 +1,14 @@
-import { DraggablePanelBody } from '@lobehub/ui';
-import { createStyles } from 'antd-style';
-import { memo } from 'react';
+import {DraggablePanelBody} from '@lobehub/ui';
+import {createStyles} from 'antd-style';
+import {memo} from 'react';
 
 import FolderPanel from '@/features/FolderPanel';
 
 import SessionListContent from '../../features/SessionListContent';
 import Header from './SessionHeader';
+import {useCustomStore} from "@/store/custom";
 
-const useStyles = createStyles(({ stylish, css, cx }) =>
+const useStyles = createStyles(({stylish, css, cx}) =>
   cx(
     stylish.noScrollbar,
     css`
@@ -20,7 +21,7 @@ const useStyles = createStyles(({ stylish, css, cx }) =>
 );
 
 const Sessions = memo(() => {
-  const { styles } = useStyles();
+  const {styles} = useStyles();
 
   return (
     <FolderPanel>
