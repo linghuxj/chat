@@ -2,8 +2,10 @@ import {Button, Drawer, Empty, Form, Input, Skeleton, Space, Steps, Tag} from 'a
 import {memo, useState} from "react";
 import {Flexbox} from "react-layout-kit";
 import {useCustomStore} from "@/store/custom";
-import {PoweroffOutlined} from "@ant-design/icons";
+import {DollarOutlined, PoweroffOutlined, TeamOutlined, UserSwitchOutlined} from "@ant-design/icons";
 import {useChatStore} from "@/store/chat";
+import TagList from "@/app/requirements/features/TagList";
+import {Markdown} from "@lobehub/ui";
 
 const RequirementsNode = memo(() => {
   const [open, setOpen] = useState(false);
@@ -71,15 +73,21 @@ const RequirementsNode = memo(() => {
       <Steps
         direction="vertical"
         items={points.map((point) => {
-          const node1 = <Flexbox horizontal align={'center'} justify={'center'} gap={8}>
-            <div>{point.title}</div>
-            <Tag color={'blue'}>需求</Tag>
+          const node1 = <Flexbox horizontal align={'center'} gap={8}>
+            <span style={{fontWeight: '600'}}>{point.title}</span>
+            <Tag color={'orange'}>进行中</Tag>
           </Flexbox>
-          const desc = <Flexbox>
-            {point.content}
-            <Button disabled={true}>暂无建议方案</Button>
+          const desc = <Flexbox gap={8}>
+            <Markdown fullFeaturedCodeBlock variant={'chat'} style={{maxHeight: '256px'}}>
+              {point.content}
+            </Markdown>
+            <TagList tags={point.tags} />
+            <Flexbox flex={1} justify={'space-between'} horizontal style={{marginTop: '8px'}}>
+              <Button disabled={true} size={'small'} icon={<UserSwitchOutlined />}>合作意向</Button>
+              <Button disabled={true} size={'small'} icon={<TeamOutlined />}>推荐合作</Button>
+            </Flexbox>
           </Flexbox>
-          return ({key: point.title, title: node1, description: desc, status: 'process'})
+          return ({key: point.title, title: node1, description: desc, status: 'process', icon: <DollarOutlined />})
         })}
       />
     </Flexbox> : <Flexbox align={'center'} justify={'center'} height={'100%'}>
