@@ -7,10 +7,12 @@ import RequirementsCardBanner from './CardBanner';
 import {useStyles} from '../AgentCard/style';
 import {useRouter} from "next/navigation";
 import {Point} from "@/types/custom";
+import {useCustomStore} from "@/store/custom";
 
 const {Paragraph} = Typography;
 
 const RequirementsCardItem = memo<Point>((point) => {
+  const activePoint = useCustomStore((s) => s.activePoint);
   const ref = useRef(null);
   const {styles, theme} = useStyles();
   const {isDarkMode} = useThemeMode();
@@ -18,8 +20,13 @@ const RequirementsCardItem = memo<Point>((point) => {
 
   const {id, title, content} = point;
 
+  const toRequirements = (pointId: number) => {
+    activePoint(pointId)
+    router.push(`/requirements?id=${pointId}`);
+  }
+
   return (
-    <Flexbox className={styles.container} onClick={() => router.push(`/requirements?id=${id}`)}>
+    <Flexbox className={styles.container} onClick={() => toRequirements(id)}>
       <RequirementsCardBanner style={{opacity: isDarkMode ? 0.9 : 0.4}} />
       <Flexbox className={styles.inner} gap={8} ref={ref}>
         <Paragraph className={styles.title} ellipsis={{rows: 1, tooltip: title}}>

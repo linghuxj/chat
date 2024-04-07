@@ -12,7 +12,6 @@ import PageTitle from '../features/PageTitle';
 import PageHeader from './features/PageHeader';
 import SideBar from './features/SideBar';
 import Layout from './layout.desktop';
-import {useCustomStore} from "@/store/custom";
 
 const Mobile: FC = dynamic(() => import('../(mobile)'), {
   loading: MobileSwitchLoading,
@@ -20,9 +19,6 @@ const Mobile: FC = dynamic(() => import('../(mobile)'), {
 }) as FC;
 
 const DesktopPage = memo(() => {
-    const getPoints = useCustomStore((s) => s.getAllPoint);
-    getPoints();
-
     return <ResponsiveContainer Mobile={Mobile}>
       <Layout>
         <PageTitle />
