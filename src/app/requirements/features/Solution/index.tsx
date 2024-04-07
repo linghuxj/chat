@@ -1,16 +1,26 @@
 import {memo} from "react";
-import {Flexbox} from "react-layout-kit";
+import {Center, Flexbox} from "react-layout-kit";
 import Item from './Item';
 import {useCustomStore} from "@/store/custom";
+import {useResponsive} from "antd-style";
+import {Empty} from "antd";
 
 const Solution = memo(() => {
   const solutions = useCustomStore((s) => s.plans);
+  const {mobile} = useResponsive();
+
   return (
     <Flexbox flex={1} gap={16} style={{padding: '16px'}}>
-      <span style={{fontSize: '22px', fontWeight: '600'}}>AI总结推荐方案</span>
-      {solutions.map(item => (
-        <Item tag={item.tag} content={item.content} createTime={item.createTime} user={item.user} amount={item.amount}
-              companyName={item.companyName} mainImage={item.mainImage} id={item.id} />))}
+      {!mobile && <span style={{fontSize: '18px', fontWeight: '500'}}>推荐方案</span>}
+      {solutions && solutions.length > 0 ? solutions.map(item => (
+          <Item tag={item.tag} content={item.content} createTime={item.createTime} user={item.user} amount={item.amount}
+                companyName={item.companyName} mainImage={item.mainImage} id={item.id} />)) :
+        <Center>
+          <Empty image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+                 imageStyle={{height: 60}}
+                 description={<span>暂无可推荐方案</span>}
+          />
+        </Center>}
     </Flexbox>
   )
 })

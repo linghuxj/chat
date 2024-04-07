@@ -29,7 +29,7 @@ const MobileHeader = memo(() => {
   // ].filter(Boolean) as MenuProps['items'];
 
   const [showAgentSettings, toggleConfig] = useGlobalStore((s) => [
-    s.preference.showChatSideBar,
+    s.preference.mobileShowTopic,
     s.toggleMobileTopic,
   ]);
 

@@ -11,6 +11,7 @@ export interface GlobalPreference {
   guide?: Guide;
   inputHeight: number;
   mobileShowTopic?: boolean;
+  mobileShowSolution?: boolean;
   sessionsWidth: number;
 
   showChatSideBar?: boolean;
@@ -38,6 +39,7 @@ export const initialPreferenceState: GlobalPreferenceState = {
     guide: {},
     inputHeight: 200,
     mobileShowTopic: false,
+    mobileShowSolution: false,
     sessionsWidth: 320,
     showChatSideBar: true,
     showSessionPanel: true,

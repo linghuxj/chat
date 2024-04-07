@@ -1,14 +1,13 @@
 import {Modal} from '@lobehub/ui';
 import {memo} from 'react';
-import {useTranslation} from 'react-i18next';
 
 import {useGlobalStore} from '@/store/global';
-import RequirementsNode from "@/app/chat/features/RequirementsNode";
+import Solution from "@/app/requirements/features/Solution";
 
 const Topics = memo(() => {
   const [showAgentSettings, toggleConfig] = useGlobalStore((s) => [
-    s.preference.mobileShowTopic,
-    s.toggleMobileTopic,
+    s.preference.mobileShowSolution,
+    s.toggleMobileSolution,
   ]);
 
   return (
@@ -16,9 +15,9 @@ const Topics = memo(() => {
       allowFullscreen
       onCancel={() => toggleConfig(false)}
       open={showAgentSettings}
-      title={'商机列表'}
+      title={'推荐方案'}
     >
-      <RequirementsNode />
+      <Solution />
     </Modal>
   );
 });

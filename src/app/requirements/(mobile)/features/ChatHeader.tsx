@@ -11,8 +11,8 @@ const MobileHeader = memo(() => {
   const router = useRouter();
 
   const [showAgentSettings, toggleConfig] = useGlobalStore((s) => [
-    s.preference.showChatSideBar,
-    s.toggleMobileTopic,
+    s.preference.mobileShowSolution,
+    s.toggleMobileSolution,
   ]);
 
   return (

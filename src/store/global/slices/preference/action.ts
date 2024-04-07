@@ -16,6 +16,7 @@ export interface PreferenceAction {
   toggleChatSideBar: (visible?: boolean) => void;
   toggleExpandSessionGroup: (id: string, expand: boolean) => void;
   toggleMobileTopic: (visible?: boolean) => void;
+  toggleMobileSolution: (visible?: boolean) => void;
   toggleSystemRole: (visible?: boolean) => void;
   updateGuideState: (guide: Partial<Guide>) => void;
   updatePreference: (preference: Partial<GlobalPreference>, action?: string) => void;
@@ -52,6 +53,12 @@ export const createPreferenceSlice: StateCreator<
       typeof newValue === 'boolean' ? newValue : !get().preference.mobileShowTopic;
 
     get().updatePreference({mobileShowTopic}, n('toggleMobileTopic', newValue) as string);
+  },
+  toggleMobileSolution: (newValue) => {
+    const mobileShowSolution =
+      typeof newValue === 'boolean' ? newValue : !get().preference.mobileShowSolution;
+
+    get().updatePreference({mobileShowSolution}, n('toggleMobileSolution', newValue) as string);
   },
   toggleSystemRole: (newValue) => {
     const showSystemRole =
