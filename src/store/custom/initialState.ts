@@ -24,7 +24,8 @@ export const initialState: StoreState = {
     id: 0,
     title: '',
     content: '',
-    createTime: ''
+    tags: '',
+    createTime: '',
   },
   initPoint: false,
   comments: [],
