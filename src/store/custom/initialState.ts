@@ -22,8 +22,9 @@ export const initialState: StoreState = {
   initPoints: false,
   point: {
     id: 0,
-    title: "",
-    content: ""
+    title: '',
+    content: '',
+    createTime: ''
   },
   initPoint: false,
   comments: [],

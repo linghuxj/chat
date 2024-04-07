@@ -36,6 +36,7 @@ const ListItem = memo<ListItemProps>(
       <Item
         actions={actions}
         active={mobile ? false : active}
+        avatar={<></>}
         className={styles.container}
         ref={ref}
         showAction={actions && (isHovering || showAction)}

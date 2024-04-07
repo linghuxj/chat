@@ -17,7 +17,7 @@ const Item = memo<Plan>((solution) => {
             {solution.createTime.substring(0, 10)}
             <Flexbox gap={6} horizontal>
               <Avatar size={24} src={solution.user.avatar} />
-              {solution.user.username}
+              {solution.user.userName}
             </Flexbox>
           </Flexbox>
           <Flexbox align={'end'}>

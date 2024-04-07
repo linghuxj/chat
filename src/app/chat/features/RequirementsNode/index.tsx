@@ -1,10 +1,8 @@
-import {Button, Empty, Form, Input, Skeleton, Steps, Tag} from 'antd';
+import {Button, Drawer, Empty, Form, Input, Skeleton, Space, Steps, Tag} from 'antd';
 import {memo, useState} from "react";
 import {Flexbox} from "react-layout-kit";
 import {useCustomStore} from "@/store/custom";
 import {PoweroffOutlined} from "@ant-design/icons";
-import {Modal} from "@lobehub/ui";
-import {customService} from "@/services/custom";
 import {useChatStore} from "@/store/chat";
 
 const RequirementsNode = memo(() => {
@@ -27,12 +25,17 @@ const RequirementsNode = memo(() => {
   };
 
   if (!isLogin) return (<>
-    <Modal
+    <Drawer
       title="用户登录"
       open={open}
-      onOk={handleOk}
-      confirmLoading={confirmLoading}
-      onCancel={() => setOpen(false)}
+      placement={'bottom'}
+      onClose={() => setOpen(false)}
+      extra={
+        <Space>
+          <Button onClick={() => setOpen(false)}>取消</Button>
+          <Button loading={confirmLoading} onClick={handleOk} type="primary">登录</Button>
+        </Space>
+      }
     >
       <Form
         form={form}
@@ -41,7 +44,6 @@ const RequirementsNode = memo(() => {
         labelWrap
         wrapperCol={{flex: 1}}
         colon={false}
-        style={{maxWidth: 480}}
       >
         <Form.Item label="手机号" name="username" rules={[{required: true}, {type: 'string', len: 11}]}>
           <Input maxLength={11} type={'number'} />
@@ -50,7 +52,7 @@ const RequirementsNode = memo(() => {
           <Input maxLength={4} type={'number'} />
         </Form.Item>
       </Form>
-    </Modal>
+    </Drawer>
     <Flexbox align={'center'} justify={'center'} height={'100%'}>
       <Empty
         image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"

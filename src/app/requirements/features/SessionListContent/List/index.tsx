@@ -38,7 +38,8 @@ const SessionList = memo(() => {
             else activePoint(point.id);
           }}
         >
-          <SessionItem id={point.id} title={point.title} content={point.content} />
+          <SessionItem id={point.id} title={point.title} content={point.content} createTime={point.createTime}
+                       tags={point.tags} />
         </Link>
       </LazyLoad>
     ))

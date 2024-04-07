@@ -10,7 +10,9 @@ export interface Login extends Data {
 export interface Point {
   id: number,
   title: string,
-  content: string
+  content: string,
+  tags: string,
+  createTime: string,
 }
 
 export interface Comment {
@@ -18,7 +20,7 @@ export interface Comment {
   content: string,
   user: {
     id: number,
-    username: string,
+    userName: string,
     avatar: string,
   },
   createTime: string,
@@ -35,7 +37,7 @@ export interface Plan {
   createTime: string,
   user: {
     id: number,
-    username: string,
+    userName: string,
     avatar: string,
   },
   companyName: string,

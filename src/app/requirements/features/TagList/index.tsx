@@ -4,8 +4,11 @@ import {Flexbox} from 'react-layout-kit';
 
 import Inner from './Inner';
 
-const TagList = memo(() => {
-  const tags = ["设计", "装修", "酒店", "施工"]
+export interface TagProps {
+  tags: string
+}
+
+const TagList = memo<TagProps>(({tags}) => {
   return (
     <Flexbox gap={6} horizontal style={{flexWrap: 'wrap'}}>
       <Suspense
@@ -15,7 +18,7 @@ const TagList = memo(() => {
             <Skeleton.Button key={index} shape={'round'} size={'small'} />
           ))}
       >
-        <Inner tagList={tags} />
+        <Inner tagList={!tags ? [] : tags.split(',')} />
       </Suspense>
     </Flexbox>
   );

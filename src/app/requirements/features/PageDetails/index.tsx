@@ -2,11 +2,11 @@ import {memo, useState} from "react";
 import {Center, Flexbox} from "react-layout-kit";
 import TagList from "../TagList";
 import CommentList from "@/app/requirements/features/CommentList";
-import {Button, Form, Input} from "antd";
+import {Button, Drawer, Form, Input, Space} from "antd";
 import {FireOutlined, HeartOutlined, LikeOutlined, SendOutlined} from "@ant-design/icons";
 import {useCustomStore} from "@/store/custom";
 import {SearchProps} from "antd/es/input";
-import {Modal} from "@lobehub/ui";
+import {Markdown} from "@lobehub/ui";
 
 const {Search} = Input
 
@@ -50,8 +50,10 @@ const PageDetails = memo(() => {
     <>
       <Flexbox gap={16} style={{padding: '16px', width: '100%'}}>
         <Center style={{fontSize: '24px', fontWeight: '600'}}>{pointDetail.title}</Center>
-        {pointDetail.content}
-        <TagList />
+        <Markdown fullFeaturedCodeBlock variant={'normal'}>
+          {pointDetail.content}
+        </Markdown>
+        <TagList tags={pointDetail.tags}/>
         <Flexbox gap={8} horizontal style={{marginTop: '32px'}}>
           <Button type="primary" icon={<FireOutlined />}>
             需要 20
@@ -73,12 +75,17 @@ const PageDetails = memo(() => {
           <CommentList />
         </Flexbox>
       </Flexbox>
-      <Modal
+      <Drawer
         title="用户登录"
         open={open}
-        onOk={handleOk}
-        confirmLoading={confirmLoading}
-        onCancel={() => setOpen(false)}
+        placement={'bottom'}
+        onClose={() => setOpen(false)}
+        extra={
+          <Space>
+            <Button onClick={() => setOpen(false)}>取消</Button>
+            <Button loading={confirmLoading} onClick={handleOk} type="primary">登录</Button>
+          </Space>
+        }
       >
         <Form
           form={form}
@@ -96,7 +103,7 @@ const PageDetails = memo(() => {
             <Input maxLength={4} type={'number'} />
           </Form.Item>
         </Form>
-      </Modal>
+      </Drawer>
     </>
   )
 })
