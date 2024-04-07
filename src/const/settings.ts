@@ -32,7 +32,7 @@ export const DEFAULT_AGENT_CONFIG: LobeAgentConfig = {
   displayMode: 'chat',
   enableAutoCreateTopic: true,
   historyCount: 1,
-  model: 'qwen:14b',
+  model: 'qwen-max',
   params: {
     frequency_penalty: 0,
     presence_penalty: 0,

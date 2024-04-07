@@ -82,9 +82,9 @@ const OpenAI: ModelProviderCard = {
       tokens: 8192,
     },
     {
-      displayName: 'qwen:14b',
+      displayName: 'qwen-max',
       functionCall: true,
-      id: 'qwen:14b',
+      id: 'qwen-max',
       tokens: 32_768,
     },
     {

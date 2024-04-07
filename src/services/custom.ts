@@ -7,7 +7,9 @@ import {customSelectors, useCustomStore} from "@/store/custom";
 export interface PointParams {
   title: string,
   content: string,
-  type: string,
+  tags?: string,
+  sessionId: string,
+  topicId: string | undefined
 }
 
 /**
@@ -41,8 +43,7 @@ class CustomService {
 
   // 保存AI解析的商机点列表
   savePoints = async (params: PointParams[]) => {
-    const s = useCustomStore.getState();
-    const loginToken = customSelectors.getLoginToken(s);
+    const loginToken = customSelectors.getLoginToken(useCustomStore.getState());
     const res = await fetch(API_BACKEND_ENDPOINTS.savePoints(), {
       body: JSON.stringify(params),
       method: 'POST',

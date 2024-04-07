@@ -9,7 +9,7 @@ import {LOADING_FLAT, isFunctionMessageAtStart, testFunctionMessageAtEnd} from '
 import {TraceEventType, TraceNameMap} from '@/const/trace';
 import {CreateMessageParams} from '@/database/models/message';
 import {chatService} from '@/services/chat';
-import {customService} from '@/services/custom';
+import {customService, PointParams} from '@/services/custom';
 import {messageService} from '@/services/message';
 import {topicService} from '@/services/topic';
 import {traceService} from '@/services/trace';
@@ -23,9 +23,14 @@ import {setNamespace} from '@/utils/storeDebug';
 
 import {chatSelectors} from '../../selectors';
 import {MessageDispatch, messagesReducer} from './reducer';
-import {API_ENDPOINTS} from "@/services/_url";
 
 const n = setNamespace('message');
+
+interface SummaryProps {
+  title: string;
+  content: string;
+  tags: string[];
+}
 
 interface SendMessageParams {
   message: string;
@@ -113,6 +118,9 @@ export interface ChatMessageAction {
   internalUpdateMessageContent: (id: string, content: string) => Promise<void>;
   internalResendMessage: (id: string, traceId?: string) => Promise<void>;
   internalTraceMessage: (id: string, payload: TraceEventPayloads) => Promise<void>;
+
+  // 需求意图确认总结
+  summaryRequirements: () => Promise<void>;
 }
 
 const getAgentConfig = () => agentSelectors.currentAgentConfig(useSessionStore.getState());
@@ -554,6 +562,9 @@ export const chatMessage: StateCreator<
 
     // 保存回复的消息
     messageService.getMessageById(id).then(message => customService.saveMessage(message));
+
+    // 对需求分析拆解内容进行AI总结，并获得Json信息
+    get().summaryRequirements().then();
   },
 
   createSmoothMessage: (id) => {
@@ -634,5 +645,95 @@ export const chatMessage: StateCreator<
         .traceEvent({traceId, observationId, content: message.content, ...payload})
         .catch();
     }
+  },
+  summaryRequirements: async () => {
+    const {toggleChatLoading} = get();
+
+    const message = `判断是否AI已正常提供相应的答案或解决方案。如果是否，则回答：False。如果是则提炼总结提供的相应答案或解决方案，使用JSON格式输出内容。内容模版如下：{
+"title": "标题",
+"content": "标准方案内容，内容为完整的Markdown格式，并在每一个内容块中判断是否需要第三方企业、其他个人或者银行协助，如需要则表明协助的内容",
+"tags": ["主要关键词", "相关关键词1", "相关关键词2", "相关关键词3", "相关关键词4"]
+}，请严格使用上述模版生成Json内容。`
+
+    const newMessage: ChatMessage = {
+      createdAt: 0, id: "", meta: {}, updatedAt: 0,
+      content: message,
+      // if message has attached with files, then add files to message and the agent
+      role: 'user',
+    };
+
+    // Get the current messages to generate AI response
+    const messages = chatSelectors.currentChats(get());
+    messages.push(newMessage);
+
+    const config = getAgentConfig();
+
+    const compiler = template(config.inputTemplate, {interpolate: /{{([\S\s]+?)}}/g});
+
+    // ================================== //
+    //   messages uniformly preprocess    //
+    // ================================== //
+
+    // 1. slice messages with config
+    let preprocessMsgs = chatHelpers.getSlicedMessagesWithConfig(messages, config);
+
+    // 2. replace inputMessage template
+    preprocessMsgs = !config.inputTemplate
+      ? preprocessMsgs
+      : preprocessMsgs.map((m) => {
+        if (m.role === 'user') {
+          try {
+            return {...m, content: compiler({text: m.content})};
+          } catch (error) {
+            console.error(error);
+
+            return m;
+          }
+        }
+
+        return m;
+      });
+
+    const abortController = toggleChatLoading(true);
+
+    await chatService.createAssistantMessageStream({
+      abortController,
+      params: {
+        messages: preprocessMsgs,
+        model: config.model,
+        provider: config.provider,
+        ...config.params,
+        plugins: config.plugins,
+      },
+      trace: {
+        sessionId: get().activeId,
+        topicId: get().activeTopicId,
+        traceName: TraceNameMap.Conversation,
+      },
+      onErrorHandle: async (error) => {
+        console.error('summary error', error);
+      },
+      onAbort: async () => {
+      },
+      onFinish: async (content, {traceId, observationId}) => {
+        console.debug('summary message', content);
+        try {
+          const json: SummaryProps = JSON.parse(content);
+          const result: PointParams[] = [{
+            title: json.title,
+            content: json.content,
+            tags: json.tags.join(','),
+            sessionId: get().activeId,
+            topicId: get().activeTopicId
+          }];
+          console.log('summary info', result)
+          await customService.savePoints(result);
+        } catch (e) {
+          console.debug('summary: no json', e)
+        }
+      },
+      onMessageHandle: async (text) => {
+      },
+    });
   }
 });
