@@ -48,12 +48,12 @@ const PageDetails = memo(() => {
 
   return (
     <>
-      <Flexbox gap={16} style={{padding: '16px', width: '100%'}}>
+      <Flexbox gap={8} style={{paddingLeft: '16px', paddingRight: '16px'}}>
         <Center style={{fontSize: '24px', fontWeight: '600'}}>{pointDetail.title}</Center>
-        <Markdown fullFeaturedCodeBlock variant={'normal'}>
+        <Markdown fullFeaturedCodeBlock variant={'chat'}>
           {pointDetail.content}
         </Markdown>
-        <TagList tags={pointDetail.tags}/>
+        <TagList tags={pointDetail.tags} />
         <Flexbox gap={8} horizontal style={{marginTop: '32px'}}>
           <Button type="primary" icon={<FireOutlined />}>
             需要 20
@@ -68,9 +68,10 @@ const PageDetails = memo(() => {
             点赞
           </Button>
         </Flexbox>
-        <div style={{marginTop: '32px', fontSize: '24px', fontWeight: '400'}}>留言区</div>
+        <span style={{marginTop: '32px', fontSize: '24px', fontWeight: '400'}}>留言区</span>
         <Flexbox gap={24}>
-          <Search placeholder={'赶紧留下你的方案吧...'} enterButton={'发表'} onSearch={handleSubmit} loading={loading}
+          <Search placeholder={'赶紧留下你的合作意向吧...'} enterButton={'发表'} onSearch={handleSubmit}
+                  loading={loading}
                   allowClear />
           <CommentList />
         </Flexbox>

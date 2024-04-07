@@ -5,8 +5,8 @@ import {Flexbox} from 'react-layout-kit';
 
 import ChatHeader from '../features/ChatHeader';
 import AppLayoutMobile from '@/layout/AppLayout.mobile';
-import PageDetails from "../../features/PageDetails";
 import TopicList from "../features/TopicList";
+import Conversation from "@/app/requirements/(desktop)/features/Conversation";
 
 const Chat = memo(() => {
   // due to mobile side don't have sessionList, so we need to fetch sessions here
@@ -15,7 +15,7 @@ const Chat = memo(() => {
   return (
     <AppLayoutMobile navBar={<ChatHeader />}>
       <Flexbox height={'calc(100% - 44px)'} horizontal>
-        <PageDetails />
+        <Conversation />
         <TopicList />
       </Flexbox>
     </AppLayoutMobile>

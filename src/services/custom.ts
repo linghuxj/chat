@@ -20,11 +20,12 @@ class CustomService {
   // 保存AI对话消息内容，无须确认是否保存成功
   saveMessage = (message?: ChatMessage) => {
     if (!message) return;
+    const loginToken = customSelectors.getLoginToken(useCustomStore.getState());
 
     fetch(API_BACKEND_ENDPOINTS.saveMessage(), {
       body: JSON.stringify(message),
       method: 'POST',
-      headers: {'Content-Type': 'application/json'}
+      headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loginToken}
     }).then().catch(e => console.error(e))
   }
 

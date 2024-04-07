@@ -15,7 +15,7 @@ const Topics = memo(() => {
       allowFullscreen
       onCancel={() => toggleConfig(false)}
       open={showAgentSettings}
-      title={'推荐方案'}
+      title={'推荐合作'}
     >
       <Solution />
     </Modal>
