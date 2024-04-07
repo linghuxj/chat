@@ -60,10 +60,11 @@ class CustomService {
   }
 
   // 获取AI解析的商机点列表
-  getPoints = async (sessionId: string, topicId: string | undefined): Promise<any> => {
+  getPoints = async (sessionId: string | undefined | null, topicId: string | undefined | null) => {
     const loginToken = customSelectors.getLoginToken(useCustomStore.getState());
-    let param = `?sessionId=${sessionId}`;
-    if (topicId) param += `&topicId=${topicId}`;
+    let param = `?1=1`;
+    if (null != sessionId && sessionId) param += `&sessionId=${sessionId}`;
+    if (null != topicId && topicId) param += `&topicId=${topicId}`;
     const res = await fetch(API_BACKEND_ENDPOINTS.getPoints() + param, {
       method: 'GET',
       headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loginToken}

@@ -1,16 +1,14 @@
 import {StateCreator} from "zustand/vanilla";
 import {Store} from "./store";
-import useSWR, {SWRResponse} from "swr";
-import {Login, Point} from "@/types/custom";
 import {customService} from "@/services/custom";
 import {setNamespace} from "@/utils/storeDebug";
-import {useChatStore} from "@/store/chat";
 
 const n = setNamespace('custom');
 
 export interface StoreAction {
   login: (param: any) => Promise<void>,
-  getPoints: (sessionId: string, topicId: string | undefined) => Promise<void>,
+  getPoints: (sessionId: string | undefined | null, topicId: string | undefined | null) => Promise<void>,
+  getAllPoint: () => Promise<void>,
 }
 
 export const createCustomAction: StateCreator<
@@ -31,4 +29,7 @@ export const createCustomAction: StateCreator<
     const resp = await customService.getPoints(sessionId, topicId);
     set({initPoints: true, points: resp.data})
   },
+  getAllPoint: async () => {
+    return get().getPoints(null, null);
+  }
 })

@@ -9,10 +9,12 @@ import {agentMarketSelectors, useMarketStore} from '@/store/market';
 
 import TagList from '../TagList';
 import AgentCardItem from './AgentCardItem';
+import RequirementsCardItem from '../RequirementsCard/CardItem';
 import Loading from './Loading';
 import {useStyles} from './style';
 import {useToggle} from "ahooks";
 import {useGlobalStore} from "@/store/global";
+import {useCustomStore} from "@/store/custom";
 
 export interface AgentCardProps {
   CardRender: FC<SpotlightCardProps>;
@@ -25,6 +27,7 @@ const AgentCard = memo<AgentCardProps>(({CardRender, mobile}) => {
     s.useFetchAgentList,
     s.searchKeywords,
   ]);
+  const [points] = useCustomStore((s) => [s.points])
   const {isLoading} = useFetchAgentList();
   const agentList = useMarketStore(agentMarketSelectors.getAgentList, isEqual);
   const toggleChange = useGlobalStore((s) => s.toggleAgentChange);
@@ -34,6 +37,15 @@ const AgentCard = memo<AgentCardProps>(({CardRender, mobile}) => {
     (props: any) => (
       <LazyLoad className={styles.lazy}>
         <AgentCardItem {...props} />
+      </LazyLoad>
+    ),
+    [styles.lazy],
+  );
+
+  const GridReqRender: SpotlightCardProps['renderItem'] = useCallback(
+    (props: any) => (
+      <LazyLoad className={styles.lazy}>
+        <RequirementsCardItem {...props} />
       </LazyLoad>
     ),
     [styles.lazy],
@@ -55,11 +67,11 @@ const AgentCard = memo<AgentCardProps>(({CardRender, mobile}) => {
           <div className={styles.subTitle}>{t('title.recentSubmits')}</div>
           <CardRender items={agentList.slice(0, 5)} renderItem={GridRender} />
           <div className={styles.subTitle}>{t('title.allAgents')}</div>
-          <CardRender
-            items={agentList.slice(5)}
-            renderItem={GridRender}
+          {points && points.length > 0 && <CardRender
+            items={points}
+            renderItem={GridReqRender}
             spotlight={mobile ? undefined : false}
-          />
+          />}
         </>
       )}
     </Flexbox>
