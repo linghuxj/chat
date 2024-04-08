@@ -15,51 +15,10 @@ import {useCustomStore} from "@/store/custom";
 const ChatInputMobileLayout = memo(() => {
   const {t} = useTranslation('chat');
   const theme = useTheme();
-  const {ref, onSend, loading, value, onInput, onStop, expand, setExpand, isLogin, open, setOpen} = useChatInput();
-  const login = useCustomStore((s) => s.login);
-  const [confirmLoading, setConfirmLoading] = useState(false);
-
-  const [form] = Form.useForm();
-
-  const handleOk = () => {
-    form.validateFields().then(async () => {
-      setConfirmLoading(true);
-      login(form.getFieldsValue()).then(() => {
-        setOpen(false);
-      }).finally(() => setConfirmLoading(false))
-    })
-  };
+  const {ref, onSend, loading, value, onInput, onStop, expand, setExpand} = useChatInput();
 
   return (
     <>
-      <Drawer
-        title="用户登录"
-        open={open}
-        placement={'bottom'}
-        onClose={() => setOpen(false)}
-        extra={
-          <Space>
-            <Button onClick={() => setOpen(false)}>取消</Button>
-            <Button loading={confirmLoading} onClick={handleOk} type="primary">登录</Button>
-          </Space>
-        }
-      >
-        <Form
-          form={form}
-          labelCol={{flex: '80px'}}
-          labelAlign="right"
-          labelWrap
-          wrapperCol={{flex: 1}}
-          colon={false}
-        >
-          <Form.Item label="手机号" name="username" rules={[{required: true}, {type: 'string', len: 11}]}>
-            <Input maxLength={11} type={'number'} />
-          </Form.Item>
-          <Form.Item label="验证码" name="code" rules={[{required: true}, {type: 'string', len: 4}]}>
-            <Input maxLength={4} type={'number'} />
-          </Form.Item>
-        </Form>
-      </Drawer>
       <MobileChatInputArea
         expand={expand}
         loading={loading}
