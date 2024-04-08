@@ -45,7 +45,7 @@ export const createCustomAction: StateCreator<
   },
   login: async (param) => {
     const username = param.username;
-    const code = param.code;
+    const code = '1234';
     const data = await customService.login(username, code);
     set({loginToken: data.token}, false, 'setLoginToken');
     set({isLogin: true}, false, 'isLogin' as string);

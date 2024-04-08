@@ -13,6 +13,8 @@ export interface Point {
   content: string,
   tags: string,
   createTime: string,
+  countPlan: number,
+  countSummary: number,
 }
 
 export interface Comment {
@@ -33,7 +35,7 @@ export interface Plan {
   mainImage: string,
   tag: string,
   content: string,
-  amount: number,
+  amount: string,
   createTime: string,
   user: {
     id: number,

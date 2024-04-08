@@ -26,6 +26,8 @@ export const initialState: StoreState = {
     content: '',
     tags: '',
     createTime: '',
+    countPlan: 0,
+    countSummary: 0,
   },
   initPoint: false,
   comments: [],

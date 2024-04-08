@@ -132,9 +132,9 @@ const Footer = memo<{ setExpand?: (expand: boolean) => void }>(({setExpand}) => 
           <Form.Item label="手机号" name="username" rules={[{required: true}, {type: 'string', len: 11}]}>
             <Input maxLength={11} type={'number'} />
           </Form.Item>
-          <Form.Item label="验证码" name="code" rules={[{required: true}, {type: 'string', len: 4}]}>
-            <Input maxLength={4} type={'number'} />
-          </Form.Item>
+          {/*<Form.Item label="验证码" name="code" rules={[{required: true}, {type: 'string', len: 4}]}>*/}
+          {/*  <Input maxLength={4} type={'number'} />*/}
+          {/*</Form.Item>*/}
         </Form>
       </Drawer>
       <Flexbox

@@ -6,15 +6,27 @@ import {DollarOutlined, PoweroffOutlined, TeamOutlined, UserSwitchOutlined} from
 import {useChatStore} from "@/store/chat";
 import TagList from "@/app/requirements/features/TagList";
 import {Markdown} from "@lobehub/ui";
+import {router} from "next/client";
+import {useRouter} from "next/navigation";
+import {useResponsive} from "antd-style";
+import {POINT_URL} from "@/const/url";
 
 const RequirementsNode = memo(() => {
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [isLogin, login, initPoint, points, requestPoints] = useCustomStore((s) =>
-    [s.isLogin, s.login, s.initPoints, s.points, s.getPoints])
-  const [sessionId, topicId] = useChatStore((s) => [s.activeId, s.activeTopicId])
+    [s.isLogin, s.login, s.initPoints, s.points, s.getPoints]);
+  const [sessionId, topicId] = useChatStore((s) => [s.activeId, s.activeTopicId]);
+  const activePoint = useCustomStore((s) => s.activePoint);
 
   const [form] = Form.useForm();
+  const router = useRouter();
+  const {mobile} = useResponsive();
+
+  const toRequirements = (pointId: number) => {
+    activePoint(pointId)
+    router.push(POINT_URL(pointId, mobile));
+  }
 
   const handleOk = () => {
     form.validateFields().then(async () => {
@@ -50,9 +62,9 @@ const RequirementsNode = memo(() => {
         <Form.Item label="手机号" name="username" rules={[{required: true}, {type: 'string', len: 11}]}>
           <Input maxLength={11} type={'number'} />
         </Form.Item>
-        <Form.Item label="验证码" name="code" rules={[{required: true}, {type: 'string', len: 4}]}>
-          <Input maxLength={4} type={'number'} />
-        </Form.Item>
+        {/*<Form.Item label="验证码" name="code" rules={[{required: true}, {type: 'string', len: 4}]}>*/}
+        {/*  <Input maxLength={4} type={'number'} />*/}
+        {/*</Form.Item>*/}
       </Form>
     </Drawer>
     <Flexbox align={'center'} justify={'center'} height={'100%'}>
@@ -83,8 +95,10 @@ const RequirementsNode = memo(() => {
             </Markdown>
             <TagList tags={point.tags} />
             <Flexbox flex={1} justify={'space-between'} horizontal style={{marginTop: '8px'}}>
-              <Button disabled={true} size={'small'} icon={<UserSwitchOutlined />}>合作意向</Button>
-              <Button disabled={true} size={'small'} icon={<TeamOutlined />}>推荐合作</Button>
+              <Button size={'small'} onClick={() => toRequirements(point.id)}
+                      icon={<UserSwitchOutlined />}>合作意向 {point.countPlan > 0 && point.countPlan}</Button>
+              <Button size={'small'} onClick={() => toRequirements(point.id)}
+                      icon={<TeamOutlined />}>推荐合作 {point.countSummary > 0 && point.countSummary}</Button>
             </Flexbox>
           </Flexbox>
           return ({key: point.title, title: node1, description: desc, status: 'process', icon: <DollarOutlined />})
