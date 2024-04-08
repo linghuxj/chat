@@ -12,13 +12,14 @@ const n = setNamespace('custom');
 export interface StoreAction {
   activePoint: (id: number) => void;
   switchPoint: (id: number, router?: AppRouterInstance, isMobile?: boolean) => void;
-  login: (param: any) => Promise<void>,
-  getPoints: (sessionId: string | undefined | null, topicId: string | undefined | null) => Promise<void>,
-  getAllPoint: () => Promise<void>,
-  pointDetail: (id: number) => Promise<void>,
-  getComments: (id: number) => Promise<void>,
-  addComment: (content: string, id: number) => Promise<void>,
-  getPlans: (id: number) => Promise<void>,
+  login: (param: any) => Promise<void>;
+  getPoints: (sessionId: string | undefined | null, topicId: string | undefined | null) => Promise<void>;
+  getAllPoint: () => Promise<void>;
+  pointDetail: (id: number) => Promise<void>;
+  getComments: (id: number) => Promise<void>;
+  addComment: (content: string, id: number) => Promise<void>;
+  getPlans: (id: number) => Promise<void>;
+  summaryMessages: (sessionId: string, topicId: string, messages: any) => Promise<void>;
 }
 
 export const createCustomAction: StateCreator<
@@ -78,5 +79,8 @@ export const createCustomAction: StateCreator<
     set({initPlans: false});
     const resp = await customService.getPlans(id);
     set({initPlans: true, plans: resp.data})
+  },
+  summaryMessages: async (sessionId, topicId, messages) => {
+    await customService.summaryMessages(sessionId, topicId, messages);
   }
 })

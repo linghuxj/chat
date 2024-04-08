@@ -120,6 +120,24 @@ class CustomService {
 
     return res.json();
   }
+
+  // 将当前对话的AI历史信息传递给后台进行总结提炼，并确定是否生成商机内容
+  summaryMessages = async (sessionId: string | undefined, topicId: string | undefined, messages: any) => {
+    const loginToken = customSelectors.getLoginToken(useCustomStore.getState());
+    messages.push({
+      'role': 'user',
+      'content': "判断是否AI已正常提供相应的答案或解决方案。如果是否，则回答：False。如果是则提炼总结提供的相应答案或解决方案，使用JSON格式输出内容，其中包含3个字段：title、content、tags，其中content字段的内容为：提取的标准方案内容，内容为完整的Markdown格式，并在每一个内容块中判断是否需要第三方企业、其他个人或者银行协助，如需要则表明协助的内容。内容模版如下：{'title':'标题','content':'内容','tags':['主要关键词','相关关键词1','相关关键词2']}，请严格使用上述模版生成Json内容。"
+    })
+    const res = await fetch(API_BACKEND_ENDPOINTS.summaryMessages(), {
+      body: JSON.stringify({sessionId, topicId, messages}),
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loginToken}
+    })
+
+    if (!res.ok) throw await getMessageError(res);
+
+    return res.json();
+  }
 }
 
 export const customService = new CustomService();

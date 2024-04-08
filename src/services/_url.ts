@@ -44,20 +44,22 @@ export const API_ENDPOINTS = mapWithBasePath({
 });
 
 export const API_BACKEND_ENDPOINTS = mapWithBasePath({
-  // saveMessage
+  // 保存对话消息到后台
   saveMessage: () => withBackendPath(`/api/chat/message/add`),
   // login
   login: () => withBackendPath(`/api/user/login`),
-  // savePoints
+  // 保存商机
   savePoints: () => withBackendPath(`/api/chat/require/add`),
-  // getPoints
+  // 商机列表
   getPoints: () => withBackendPath(`/api/chat/require/list`),
-  // pointDetail
-  pointDetail: (id:number) => withBackendPath(`/api/chat/require/${id}`),
-  // getComments
+  // 商机详情
+  pointDetail: (id: number) => withBackendPath(`/api/chat/require/${id}`),
+  // 合作意向列表 - 留言区
   getComments: () => withBackendPath(`/api/chat/require/plan/list`),
-  // addComment
+  // 新增合作意向
   addComment: () => withBackendPath(`/api/chat/require/plan/add`),
-  // getPlans
+  // 推荐合作 - 解决方案
   getPlans: () => withBackendPath(`/api/chat/require/summary/list`),
+  // 总结AI对话内容生成商机
+  summaryMessages: () => withBackendPath(`/api/chat/message/gpt`),
 })

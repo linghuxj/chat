@@ -551,8 +551,13 @@ export const chatMessage: StateCreator<
     await messageService.updateMessage(id, {content});
     await refreshMessages();
 
-    // 保存回复的消息
-    messageService.getMessageById(id).then(message => customService.saveMessage(message));
+    messageService.getMessageById(id).then(message => {
+      // 保存回复的消息
+      customService.saveMessage(message);
+      // 对历史消息进行总结
+      const messages = chatSelectors.currentChats(get());
+      customService.summaryMessages(message.sessionId, message.topicId, messages);
+    });
   },
 
   createSmoothMessage: (id) => {
