@@ -15,6 +15,8 @@ import {useStyles} from './style';
 import {useToggle} from "ahooks";
 import {useGlobalStore} from "@/store/global";
 import {useCustomStore} from "@/store/custom";
+import {DoubleRightOutlined} from "@ant-design/icons";
+import {useRouter} from "next/navigation";
 
 export interface AgentCardProps {
   CardRender: FC<SpotlightCardProps>;
@@ -27,11 +29,12 @@ const AgentCard = memo<AgentCardProps>(({CardRender, mobile}) => {
     s.useFetchAgentList,
     s.searchKeywords,
   ]);
-  const [points] = useCustomStore((s) => [s.points])
+  const [points, activeNode] = useCustomStore((s) => [s.points, s.activePoint])
   const {isLoading} = useFetchAgentList();
   const agentList = useMarketStore(agentMarketSelectors.getAgentList, isEqual);
   const toggleChange = useGlobalStore((s) => s.toggleAgentChange);
   const {styles} = useStyles();
+  const router = useRouter();
 
   const GridRender: SpotlightCardProps['renderItem'] = useCallback(
     (props: any) => (
@@ -51,6 +54,11 @@ const AgentCard = memo<AgentCardProps>(({CardRender, mobile}) => {
     [styles.lazy],
   );
 
+  const handleMore = () => {
+    activeNode(points[0].id);
+    router.push('/requirements');
+  }
+
   if (isLoading) return <Loading />;
 
   return (
@@ -64,14 +72,17 @@ const AgentCard = memo<AgentCardProps>(({CardRender, mobile}) => {
         />
       ) : (
         <>
-          <div className={styles.subTitle}>{t('title.recentSubmits')}</div>
-          <CardRender items={agentList.slice(0, 5)} renderItem={GridRender} />
-          <div className={styles.subTitle}>{t('title.allAgents')}</div>
+          <Flexbox justify={'space-between'} align={'center'} horizontal>
+            <div className={styles.subTitle}>{t('title.allAgents')}</div>
+            <a onClick={handleMore}>查看更多 <DoubleRightOutlined /></a>
+          </Flexbox>
           {points && points.length > 0 && <CardRender
             items={points}
             renderItem={GridReqRender}
             spotlight={mobile ? undefined : false}
           />}
+          <div className={styles.subTitle}>{t('title.recentSubmits')}</div>
+          <CardRender items={agentList.slice(0, 5)} renderItem={GridRender} />
         </>
       )}
     </Flexbox>
