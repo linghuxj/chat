@@ -33,15 +33,17 @@ export interface Comment {
 
 export interface Plan {
   id: number,
-  mainImage: string,
-  tag: string,
+  mainImage?: string,
+  tag?: string,
+  tags: string,
   content: string,
-  amount: string,
+  prePrice?: string,
   createTime: string,
   user: {
     id: number,
     userName: string,
     avatar: string,
   },
-  companyName: string,
+  companyName?: string,
+  status?: string,
 }

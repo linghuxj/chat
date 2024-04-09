@@ -13,8 +13,9 @@ const Solution = memo(() => {
     <Flexbox flex={1} gap={16} style={{padding: '16px'}}>
       {!mobile && <span style={{fontSize: '18px', fontWeight: '500'}}>推荐合作</span>}
       {solutions && solutions.length > 0 ? solutions.map(item => (
-          <Item tag={item.tag} content={item.content} createTime={item.createTime} user={item.user} amount={item.amount}
-                companyName={item.companyName} mainImage={item.mainImage} id={item.id} />)) :
+          <Item id={item.id} tag={item.tag} content={item.content} createTime={item.createTime} user={item.user}
+                prePrice={item.prePrice} status={item.status} companyName={item.companyName} tags={item.tags}
+                mainImage={item.mainImage} />)) :
         <Center>
           <Empty image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
                  imageStyle={{height: 60}}
