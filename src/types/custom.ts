@@ -13,8 +13,8 @@ export interface Point {
   content: string,
   tags: string,
   createTime: string,
-  countPlan: number,
-  countSummary: number,
+  countPlan?: number,
+  countSummary?: number,
 }
 
 export interface Comment {

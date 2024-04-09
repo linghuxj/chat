@@ -1,14 +1,13 @@
-import {memo, useState} from 'react';
+import {memo} from 'react';
 import {shallow} from 'zustand/shallow';
 
 import ListItem from '../../ListItem';
 import {useCustomStore} from "@/store/custom";
 import {Point} from "@/types/custom";
-import {Timer} from "lucide-react";
+import TagList from "@/app/requirements/features/TagList";
 
 const SessionItem = memo<Point>((point) => {
-  const [open, setOpen] = useState(false);
-  const {id, title, content, createTime} = point;
+  const {id, title, content, createTime, tags} = point;
 
   const [active] = useCustomStore((s) => [s.activeId === id]);
 
@@ -16,8 +15,8 @@ const SessionItem = memo<Point>((point) => {
     <ListItem
       active={active}
       description={content}
-      showAction={open}
       date={Date.parse(createTime)}
+      addon={<TagList tags={tags} wrap={false} />}
       title={title}
     />
   );

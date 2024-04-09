@@ -8,6 +8,7 @@ import {POINT_URL} from '@/const/url';
 import SessionItem from './Item';
 import {useRouter} from "next/navigation";
 import {useCustomStore} from "@/store/custom";
+import {Flexbox} from "react-layout-kit";
 
 const useStyles = createStyles(
   ({css}) => css`
@@ -26,8 +27,8 @@ const SessionList = memo(() => {
 
   const {mobile} = useResponsive();
 
-  return points.length > 0 ? (
-    points.map((point) => (
+  return <Flexbox gap={8} style={{paddingLeft: '12px', paddingRight: '12px'}}>
+    {points.length > 0 && points.map((point) => (
       <LazyLoad className={styles} key={String(point.id)}>
         <Link
           aria-label={String(point.id)}
@@ -39,11 +40,11 @@ const SessionList = memo(() => {
           }}
         >
           <SessionItem id={point.id} title={point.title} content={point.content} createTime={point.createTime}
-                       tags={point.tags} countPlan={point.countPlan} countSummary={point.countSummary} />
+                       tags={point.tags} />
         </Link>
       </LazyLoad>
-    ))
-  ) : '';
+    ))}
+  </Flexbox>
 });
 
 export default SessionList;
