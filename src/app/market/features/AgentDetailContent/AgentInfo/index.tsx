@@ -11,6 +11,7 @@ import Header from './Header';
 import Loading from './Loading';
 // import TokenTag from './TokenTag';
 import {useStyles} from './style';
+import SessionList from "@/app/requirements/features/SessionListContent/List";
 
 enum InfoTabs {
   comment = 'comment',
@@ -70,7 +71,7 @@ const AgentModalInner = memo(() => {
             {detail}
           </Markdown>
         )}
-        {tab === InfoTabs.comment && <Markdown fullFeaturedCodeBlock variant={'chat'}>{content}</Markdown>}
+        {tab === InfoTabs.comment && <SessionList agentId={identifier} />}
         {tab === InfoTabs.earnings && <Comment comments={comments} size={40} />}
       </Flexbox>
     </>

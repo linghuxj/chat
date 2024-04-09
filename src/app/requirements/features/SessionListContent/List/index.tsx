@@ -16,7 +16,11 @@ const useStyles = createStyles(
   `,
 );
 
-const SessionList = memo(() => {
+interface SessionProps {
+  agentId?: string
+}
+
+const SessionList = memo<SessionProps>(({agentId}) => {
   const [activePoint, switchPoint, points] = useCustomStore((s) => [
     s.activePoint,
     s.switchPoint,
@@ -28,7 +32,10 @@ const SessionList = memo(() => {
   const {mobile} = useResponsive();
 
   return <Flexbox gap={8} style={{paddingLeft: '12px', paddingRight: '12px'}}>
-    {points.length > 0 && points.map((point) => (
+    {points.length > 0 && points.filter(point => {
+      if (!agentId) return true;
+      return point.identify == agentId;
+    }).map((point) => (
       <LazyLoad className={styles} key={String(point.id)}>
         <Link
           aria-label={String(point.id)}

@@ -15,6 +15,7 @@ export interface Point {
   createTime: string,
   countPlan?: number,
   countSummary?: number,
+  identify?: string,
 }
 
 export interface Comment {
