@@ -21,7 +21,7 @@ export default {
   },
   sidebar: {
     comment: '商机',
-    earnings: '风险收益',
+    earnings: '合作',
     prompt: '概述',
     title: '案例详情',
   },
