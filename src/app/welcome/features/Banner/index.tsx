@@ -26,6 +26,7 @@ const Banner = memo<{ mobile?: boolean }>(({mobile}) => {
       <Flexbox
         className={styles.buttonGroup}
         gap={16}
+        style={{marginTop: '64px'}}
         horizontal={!mobile}
         justify={'center'}
         width={'100%'}
@@ -37,7 +38,7 @@ const Banner = memo<{ mobile?: boolean }>(({mobile}) => {
           type={'primary'}
         >
           <Flexbox align={'center'} gap={4} horizontal justify={'center'}>
-            {t('button.start')}
+            激发潜能 合作共赢
             <Icon icon={SendHorizonal} />
           </Flexbox>
         </Button>
