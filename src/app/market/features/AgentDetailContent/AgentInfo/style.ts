@@ -10,7 +10,7 @@ export const useStyles = createStyles(({ css, token, prefixCls, stylish }) => ({
   `,
   container: css`
     position: relative;
-    padding: 16px 16px 12px;
+    padding: 0 16px 12px;
     border-bottom: 1px solid ${token.colorBorderSecondary};
   `,
   date: css`

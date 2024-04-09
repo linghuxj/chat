@@ -17,7 +17,6 @@ const Banner = memo<{ mobile?: boolean }>(({mobile}) => {
   const {t} = useTranslation('welcome');
   const router = useRouter();
   const {styles} = useStyles();
-  const [switchBackToChat, isMobile] = useGlobalStore((s) => [s.switchBackToChat, s.isMobile]);
 
   return (
     <>

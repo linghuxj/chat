@@ -8,6 +8,7 @@ import {genSize, useStyles} from './style';
 import {Typography} from "antd";
 import {Flexbox} from "react-layout-kit";
 import {useRouter} from "next/navigation";
+import {DoubleRightOutlined} from "@ant-design/icons";
 
 const {Link} = Typography;
 
@@ -33,34 +34,24 @@ const Hero = memo<{ mobile?: boolean; width: number }>(({width, mobile}) => {
 
   return (
     <>
-      {/*<Flexbox*/}
-      {/*  style={{*/}
-      {/*    height: size.logo,*/}
-      {/*    marginBottom: size.marginBottom,*/}
-      {/*    marginTop: size.marginTop,*/}
-      {/*    position: 'relative',*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  {mobile ? <LogoThree size={size.logo} /> : <LogoSpline height={'100%'} width={'100%'} />}*/}
-      {/*</Flexbox>*/}
       <div className={styles.desc} style={{fontSize: size.desc}}>
-        XY银行<Link className={styles.desc2} style={{fontSize: size.desc}} onClick={() => router.push('/settings/intro')}
-                    target={'_blank'}>智能运营官</Link>
+        银行<Link className={styles.desc2} style={{fontSize: size.desc}} onClick={() => router.push('/settings/intro')}
+                  target={'_blank'}>智能运营官</Link>
       </div>
-      {/*<div className={styles.desc} style={{fontSize: size.desc}}>*/}
-      {/*  {t('slogan.desc1')}*/}
-      {/*</div>*/}
       <div className={styles.title} style={{fontSize: size.title}}>
         <strong style={mobile ? {fontSize: '1.4em'} : {}}>ChatBank</strong>
-        {/*{mobile ? <br /> : ' '}*/}
-        {/*{t('slogan.title')}*/}
       </div>
       <Flexbox className={styles.desc} style={{fontSize: size.desc2, padding: '16px'}} align={'start'}>
-        <div>最新汇报:</div>
-        <div>入职手机银行App到岗第三天开始，每天因我打开XY银行App的客户数30+人，其中15人为XY银行新客户；</div>
-        <div>10天后为为参与ZH项目，存入保证金，增加存款；</div>
-        <div>20天后，为开展HZ项目，多人贷款获得批准。</div>
-        <Link className={styles.desc2} target={'_blank'} onClick={() => router.push('/market?agent=ID-0002')}>查看详情</Link>
+        <div><span style={{fontWeight: 600}}>新网银行</span>的业务范围不受属地限制，特别推荐可在全国扩张的养牛产业平台的贷款商机
+        </div>
+        <div>贵行或可：</div>
+        <div>1. 参与一次真实的业务机会。预计该业务的贷款规模可达数十亿/年/省</div>
+        <div>2. 获得一种解决中小银行贷款难的有效方法。将更多可能的业务机会转化为低风险的优质贷款业务，扩大贷款规模同时降低风险
+        </div>
+        <Flexbox flex={1} align={'end'} justify={'end'} horizontal>
+          <Link className={styles.desc2} target={'_blank'}
+                onClick={() => router.push('/market?agent=ID-0008')}>查看详情 <DoubleRightOutlined /></Link>
+        </Flexbox>
       </Flexbox>
     </>
   );

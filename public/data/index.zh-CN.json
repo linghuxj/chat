@@ -3,6 +3,26 @@
   "tags": [],
   "agents": [
     {
+      "author": "XW银行",
+      "createAt": "2024-03-20",
+      "homepage": "https://www.xwbank.com",
+      "identifier": "ID-0008",
+      "meta": {
+        "avatar": "\uD83D\uDCDD",
+        "description": "200万都贷不到，最后银行愿意贷款2亿贷款难的根本问题",
+        "tags": [
+          "贷款",
+          "批量贷款",
+          "更多机会",
+          "银行业务创新",
+          "综合财富",
+          "养牛产业"
+        ],
+        "title": "养牛贷款案例"
+      },
+      "schemaVersion": 1
+    },
+    {
       "author": "XY银行",
       "createAt": "2024-03-14",
       "homepage": "https://www.cib.com.cn",

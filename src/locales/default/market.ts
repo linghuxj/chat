@@ -20,9 +20,9 @@ export default {
     placeholder: '搜索案例名称介绍或关键词...',
   },
   sidebar: {
-    comment: '操作原理',
-    earnings: '风险和收益',
-    prompt: '案例详情',
+    comment: '商机',
+    earnings: '风险收益',
+    prompt: '概述',
     title: '案例详情',
   },
   submitAgent: '提交助手',
