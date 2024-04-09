@@ -12,6 +12,7 @@ import Loading from './Loading';
 // import TokenTag from './TokenTag';
 import {useStyles} from './style';
 import SessionList from "@/app/requirements/features/SessionListContent/List";
+import Earnings from "@/app/market/features/AgentDetailContent/AgentInfo/Earnings";
 
 enum InfoTabs {
   comment = 'comment',
@@ -72,7 +73,7 @@ const AgentModalInner = memo(() => {
           </Markdown>
         )}
         {tab === InfoTabs.comment && <SessionList agentId={identifier} />}
-        {tab === InfoTabs.earnings && <Comment comments={comments} size={40} />}
+        {tab === InfoTabs.earnings && <Earnings agentId={identifier} />}
       </Flexbox>
     </>
   );

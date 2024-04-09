@@ -47,7 +47,7 @@ const SessionList = memo<SessionProps>(({agentId}) => {
           }}
         >
           <SessionItem id={point.id} title={point.title} content={point.content} createTime={point.createTime}
-                       tags={point.tags} />
+                       tags={point.tags} countPlan={point.countPlan} countSummary={point.countSummary} />
         </Link>
       </LazyLoad>
     ))}
