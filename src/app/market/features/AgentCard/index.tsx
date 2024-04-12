@@ -77,7 +77,7 @@ const AgentCard = memo<AgentCardProps>(({CardRender, mobile}) => {
             <a onClick={handleMore}>查看更多 <DoubleRightOutlined /></a>
           </Flexbox>
           {points && points.length > 0 && <CardRender
-            items={points}
+            items={points.slice(0, 3)}
             renderItem={GridReqRender}
             spotlight={mobile ? undefined : false}
           />}
