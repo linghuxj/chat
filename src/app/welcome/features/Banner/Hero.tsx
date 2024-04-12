@@ -31,7 +31,7 @@ const Hero = memo<{ mobile?: boolean; width: number }>(({width, mobile}) => {
       <div className={styles.title} style={{fontSize: size.title}} onClick={() => {
         router.push('/settings/intro')
       }}>
-        <Link style={mobile ? {fontSize: '1.2em'} : {fontSize: '1.0em'}}>AI-CEO</Link>
+        <strong style={mobile ? {fontSize: '1.2em'} : {fontSize: '1.0em'}}>AI-CEO</strong>
         {/*{mobile ? <br /> : ' - '}*/}
         {/*智能合作*/}
       </div>
