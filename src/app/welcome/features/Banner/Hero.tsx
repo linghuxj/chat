@@ -5,6 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {genSize, useStyles} from './style';
 import {Typography} from "antd";
 import {useRouter} from "next/navigation";
+import {Flexbox} from "react-layout-kit";
 
 const {Link} = Typography;
 
@@ -30,10 +31,15 @@ const Hero = memo<{ mobile?: boolean; width: number }>(({width, mobile}) => {
       <div className={styles.title} style={{fontSize: size.title}} onClick={() => {
         router.push('/settings/intro')
       }}>
-        <strong style={mobile ? {fontSize: '1.2em'} : {}}>ChatBank</strong>
-        {mobile ? <br /> : ' - '}
-        智能合作
+        <Link style={mobile ? {fontSize: '1.2em'} : {fontSize: '1.0em'}}>AI-CEO</Link>
+        {/*{mobile ? <br /> : ' - '}*/}
+        {/*智能合作*/}
       </div>
+      <Flexbox className={styles.desc} style={{fontSize: size.desc, padding: '16px'}}>
+        <div>找人、找钱</div>
+        <div>找办法</div>
+        <div>找机会</div>
+      </Flexbox>
     </>
   );
 });
