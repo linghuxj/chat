@@ -37,7 +37,7 @@ const Banner = memo<{ mobile?: boolean }>(({mobile}) => {
           type={'primary'}
         >
           <Flexbox align={'center'} gap={4} horizontal justify={'center'}>
-            ChatBank 开启共赢之旅
+            ChatBank，开启共赢之旅
             <Icon icon={SendHorizonal} />
           </Flexbox>
         </Button>

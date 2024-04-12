@@ -36,9 +36,8 @@ const Hero = memo<{ mobile?: boolean; width: number }>(({width, mobile}) => {
         {/*智能合作*/}
       </div>
       <Flexbox className={styles.desc} style={{fontSize: size.desc, padding: '16px'}}>
-        <div>找人、找钱</div>
-        <div>找办法</div>
-        <div>找机会</div>
+        <div>找对人、做对事</div>
+        <div>新办法、新机会</div>
       </Flexbox>
     </>
   );
