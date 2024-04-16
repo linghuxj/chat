@@ -1,4 +1,4 @@
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import {AppRouterInstance} from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
 export enum SidebarTabKey {
   Chat = 'chat',
@@ -10,6 +10,7 @@ export enum SettingsTabs {
   About = 'about',
   Intro = 'intro',
   Fan = 'fan',
+  Version = 'version',
   Agent = 'agent',
   Common = 'common',
   LLM = 'llm',

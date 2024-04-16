@@ -413,6 +413,7 @@ export default {
     tts: '语音服务',
     intro: '产品介绍',
     fan: '我的大财富',
+    version: '版本',
   },
 
   tools: {

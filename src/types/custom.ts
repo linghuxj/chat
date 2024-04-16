@@ -47,3 +47,10 @@ export interface Plan {
   companyName?: string,
   status?: string,
 }
+
+export interface DataStatistics {
+  chatRequireData: number, // 商机
+  chatRequirePlanData: number, // 意向合作
+  chatRequireSummaryData: number, // 推荐合作
+  userLoginData: number, // DAU
+}

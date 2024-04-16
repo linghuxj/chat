@@ -20,6 +20,7 @@ export interface StoreAction {
   addComment: (content: string, id: number) => Promise<void>;
   getPlans: (id: number) => Promise<void>;
   summaryMessages: (sessionId: string, topicId: string, messages: any) => Promise<void>;
+  statistics: () => Promise<void>;
 }
 
 export const createCustomAction: StateCreator<
@@ -82,5 +83,11 @@ export const createCustomAction: StateCreator<
   },
   summaryMessages: async (sessionId, topicId, messages) => {
     await customService.summaryMessages(sessionId, topicId, messages);
+  },
+  statistics: async () => {
+    const totalResp = await customService.statistics();
+    set({totalStat: totalResp.data})
+    const resp = await customService.statistics(3);
+    set({stat: resp.data})
   }
 })

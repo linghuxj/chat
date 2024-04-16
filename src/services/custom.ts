@@ -138,6 +138,19 @@ class CustomService {
 
     return res.json();
   }
+
+  // 统计部分数据
+  statistics = async (day: number | null = null) => {
+    const param = !day ? '' : `?days=${day}`;
+    const res = await fetch(API_BACKEND_ENDPOINTS.statistics() + param, {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'}
+    })
+
+    if (!res.ok) throw await getMessageError(res);
+
+    return res.json();
+  }
 }
 
 export const customService = new CustomService();

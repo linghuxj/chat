@@ -1,4 +1,4 @@
-import {Comment, Plan, Point} from "@/types/custom";
+import {Comment, DataStatistics, Plan, Point} from "@/types/custom";
 
 export interface StoreState {
   activeId: number,
@@ -12,6 +12,8 @@ export interface StoreState {
   initComments: boolean,
   plans: Plan[],
   initPlans: boolean,
+  stat: DataStatistics,
+  totalStat: DataStatistics,
 }
 
 export const initialState: StoreState = {
@@ -34,4 +36,16 @@ export const initialState: StoreState = {
   initComments: false,
   plans: [],
   initPlans: false,
+  stat: {
+    chatRequirePlanData: 0,
+    chatRequireData: 0,
+    chatRequireSummaryData: 0,
+    userLoginData: 0
+  },
+  totalStat: {
+    chatRequirePlanData: 0,
+    chatRequireData: 0,
+    chatRequireSummaryData: 0,
+    userLoginData: 0
+  }
 }

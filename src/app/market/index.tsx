@@ -10,13 +10,14 @@ import AgentSearchBar from './features/AgentSearchBar';
 import {useCustomStore} from "@/store/custom";
 
 const Market = memo(() => {
-  const getPoints = useCustomStore((s) => s.getAllPoint);
+  const [getPoints, statistics] = useCustomStore((s) => [s.getAllPoint, s.statistics]);
   const {t} = useTranslation('common');
 
   useEffect(() => {
     // refs: https://github.com/pmndrs/zustand/blob/main/docs/integrations/persisting-store-data.md#hashydrated
     useMarketStore.persist.rehydrate();
     getPoints();
+    statistics();
   }, []);
 
   return (

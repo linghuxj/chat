@@ -62,4 +62,6 @@ export const API_BACKEND_ENDPOINTS = mapWithBasePath({
   getPlans: () => withBackendPath(`/api/chat/require/summary/list`),
   // 总结AI对话内容生成商机
   summaryMessages: () => withBackendPath(`/api/chat/message/gpt`),
+  // 统计数据
+  statistics: () => withBackendPath(`/api/user/statistics`),
 })
