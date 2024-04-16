@@ -1,14 +1,11 @@
-import {memo, useState} from "react";
+import React, {memo, useState} from "react";
 import {Center, Flexbox} from "react-layout-kit";
 import TagList from "../TagList";
 import CommentList from "@/app/requirements/features/CommentList";
 import {Button, Drawer, Form, Input, Space} from "antd";
 import {FireOutlined, HeartOutlined, LikeOutlined, SendOutlined} from "@ant-design/icons";
 import {useCustomStore} from "@/store/custom";
-import {SearchProps} from "antd/es/input";
 import {Markdown} from "@lobehub/ui";
-
-const {Search} = Input
 
 const PageDetails = memo(() => {
   const [loading, setLoading] = useState(false);
@@ -29,21 +26,24 @@ const PageDetails = memo(() => {
     })
   };
 
-  const handleSubmit: SearchProps['onSearch'] = (content, _e, info) => {
-    if (!content || content === '') return;
+  const handleSubmit = () => {
+    if (!value || value === '') return;
 
     if (!isLogin) {
-      setValue(content);
       setOpen(true);
       return;
     }
 
-    addCommentWithLogin(content);
+    addCommentWithLogin(value);
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setValue(e.target.value);
   }
 
   const addCommentWithLogin = (content: string) => {
     setLoading(true);
-    addComment(content, pointDetail.id).finally(() => setLoading(false));
+    addComment(content, pointDetail.id).then(() => setTimeout(() => setValue(''), 200)).finally(() => setLoading(false));
   }
 
   return (
@@ -70,9 +70,10 @@ const PageDetails = memo(() => {
         </Flexbox>
         <span style={{marginTop: '32px', fontSize: '24px', fontWeight: '400'}}>留言区</span>
         <Flexbox gap={24}>
-          <Search placeholder={'赶紧留下你的合作意向吧...'} enterButton={'发表'} onSearch={handleSubmit}
-                  loading={loading}
-                  allowClear />
+          <Space.Compact style={{width: '100%'}}>
+            <Input value={value} onChange={handleChange} />
+            <Button type='primary' onClick={handleSubmit} loading={loading}>发表</Button>
+          </Space.Compact>
           <CommentList />
         </Flexbox>
       </Flexbox>
