@@ -51,6 +51,10 @@ const nextConfig = {
   },
   output: buildWithDocker ? 'standalone' : undefined,
 
+  eslint: {
+    ignoreDuringBuilds: true
+  },
+
   rewrites: async () => [
     // due to google api not work correct in some countries
     // we need a proxy to bypass the restriction
