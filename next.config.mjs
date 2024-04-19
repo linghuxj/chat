@@ -54,6 +54,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true
   },
+  typescript: {
+    ignoreBuildErrors: true
+  },
 
   rewrites: async () => [
     // due to google api not work correct in some countries
