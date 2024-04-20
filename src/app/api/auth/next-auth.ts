@@ -13,6 +13,7 @@ declare module '@auth/core/jwt' {
   }
 }
 
+// @ts-ignore
 const nextAuth = NextAuth({
   callbacks: {
     // Note: Data processing order of callback: authorize --> jwt --> session
