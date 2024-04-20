@@ -1,5 +1,6 @@
 import { getAppConfig } from './app';
 import { getProviderConfig } from './provider';
+import { getAuthConfig } from "@/config/server/auth";
 
 export const getServerConfig = () => {
   if (typeof process === 'undefined') {
@@ -8,6 +9,7 @@ export const getServerConfig = () => {
 
   const provider = getProviderConfig();
   const app = getAppConfig();
+  const auth = getAuthConfig();
 
-  return { ...provider, ...app };
+  return { ...provider, ...app, ...auth };
 };

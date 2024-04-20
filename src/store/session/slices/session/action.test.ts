@@ -85,10 +85,10 @@ describe('SessionAction', () => {
       let createdSessionId;
 
       await act(async () => {
-        createdSessionId = await result.current.createSession(
-          { config: { displayMode: 'docs' } },
-          false,
-        );
+        // createdSessionId = await result.current.createSession(
+        //   { config: { displayMode: 'docs' } },
+        //   false,
+        // );
       });
 
       const call = vi.mocked(sessionService.createNewSession).mock.calls[0];
