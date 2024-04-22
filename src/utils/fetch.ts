@@ -76,7 +76,10 @@ export const fetchSSE = async (fetchFn: () => Promise<Response>, options: FetchS
     try {
       const { value, done: doneReading } = await reader.read();
       done = doneReading;
-      const chunkValue = decoder.decode(value, { stream: true });
+      let chunkValue = decoder.decode(value, { stream: true });
+      if(chunkValue && chunkValue.startsWith("0:")){
+        chunkValue = chunkValue.substring(3, chunkValue.length);
+      }
 
       output += chunkValue;
       options.onMessageHandle?.(chunkValue);
