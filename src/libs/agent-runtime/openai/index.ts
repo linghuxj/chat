@@ -50,7 +50,6 @@ export class LobeOpenAI implements LobeRuntimeAI {
         ...params,
         stream: true,
       } as unknown as OpenAI.ChatCompletionCreateParamsStreaming;
-    console.log('completion param', param);
 
     try {
       const response = await this.client.chat.completions.create(
@@ -67,8 +66,6 @@ export class LobeOpenAI implements LobeRuntimeAI {
       if (process.env.DEBUG_OPENAI_CHAT_COMPLETION === '1') {
         debugStream(debug.toReadableStream()).catch(console.error);
       }
-      debugStream(debug.toReadableStream()).catch(console.error);
-      debugStream(prod.toReadableStream()).catch(console.error);
 
       return new StreamingTextResponse(OpenAIStream(prod, options?.callback), {
         headers: options?.headers,
