@@ -78,7 +78,7 @@ export const fetchSSE = async (fetchFn: () => Promise<Response>, options: FetchS
       done = doneReading;
       let chunkValue = decoder.decode(value, { stream: true });
       if(chunkValue && chunkValue.startsWith("0:")){
-        chunkValue = chunkValue.substring(3, chunkValue.length);
+        chunkValue = chunkValue.substring(3, chunkValue.length - 1);
       }
 
       output += chunkValue;
