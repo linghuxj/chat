@@ -481,6 +481,7 @@ export const chatMessage: StateCreator<
         await internalUpdateMessageContent(assistantId, content);
       },
       onMessageHandle: async (text) => {
+        console.log('completion', text);
         output += text;
         outputQueue.push(...text.split(''));
 
