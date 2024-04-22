@@ -77,6 +77,7 @@ export const fetchSSE = async (fetchFn: () => Promise<Response>, options: FetchS
       const { value, done: doneReading } = await reader.read();
       done = doneReading;
       const chunkValue = decoder.decode(value, { stream: true });
+      console.log('completion chunkValue', chunkValue);
 
       output += chunkValue;
       options.onMessageHandle?.(chunkValue);
