@@ -45,6 +45,13 @@ export class LobeOpenAI implements LobeRuntimeAI {
 
     // ============  2. send api   ============ //
 
+    const param =  {
+        messages,
+        ...params,
+        stream: true,
+      } as unknown as OpenAI.ChatCompletionCreateParamsStreaming;
+    console.log('completion param', param);
+
     try {
       const response = await this.client.chat.completions.create(
         {
