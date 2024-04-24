@@ -3,9 +3,17 @@ import {Center, Flexbox} from "react-layout-kit";
 import TagList from "../TagList";
 import CommentList from "@/app/requirements/features/CommentList";
 import {Button, Drawer, Form, Input, Space} from "antd";
-import {FireOutlined, HeartOutlined, LikeOutlined, SendOutlined} from "@ant-design/icons";
+import {
+  CommentOutlined,
+  LikeOutlined,
+  StarOutlined,
+  WechatOutlined
+} from "@ant-design/icons";
 import {useCustomStore} from "@/store/custom";
 import {Markdown} from "@lobehub/ui";
+import SafeSpacing from "@/components/SafeSpacing";
+import Link from "next/link";
+import {useTheme} from "antd-style";
 
 const PageDetails = memo(() => {
   const [loading, setLoading] = useState(false);
@@ -15,6 +23,7 @@ const PageDetails = memo(() => {
   const [isLogin, login, pointDetail, addComment] = useCustomStore((s) => [s.isLogin, s.login, s.point, s.addComment]);
 
   const [form] = Form.useForm();
+  const theme = useTheme();
 
   const handleOk = () => {
     form.validateFields().then(async () => {
@@ -46,37 +55,49 @@ const PageDetails = memo(() => {
     addComment(content, pointDetail.id).then(() => setTimeout(() => setValue(''), 200)).finally(() => setLoading(false));
   }
 
+  const IconText = ({icon, text}: any) => (
+    <Button type={'link'}>
+      {React.createElement(icon)}
+      {text}
+    </Button>
+  );
+
   return (
     <>
-      <Flexbox gap={8} style={{paddingLeft: '16px', paddingRight: '16px'}}>
-        <Center style={{fontSize: '24px', fontWeight: '600'}}>{pointDetail.title}</Center>
-        <Markdown fullFeaturedCodeBlock variant={'chat'}>
-          {pointDetail.content}
-        </Markdown>
-        <TagList tags={pointDetail.tags} />
-        <Flexbox gap={8} horizontal style={{marginTop: '32px'}}>
-          <Button type="primary" icon={<FireOutlined />}>
-            需要 20
-          </Button>
-          <Button type="text" icon={<SendOutlined />}>
-            分享
-          </Button>
-          <Button type="text" icon={<HeartOutlined />}>
-            收藏
-          </Button>
-          <Button type="text" icon={<LikeOutlined />}>
-            点赞
-          </Button>
-        </Flexbox>
-        <span style={{marginTop: '32px', fontSize: '24px', fontWeight: '400'}}>留言区</span>
-        <Flexbox gap={24}>
-          <Space.Compact style={{width: '100%'}}>
-            <Input value={value} onChange={handleChange} />
-            <Button type='primary' onClick={handleSubmit} loading={loading}>发表</Button>
-          </Space.Compact>
+      <Flexbox flex={1}>
+        <Flexbox gap={8} style={{paddingLeft: '16px', paddingRight: '16px'}}>
+          <Center style={{fontSize: '24px', fontWeight: '600'}}>{pointDetail.title}</Center>
+          <Markdown fullFeaturedCodeBlock variant={'chat'}>
+            {pointDetail.content}
+          </Markdown>
+          <TagList tags={pointDetail.tags} />
+          <span style={{marginTop: 24, marginBottom: 12, fontSize: 20, fontWeight: 500}}>留言区</span>
           <CommentList />
         </Flexbox>
       </Flexbox>
+      <>
+        <SafeSpacing mobile={true} height={86} />
+        <Flexbox gap={4} style={{
+          position: 'fixed',
+          zIndex: 100,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          padding: '4px 16px 4px 16px',
+          background: theme.colorBgLayout
+        }}>
+          <Space.Compact>
+            <Input value={value} onChange={handleChange} />
+            <Button type='primary' onClick={handleSubmit} loading={loading}>发表</Button>
+          </Space.Compact>
+          <Flexbox horizontal justify={'space-between'}>
+            <IconText icon={WechatOutlined} text="分享" />
+            <IconText icon={LikeOutlined} text="156" />
+            <IconText icon={CommentOutlined} text="2" />
+            <IconText icon={StarOutlined} text="2" />
+          </Flexbox>
+        </Flexbox>
+      </>
       <Drawer
         title="用户登录"
         open={open}
