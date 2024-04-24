@@ -29,6 +29,7 @@ export interface Comment {
   createTime: string,
   ipAddress: string,
   liked: number,
+  tags?: string,
 }
 
 export interface Plan {

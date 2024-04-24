@@ -71,7 +71,6 @@ const PageDetails = memo(() => {
             {pointDetail.content}
           </Markdown>
           <TagList tags={pointDetail.tags} />
-          <span style={{marginTop: 24, marginBottom: 12, fontSize: 20, fontWeight: 500}}>留言区</span>
           <CommentList />
         </Flexbox>
       </Flexbox>
