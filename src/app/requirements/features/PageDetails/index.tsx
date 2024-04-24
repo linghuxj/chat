@@ -86,7 +86,7 @@ const PageDetails = memo(() => {
           background: theme.colorBgLayout
         }}>
           <Space.Compact>
-            <Input value={value} onChange={handleChange} />
+            <Input value={value} onChange={handleChange} placeholder={'请留下您的合作意向、意见以及建议...'}/>
             <Button type='primary' onClick={handleSubmit} loading={loading}>发表</Button>
           </Space.Compact>
           <Flexbox horizontal justify={'space-between'}>
